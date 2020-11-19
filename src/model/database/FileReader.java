@@ -1,4 +1,4 @@
-package model;
+package model.database;
 
 import java.io.File;
 import java.io.FileNotFoundException;

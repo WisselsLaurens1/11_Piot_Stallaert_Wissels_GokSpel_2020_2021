@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2dc295f-d99b-4448-b23e-4acdb77415b8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/11_Piot_Stallaert_Wissels_GokSpel_2020_2021.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/11_Piot_Stallaert_Wissels_GokSpel_2020_2021.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/Gambler.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/Gambler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/GokSpelMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/GokSpelMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/Gambler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Gambler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/GamblerDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/GamblerDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/database/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/database/DatabaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/database/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/database/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/AdminMainPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMainPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/GamblerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GamblerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/panels/GamblerOverviewPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/panels/GamblerOverviewPane.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +34,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1kVjZHLX0LhkscXDaWjcmj393pp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -29,28 +43,47 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.other" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/model/database" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\schooljaar2\ooo\11_Piot_Stallaert_Wissels_GokSpel_2020_2021\src" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration name="GokSpelMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="application.GokSpelMain" />
+      <module name="11_Piot_Stallaert_Wissels_GokSpel_2020_2021" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GokSpelMain" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -61,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605792707924</updated>
       <workItem from="1605792708952" duration="682000" />
-      <workItem from="1605793435260" duration="1130000" />
+      <workItem from="1605793435260" duration="663000" />
     </task>
     <servers />
   </component>
@@ -81,13 +114,29 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="307" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605794551898">
-      <screen x="0" y="23" width="1440" height="805" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1605795869359">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="307" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.805@0.23.1440.805" timestamp="1605794551898" />
-    <state width="600" height="428" key="javadoc.popup" timestamp="1605794474071">
-      <screen x="0" y="23" width="1440" height="805" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605795869359" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1605795869359">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="600" height="428" key="javadoc.popup/0.23.1440.805@0.23.1440.805" timestamp="1605794474071" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605795869359" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1605795869359">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605795869359" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1605795869359">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605795869359" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1605795634339">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605795634339" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605795534361">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1605795534361" />
   </component>
 </project>
