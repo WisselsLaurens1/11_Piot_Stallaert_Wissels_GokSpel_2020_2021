@@ -33,16 +33,16 @@ public class GamblerOverviewPane extends GridPane{
 		refresh();
 		TableColumn<Gambler, String> colGamblerName = new TableColumn<Gambler, String>("Gambler Name");
 		colGamblerName.setMinWidth(300);
-		colGamblerName.setCellValueFactory(new PropertyValueFactory<Gambler, String>("spelersnaam"));
+		colGamblerName.setCellValueFactory(new PropertyValueFactory<Gambler, String>("playerName"));
 		TableColumn<Gambler, String> colAchternaam = new TableColumn<Gambler, String>("Achternaam");
 		colAchternaam.setMinWidth(100);
-		colAchternaam.setCellValueFactory(new PropertyValueFactory<Gambler, String>("achternaam"));
-		TableColumn<Gambler, String> colVoornaam = new TableColumn<Gambler, String>("Voornaam");
+		colAchternaam.setCellValueFactory(new PropertyValueFactory<Gambler, String>("surname"));
+		TableColumn<Gambler, String> colVoornaam = new TableColumn<Gambler, String>("voornaam");
 		colVoornaam.setMinWidth(100);
-		colVoornaam.setCellValueFactory(new PropertyValueFactory<Gambler, String>("voornaam"));
+		colVoornaam.setCellValueFactory(new PropertyValueFactory<Gambler, String>("name"));
 		TableColumn<Gambler, Double> colSaldo = new TableColumn<Gambler, Double>("Goksaldo");
 		colSaldo.setMinWidth(100);
-		colSaldo.setCellValueFactory(new PropertyValueFactory<Gambler, Double>("goksaldo"));
+		colSaldo.setCellValueFactory(new PropertyValueFactory<Gambler, Double>("gamblingSaldo"));
 		table.getColumns().addAll(colGamblerName, colAchternaam, colVoornaam, colSaldo);
 
 		this.getChildren().addAll(table);
