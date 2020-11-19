@@ -17,6 +17,8 @@ public class GamblerDb {
         gamblerDb.put("gerben", gerben);
     }
 
+    //comment
+
     public List<Gambler> getGamblerDb() {
         return new ArrayList<>(gamblerDb.values());
     }
