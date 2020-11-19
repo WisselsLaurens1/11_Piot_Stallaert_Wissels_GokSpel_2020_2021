@@ -13,7 +13,7 @@ public class GokSpelMain extends Application {
 		AdminView adminView = new AdminView();
 		//GamblerView gamblerView = new GamblerView();
 	}
-	
+	//comment
 	public static void main(String[] args) {
 		launch(args);
 	}
