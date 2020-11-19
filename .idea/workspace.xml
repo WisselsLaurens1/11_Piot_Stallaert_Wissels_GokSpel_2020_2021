@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b2dc295f-d99b-4448-b23e-4acdb77415b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/Gambler.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/Gambler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +32,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.other" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/model/database" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
@@ -56,7 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605792707924</updated>
       <workItem from="1605792708952" duration="682000" />
-      <workItem from="1605793435260" duration="663000" />
+      <workItem from="1605793435260" duration="1130000" />
     </task>
     <servers />
   </component>
@@ -74,5 +79,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="307" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605794551898">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state x="307" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.805@0.23.1440.805" timestamp="1605794551898" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1605794474071">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.23.1440.805@0.23.1440.805" timestamp="1605794474071" />
   </component>
 </project>

@@ -1,31 +1,31 @@
 package domain;
 
 public class Gambler {
-    String voornaam;
-    String achternaam;
-    String spelersnaam;
-    double goksaldo;
+    String name;
+    String surname;
+    String playerName;
+    double gamblingSaldo;
 
-    public Gambler(String voornaam, String achternaam, String spelersnaam, double goksaldo) {
-        this.voornaam = voornaam;
-        this.achternaam = achternaam;
-        this.spelersnaam = spelersnaam;
-        this.goksaldo = goksaldo;
+    public Gambler(String name, String surname, String playerName, double gamblingSaldo) {
+        this.name = name;
+        this.surname = surname;
+        this.playerName = playerName;
+        this.gamblingSaldo = gamblingSaldo;
     }
 
-    public String getVoornaam() {
-        return voornaam;
+    public String getName() {
+        return name;
     }
 
-    public String getAchternaam() {
-        return achternaam;
+    public String getSurname() {
+        return surname;
     }
 
-    public String getSpelersnaam() {
-        return spelersnaam;
+    public String getPlayerName() {
+        return playerName;
     }
 
-    public double getGoksaldo() {
-        return goksaldo;
+    public double getGamblingSaldo() {
+        return gamblingSaldo;
     }
 }
