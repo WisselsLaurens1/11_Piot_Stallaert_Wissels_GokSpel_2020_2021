@@ -11,7 +11,6 @@ public class FileReader {
 
     }
 
-
     public ArrayList<String> readFile(String path){
         ArrayList<String> file = new ArrayList<String>();
 
