@@ -7,8 +7,10 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import view.panels.GamblerOverviewPane;
 
+import java.io.FileNotFoundException;
+
 public class AdminMainPane extends BorderPane {
-	public AdminMainPane(){		
+	public AdminMainPane() throws FileNotFoundException {
 	    TabPane tabPane = new TabPane(); 	    
         Tab spelVerloopTab = new Tab("Spelverloop");
         GamblerOverviewPane gamblerOverviewPane = new GamblerOverviewPane();

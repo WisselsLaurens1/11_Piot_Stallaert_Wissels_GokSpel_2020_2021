@@ -7,9 +7,11 @@ import view.AdminView;
 import view.GamblerView;
 import view.panels.GamblerOverviewPane;
 
+import java.io.FileNotFoundException;
+
 public class GokSpelMain extends Application {
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage) throws FileNotFoundException {
 		AdminView adminView = new AdminView();
 		//GamblerView gamblerView = new GamblerView();
 	}

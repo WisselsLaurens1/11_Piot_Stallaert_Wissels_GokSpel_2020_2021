@@ -17,6 +17,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
+
 
 public class GamblerOverviewPane extends GridPane{
 	private TableView<Gambler> table;
@@ -24,7 +26,7 @@ public class GamblerOverviewPane extends GridPane{
 	private ObservableList<Gambler> gamblers;
 
 
-	public GamblerOverviewPane() {
+	public GamblerOverviewPane() throws FileNotFoundException {
 		this.gamblerdb = new GamblerDb();
 		this.setPadding(new Insets(5, 5, 5, 5));
         this.setVgap(5);

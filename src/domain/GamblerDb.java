@@ -1,23 +1,26 @@
 package domain;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 public class GamblerDb {
     private HashMap<String, Gambler> gamblerDb;
 
-    public GamblerDb() {
+    public GamblerDb() throws FileNotFoundException {
         gamblerDb = new HashMap<>();
-        Gambler daan = new Gambler("Daan", "Stallaert", "daans", 100);
-        Gambler laurens = new Gambler("Laurens", "Fons", "laurensf", 10);
-        Gambler gerben = new Gambler("Gerben", "Piot", "gerbenp", 500);
-        gamblerDb.put("daan", daan);
-        gamblerDb.put("laurens", laurens);
-        gamblerDb.put("gerben", gerben);
+        File gamblersFile = new File("src\\bestanden\\speler.txt");
+        Scanner scannerFile = new Scanner(gamblersFile);
+        while (scannerFile.hasNextLine()) {
+            String s = scannerFile.nextLine();
+            String[] delen = s.split(",");
+            Gambler gambler = new Gambler(delen[0], delen[1], delen[2], delen[3]);
+            gamblerDb.put(delen[2], gambler);
+        }
     }
-
-    //comment
 
     public List<Gambler> getGamblerDb() {
         return new ArrayList<>(gamblerDb.values());
