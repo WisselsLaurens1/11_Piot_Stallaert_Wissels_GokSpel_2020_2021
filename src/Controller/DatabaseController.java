@@ -1,4 +1,7 @@
-package model.database;
+package Controller;
+
+import model.database.Database;
+import model.database.FileReader;
 
 import java.util.ArrayList;
 
