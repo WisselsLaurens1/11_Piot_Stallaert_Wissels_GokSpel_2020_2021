@@ -1,8 +1,8 @@
 package view.panels;
 
 
-import domain.Gambler;
-import domain.GamblerDb;
+import model.Gambler;
+import model.GamblerDb;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
