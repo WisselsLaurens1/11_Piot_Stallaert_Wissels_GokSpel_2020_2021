@@ -5,14 +5,16 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import jxl.read.biff.BiffException;
 import view.panes.AdminMainPane;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class AdminView {
 	private Stage stage = new Stage();		
 		
-	public AdminView() throws FileNotFoundException {
+	public AdminView() throws FileNotFoundException, IOException, BiffException {
 		stage.setTitle("ADMIN VIEW");
 		stage.initStyle(StageStyle.UTILITY);
 		stage.setX(630);

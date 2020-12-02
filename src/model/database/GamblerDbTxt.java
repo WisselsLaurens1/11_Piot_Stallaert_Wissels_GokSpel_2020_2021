@@ -1,4 +1,6 @@
-package model;
+package model.database;
+
+import model.Gambler;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,10 +9,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class GamblerDb {
+public class GamblerDbTxt {
     private HashMap<String, Gambler> gamblerDb;
 
-    public GamblerDb() throws FileNotFoundException {
+    public GamblerDbTxt() throws FileNotFoundException {
         gamblerDb = new HashMap<>();
         File gamblersFile = new File("src/bestanden/speler.txt");
         Scanner scannerFile = new Scanner(gamblersFile);
