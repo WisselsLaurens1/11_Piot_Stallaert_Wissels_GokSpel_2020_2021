@@ -11,7 +11,7 @@ public class GamblerDbContext {
 
     public GamblerDbContext(){}
 
-    public void setGamblerDbInterface(GamblerDbInterface taalInterface){
+    public void setGamblerDbInterface(GamblerDbInterface gamblerDbInterface){
         this.gamblerInterface = gamblerInterface;
     }
 
