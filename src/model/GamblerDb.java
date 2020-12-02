@@ -12,7 +12,7 @@ public class GamblerDb {
 
     public GamblerDb() throws FileNotFoundException {
         gamblerDb = new HashMap<>();
-        File gamblersFile = new File("/Users/laurenswissels/Documents/Leuven/OOO/Opdracht/files/speler.txt");
+        File gamblersFile = new File("src/bestanden/speler.txt");
         Scanner scannerFile = new Scanner(gamblersFile);
         while (scannerFile.hasNextLine()) {
             String s = scannerFile.nextLine();
