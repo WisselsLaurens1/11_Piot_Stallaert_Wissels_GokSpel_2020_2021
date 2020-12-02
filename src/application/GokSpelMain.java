@@ -3,8 +3,6 @@ package application;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import view.AdminView;
-import view.GamblerView;
-import view.panels.GamblerOverviewPane;
 
 import java.io.FileNotFoundException;
 
