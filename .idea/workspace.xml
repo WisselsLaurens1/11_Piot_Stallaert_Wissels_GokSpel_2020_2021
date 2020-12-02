@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2dc295f-d99b-4448-b23e-4acdb77415b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/AdminViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/GamblerViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/GokSpelMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/GokSpelMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminMainPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/panes/AdminMainPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/GambleStrategie/GambleStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GamblerViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GamblerViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/DatabaseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/panels/GamblerOverviewPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/panes/GamblerOverviewPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/GamblerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GamblerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,10 +157,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="namen packages" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1605797094892">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="574" y="194" key="#com.intellij.ide.util.MemberChooser" timestamp="1606926127290">
+      <screen x="0" y="23" width="1440" height="805" />
     </state>
     <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1605797094892" />
+    <state x="574" y="194" key="#com.intellij.ide.util.MemberChooser/0.23.1440.805@0.23.1440.805" timestamp="1606926127290" />
     <state x="346" y="5" key="CommitChangelistDialog2" timestamp="1606216755714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -7,9 +7,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import view.panes.AdminMainPane;
 
+import model.Observer;
+
 import java.io.FileNotFoundException;
 
-public class AdminView {
+public class AdminView implements Observer {
 	private Stage stage = new Stage();		
 		
 	public AdminView() throws FileNotFoundException {
@@ -27,4 +29,9 @@ public class AdminView {
 		stage.sizeToScene();			
 		stage.show();		
 	}
+
+	@Override
+	public void update() {
+
+	};
 }

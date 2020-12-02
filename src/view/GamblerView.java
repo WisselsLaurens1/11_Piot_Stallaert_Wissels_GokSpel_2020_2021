@@ -3,9 +3,9 @@ package view;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;	
-
-public class GamblerView {
+import javafx.stage.StageStyle;
+import model.Observer;
+public class GamblerView implements Observer {
 	private Stage stage = new Stage();		
 		
 	public GamblerView(){			
@@ -18,5 +18,10 @@ public class GamblerView {
 		stage.setScene(scene);
 		stage.sizeToScene();			
 		stage.show();		
+	}
+
+	@Override
+	public void update() {
+
 	}
 }
