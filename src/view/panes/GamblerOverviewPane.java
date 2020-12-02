@@ -22,20 +22,18 @@ import java.io.FileNotFoundException;
 public class GamblerOverviewPane extends GridPane{
 	private GamblerDbContext gamblerDbContext;
 	private TableView<Gambler> table;
-	private GamblerFactory gamblerdb;
 	private ObservableList<Gambler> gamblers;
 
 
 	public GamblerOverviewPane() throws FileNotFoundException {
 		gamblerDbContext = new GamblerDbContext();
-		this.gamblerdb = new GamblerFactory();
 		this.setPadding(new Insets(5, 5, 5, 5));
         this.setVgap(5);
         this.setHgap(5);
 
 		ComboBox<String> bestandenComboBox = new ComboBox<String>();
-		ObservableList <String> talen = FXCollections.observableList(gamblerDbContext.getBestandenLijst());
-		bestandenComboBox.setItems(talen);
+		ObservableList <String> bestanden = FXCollections.observableList(gamblerDbContext.getBestandenLijst());
+		bestandenComboBox.setItems(bestanden);
 		bestandenComboBox.setEditable(true);
 		bestandenComboBox.valueProperty().addListener(new ClickComboBoxLineHandler());
 		this.add(bestandenComboBox, 0, 0);
@@ -62,7 +60,7 @@ public class GamblerOverviewPane extends GridPane{
 		public void changed(ObservableValue ov, String db, String db1) {
 			GamblerDbInterface gamblerDbInterface = GamblerFactory.createDb(db1);
 			gamblerDbContext.setGamblerDbInterface(gamblerDbInterface);
-			gamblers = FXCollections.observableArrayList(gamblerDbInterface.getGamblerDb());
+			gamblers = FXCollections.observableArrayList(gamblerDbContext.getGamblerDb());
 			table.setItems(gamblers);
 			table.refresh();
 		}

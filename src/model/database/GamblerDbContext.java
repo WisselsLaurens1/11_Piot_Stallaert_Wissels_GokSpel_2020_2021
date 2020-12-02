@@ -9,10 +9,12 @@ import java.util.List;
 public class GamblerDbContext {
     private GamblerDbInterface gamblerInterface;
 
-    public GamblerDbContext(){}
+    public GamblerDbContext(){
+
+    }
 
     public void setGamblerDbInterface(GamblerDbInterface gamblerDbInterface){
-        this.gamblerInterface = gamblerInterface;
+        this.gamblerInterface = gamblerDbInterface;
     }
 
     public List<Gambler> getGamblerDb(){
