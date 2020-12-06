@@ -87,6 +87,9 @@ public class GameModel implements Observable {
             /* update statistic */
             selectedStrategy.setTimesSelected(selectedStrategy.getTimesSelected()+1);
             setGambleStrategy(selectedStrategy);
+
+            // TODO: 06/12/2020 update view with new selected strategy
+            
         }else{
             throw new IllegalArgumentException("This strategy does not exist");
         }

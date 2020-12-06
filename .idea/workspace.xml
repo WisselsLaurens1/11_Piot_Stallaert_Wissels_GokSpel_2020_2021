@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dd85c1c8-9a44-4bef-a519-1a7dbc3070fc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/11_Piot_Stallaert_Wissels_GokSpel_2020_2021.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/11_Piot_Stallaert_Wissels_GokSpel_2020_2021.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameModel.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="RunManager">
+    <configuration name="GokSpelMain" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="application.GokSpelMain" />
+      <module name="11_Piot_Stallaert_Wissels_GokSpel_2020_2021" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dd85c1c8-9a44-4bef-a519-1a7dbc3070fc" name="Default Changelist" comment="" />
+      <created>1607242174691</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607242174691</updated>
+      <workItem from="1607242182962" duration="9456000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="216" y="23" key="#Project_Structure" timestamp="1607253554480">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state x="216" y="23" key="#Project_Structure/0.23.1440.805@0.23.1440.805" timestamp="1607253554480" />
+    <state x="192" y="87" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607242642925">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state x="192" y="87" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.805@0.23.1440.805" timestamp="1607242642925" />
+    <state x="541" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1607246042515">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state x="541" y="116" key="#com.intellij.ide.util.MemberChooser/0.23.1440.805@0.23.1440.805" timestamp="1607246042515" />
+    <state x="465" y="234" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1607242630779">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state x="465" y="234" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1440.805@0.23.1440.805" timestamp="1607242630779" />
+    <state x="466" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607242711878">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state x="466" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.805@0.23.1440.805" timestamp="1607242711878" />
+    <state x="474" y="287" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1607246035561">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state x="474" y="287" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.805@0.23.1440.805" timestamp="1607246035561" />
+    <state x="216" y="23" key="SettingsEditor" timestamp="1607251294883">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state x="216" y="23" key="SettingsEditor/0.23.1440.805@0.23.1440.805" timestamp="1607251294883" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1607250448613">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.23.1440.805@0.23.1440.805" timestamp="1607250448613" />
+    <state x="393" y="152" width="670" height="676" key="search.everywhere.popup" timestamp="1607248660336">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state x="393" y="152" width="670" height="676" key="search.everywhere.popup/0.23.1440.805@0.23.1440.805" timestamp="1607248660336" />
+  </component>
+</project>

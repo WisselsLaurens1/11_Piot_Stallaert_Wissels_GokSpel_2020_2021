@@ -1,8 +1,10 @@
 package view.panes;
 
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.ComboBox;
 import model.Gambler;
-import model.GamblerDb;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -10,23 +12,32 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import model.GamblerFactory;
+import model.database.GamblerDbContext;
+import model.database.GamblerDbInterface;
 
 import java.io.FileNotFoundException;
 
 
 public class GamblerOverviewPane extends GridPane{
+	private GamblerDbContext gamblerDbContext;
 	private TableView<Gambler> table;
-	private GamblerDb gamblerdb;
 	private ObservableList<Gambler> gamblers;
 
 
 	public GamblerOverviewPane() throws FileNotFoundException {
-		this.gamblerdb = new GamblerDb();
+		gamblerDbContext = new GamblerDbContext();
 		this.setPadding(new Insets(5, 5, 5, 5));
         this.setVgap(5);
         this.setHgap(5);
+
+		ComboBox<String> bestandenComboBox = new ComboBox<String>();
+		ObservableList <String> bestanden = FXCollections.observableList(gamblerDbContext.getBestandenLijst());
+		bestandenComboBox.setItems(bestanden);
+		bestandenComboBox.setEditable(true);
+		bestandenComboBox.valueProperty().addListener(new ClickComboBoxLineHandler());
+		this.add(bestandenComboBox, 0, 0);
 		table = new TableView<Gambler>();
-		refresh();
 		TableColumn<Gambler, String> colGamblerName = new TableColumn<Gambler, String>("Gambler Name");
 		colGamblerName.setMinWidth(300);
 		colGamblerName.setCellValueFactory(new PropertyValueFactory<Gambler, String>("playerName"));
@@ -41,13 +52,17 @@ public class GamblerOverviewPane extends GridPane{
 		colSaldo.setCellValueFactory(new PropertyValueFactory<Gambler, Double>("gamblingSaldo"));
 		table.getColumns().addAll(colGamblerName, colAchternaam, colVoornaam, colSaldo);
 
-		this.getChildren().addAll(table);
+		this.add(table,0,1);
 	}
 
-
-	public void refresh(){
-		gamblers = FXCollections.observableArrayList(gamblerdb.getGamblerDb());
-		table.setItems(gamblers);
-		table.refresh();
+	class ClickComboBoxLineHandler implements ChangeListener<String> {
+		@Override
+		public void changed(ObservableValue ov, String db, String db1) {
+			GamblerDbInterface gamblerDbInterface = GamblerFactory.createDb(db1);
+			gamblerDbContext.setGamblerDbInterface(gamblerDbInterface);
+			gamblers = FXCollections.observableArrayList(gamblerDbContext.getGamblerDb());
+			table.setItems(gamblers);
+			table.refresh();
+		}
 	}
 }
