@@ -1,0 +1,30 @@
+
+#containerView{
+    -fx-background-color: #c4c4ff;
+    -fx-font-size: 100px;
+    -fx-min-width: 600px;
+    -fx-min-height: 600px;
+
+}
+
+#containerView{
+    -fx-background-color: #000305;
+}
+
+#topView{
+    -fx-background-color: #a8bac6;
+    -fx-min-width: 600px;
+    -fx-min-width: 100%;
+    -fx-font-size: 20px;
+}
+
+#middleView{
+    -fx-background-color: #e0d28c;
+    -fx-min-width: 600px;
+}
+
+#bottomView{
+    -fx-background-color: #45ff30;
+    -fx-min-width: 600px;
+}
+
