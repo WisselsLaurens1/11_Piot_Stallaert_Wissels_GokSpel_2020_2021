@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd85c1c8-9a44-4bef-a519-1a7dbc3070fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/11_Piot_Stallaert_Wissels_GokSpel_2020_2021.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/11_Piot_Stallaert_Wissels_GokSpel_2020_2021.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/panes/GamblerViewPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/GokSpelMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/GokSpelMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/GamblerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GamblerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/database/GamblerDbContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/database/GamblerDbContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/GamblerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GamblerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/panes/GamblerOverviewPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/panes/GamblerOverviewPane.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -60,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607242174691</updated>
-      <workItem from="1607242182962" duration="9456000" />
+      <workItem from="1607242182962" duration="15408000" />
     </task>
     <servers />
   </component>
@@ -92,6 +98,38 @@
       <screen x="0" y="23" width="1440" height="805" />
     </state>
     <state x="474" y="287" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.805@0.23.1440.805" timestamp="1607246035561" />
+    <state width="1378" height="301" key="GridCell.Tab.0.bottom" timestamp="1607265111095">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state width="1378" height="301" key="GridCell.Tab.0.bottom/0.23.1440.805@0.23.1440.805" timestamp="1607265111095" />
+    <state width="1378" height="301" key="GridCell.Tab.0.center" timestamp="1607265111095">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state width="1378" height="301" key="GridCell.Tab.0.center/0.23.1440.805@0.23.1440.805" timestamp="1607265111095" />
+    <state width="1378" height="301" key="GridCell.Tab.0.left" timestamp="1607265111094">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state width="1378" height="301" key="GridCell.Tab.0.left/0.23.1440.805@0.23.1440.805" timestamp="1607265111094" />
+    <state width="1378" height="301" key="GridCell.Tab.0.right" timestamp="1607265111095">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state width="1378" height="301" key="GridCell.Tab.0.right/0.23.1440.805@0.23.1440.805" timestamp="1607265111095" />
+    <state width="1378" height="256" key="GridCell.Tab.1.bottom" timestamp="1607264140778">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state width="1378" height="256" key="GridCell.Tab.1.bottom/0.23.1440.805@0.23.1440.805" timestamp="1607264140778" />
+    <state width="1378" height="256" key="GridCell.Tab.1.center" timestamp="1607264140777">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state width="1378" height="256" key="GridCell.Tab.1.center/0.23.1440.805@0.23.1440.805" timestamp="1607264140777" />
+    <state width="1378" height="256" key="GridCell.Tab.1.left" timestamp="1607264140777">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state width="1378" height="256" key="GridCell.Tab.1.left/0.23.1440.805@0.23.1440.805" timestamp="1607264140777" />
+    <state width="1378" height="256" key="GridCell.Tab.1.right" timestamp="1607264140778">
+      <screen x="0" y="23" width="1440" height="805" />
+    </state>
+    <state width="1378" height="256" key="GridCell.Tab.1.right/0.23.1440.805@0.23.1440.805" timestamp="1607264140778" />
     <state x="216" y="23" key="SettingsEditor" timestamp="1607251294883">
       <screen x="0" y="23" width="1440" height="805" />
     </state>
@@ -104,5 +142,16 @@
       <screen x="0" y="23" width="1440" height="805" />
     </state>
     <state x="393" y="152" width="670" height="676" key="search.everywhere.popup/0.23.1440.805@0.23.1440.805" timestamp="1607248660336" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/view/GamblerView.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
