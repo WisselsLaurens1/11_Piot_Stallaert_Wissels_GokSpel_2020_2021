@@ -1,5 +1,6 @@
 package view.panes.GamblerViewPanes;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
@@ -12,7 +13,6 @@ public class GamblerViewTopPane extends GridPane {
 
 
         this.setId("topView");
-        Label label = new Label("a");
 
         ColumnConstraints column1 = new ColumnConstraints();
         column1.setPercentWidth(25);
@@ -33,15 +33,21 @@ public class GamblerViewTopPane extends GridPane {
         this.getRowConstraints().addAll(row1,row2);
 
         Label label1 = new Label("Enter player name");
+        Button startGame = new Button("Start Game");
         TextField textField = new TextField ();
         this.add(label1, 0,0);
         this.add(textField, 1,0);
+        this.add(startGame, 0,1);
 
 
 
         this.getStylesheets().add("stylesheets/GamblerViewStylesheet.css");
 
 
+    }
+
+    public void update() {
+        System.out.println("update");
     }
 
 }

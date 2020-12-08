@@ -21,6 +21,8 @@
 #middleView{
     -fx-background-color: #e0d28c;
     -fx-min-width: 600px;
+    -fx-font-size: 20px;
+
 }
 
 #bottomView{

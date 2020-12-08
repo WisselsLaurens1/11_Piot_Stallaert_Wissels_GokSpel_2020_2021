@@ -31,4 +31,8 @@ public class GamblerViewBottomPane extends GridPane {
 
     }
 
+    public void update() {
+        System.out.println("update");
+    }
+
 }

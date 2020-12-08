@@ -21,9 +21,9 @@ public class GamblerStrategyFactory {
 
         /* use reflection to return appropriate gamblerStrategy class*/
         try {
-            Class<?> gamblerStrategyClass = Class.forName(gambleStrategy);
-            Constructor constructor = gamblerStrategyClass.getConstructor();
-            Object gambleStrategyInstance = constructor.newInstance();
+            Class<?> gamblerStrategyClass = Class.forName("model.GambleStrategey."+gambleStrategy);
+            Constructor constructor = gamblerStrategyClass.getConstructor(String.class);
+            Object gambleStrategyInstance = constructor.newInstance(gambleStrategy);
             return (GambleStrategy) gambleStrategyInstance;
 
         } catch (ClassNotFoundException | NoSuchMethodException e) {

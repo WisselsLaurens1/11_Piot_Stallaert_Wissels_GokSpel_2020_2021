@@ -1,5 +1,6 @@
 package model;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 import model.GambleStrategey.GambleStrategies;
@@ -14,9 +15,9 @@ public class GameModel implements Observable {
         return rand.nextInt((max - min) + 1) + min;
     }
 
-    public ArrayList<?> observers = new ArrayList<>();
+    public ArrayList<Observer> observers = new ArrayList<>();
     public void addObserver(Observer observer){
-
+        observers.add(observer);
     };
     public void removeObserver(Observer observer){
 
@@ -38,6 +39,11 @@ public class GameModel implements Observable {
 
     public void setGambleStrategy(GambleStrategy gambleStrategy) {
         this.gambleStrategy = gambleStrategy;
+        System.out.println("this has been set: "+this.getGambleStrategy());
+
+        for(Observer observer: observers){
+            observer.update();
+        }
     }
 
     private GambleStrategy gambleStrategy;
@@ -59,21 +65,35 @@ public class GameModel implements Observable {
     }
 
 
-
     /* get gamblerStrategyFactory to create strategies*/
     private GamblerStrategyFactory gamblerStrategyFactory = GamblerStrategyFactory.getInstance();
 
 
-
+    public ArrayList<GambleStrategy> getGambleStrategies() {
+        return gambleStrategies;
+    }
     private ArrayList<GambleStrategy> gambleStrategies = new ArrayList<>();
+
+
+    public HashMap<String, GambleStrategy> getGambleStrategyHashMap() {
+        return gambleStrategyHashMap;
+    }
+
+    private HashMap<String, GambleStrategy> gambleStrategyHashMap = new HashMap<>();
+
+
 
     /* add all the gamblstrategies to the gamblestrategies array*/
     public void initGamblerStrategies(){
+
+
         /* for every strategy of the strategy enum create the strategy objet through the factory and add them to the array*/
         for(GambleStrategies gambleStrategy : GambleStrategies.values()){
+
             GambleStrategy strategy = gamblerStrategyFactory.getStrategy(gambleStrategy.toString());
-            gambleStrategies.add(strategy);
+            gambleStrategyHashMap.put(gambleStrategy.toString(),strategy);
         }
+
     }
 
 
@@ -93,6 +113,10 @@ public class GameModel implements Observable {
         }else{
             throw new IllegalArgumentException("This strategy does not exist");
         }
+    }
+
+    public GameModel(){
+        initGamblerStrategies();
     }
 
     public void trowDice(){

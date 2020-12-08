@@ -27,6 +27,7 @@ public class AdminView implements Observer {
 		borderPane.prefHeightProperty().bind(scene.heightProperty());
 		borderPane.prefWidthProperty().bind(scene.widthProperty());
 		root.getChildren().add(borderPane);
+
 		stage.setScene(scene);
 		stage.sizeToScene();			
 		stage.show();		

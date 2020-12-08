@@ -1,5 +1,6 @@
 package model.GambleStrategey;
 
 public enum GambleStrategies {
-    EvenEyeStrategy
+    EvenEyesStrategy,
+    SumIs21Strategy
 }
