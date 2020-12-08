@@ -14,8 +14,14 @@ public class GamblerViewController implements Controller {
 
     public void selectStrategey(String strategey){
         this.gameModel.setGambleStrategy(this.gameModel.getGambleStrategyHashMap().get(strategey));
-        System.out.println("this is it:"+this.gameModel.getGambleStrategyHashMap().get(strategey).toString());
     }
+
+
+    // TODO: 08/12/2020 update
+    public void throwDice(){
+        this.gameModel.throwDice();
+    }
+
 
     public void update(){};
 

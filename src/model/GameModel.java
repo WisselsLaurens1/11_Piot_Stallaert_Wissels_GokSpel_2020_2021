@@ -37,16 +37,24 @@ public class GameModel implements Observable {
         return gambleStrategy;
     }
 
-    public void setGambleStrategy(GambleStrategy gambleStrategy) {
-        this.gambleStrategy = gambleStrategy;
-        System.out.println("this has been set: "+this.getGambleStrategy());
-
+    public void updateObservers(){
         for(Observer observer: observers){
             observer.update();
         }
     }
 
+    public void setGambleStrategy(GambleStrategy gambleStrategy) {
+        this.gambleStrategy = gambleStrategy;
+        System.out.println("this has been set: "+this.getGambleStrategy());
+
+        updateObservers();
+    }
+
     private GambleStrategy gambleStrategy;
+
+    public int getMaximumPlayerTruns() {
+        return maximumPlayerTruns;
+    }
 
     private final int maximumPlayerTruns = 4;
 
@@ -117,31 +125,35 @@ public class GameModel implements Observable {
 
     public GameModel(){
         initGamblerStrategies();
+        setPlayerTurnsLeft(maximumPlayerTruns);
+
     }
 
-    public void trowDice(){
+    public int getDiceThrown() {
+        return diceThrown;
+    }
+
+    public void setDiceThrown(int diceThrown) {
+        this.diceThrown = diceThrown;
+    }
+
+    private int diceThrown = -1;
+
+
+    public void throwDice(){
 
         /* check if player has a turn left */
-        if(playerHasTurnsLeft()){
+        if(getPlayerTurnsLeft() >0){
             /*thow the dice*/
             int diceEyes =  this.get_random_number(1,6);
 
             setPlayerTurnsLeft(getPlayerTurnsLeft()-1);
 
-            /*check if the player has won*/
-            Boolean didWin = gambleStrategy.didWin(diceEyes);
-        }else{
-            /*if player does not have a turn left, end game and do something*/
-
-            // TODO: 06/12/2020
-            //  implement: udpdate gamble saldo in given format(text/excel) and show in spelverloop pain
-
-            return;
+           setDiceThrown(diceEyes);
+           updateObservers();
         }
 
     };
-
-
 
 
 

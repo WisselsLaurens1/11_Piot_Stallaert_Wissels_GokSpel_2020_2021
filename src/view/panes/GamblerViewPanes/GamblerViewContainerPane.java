@@ -37,7 +37,8 @@ public class GamblerViewContainerPane extends GridPane {
 
         GamblerViewTopPane gamblerViewTopPane = new GamblerViewTopPane();
         GamblerViewMiddlePane gamblerViewMiddlePane = new GamblerViewMiddlePane(model,this.controller);
-        GamblerViewBottomPane gamblerViewBottomPane = new GamblerViewBottomPane();
+        GamblerViewBottomPane gamblerViewBottomPane = new GamblerViewBottomPane(model,this.controller
+        );
 
         this.gamblerViewMiddlePane = gamblerViewMiddlePane;
         this.gamblerViewTopPane = gamblerViewTopPane;
