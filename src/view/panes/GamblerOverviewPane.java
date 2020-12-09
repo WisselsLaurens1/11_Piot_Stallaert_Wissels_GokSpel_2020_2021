@@ -27,8 +27,8 @@ public class GamblerOverviewPane extends GridPane{
 	public GamblerOverviewPane() throws FileNotFoundException {
 		gamblerDbContext = new GamblerDbContext();
 		this.setPadding(new Insets(5, 5, 5, 5));
-        this.setVgap(5);
-        this.setHgap(5);
+		this.setVgap(5);
+		this.setHgap(5);
 
 		ComboBox<String> bestandenComboBox = new ComboBox<String>();
 		ObservableList <String> bestanden = FXCollections.observableList(gamblerDbContext.getBestandenLijst());

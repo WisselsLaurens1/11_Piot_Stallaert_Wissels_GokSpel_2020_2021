@@ -10,24 +10,22 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../Brol/ExcelPlugin(2).jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../Brol/ExcelPlugin(2).jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../Brol/jxl-2.6.12(2).jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../../Brol/jxl-2.6.12(2).jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="jxl-2.6.12(2) (1)" level="project" />
-    <orderEntry type="library" name="ExcelPlugin(2)" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../../Brol/ExcelPlugin(2).jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../../../Brol/ExcelPlugin(2).jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

@@ -15,6 +15,8 @@ public class GamblerDbXls implements GamblerDbInterface{
     private ExcelPlugin plugin;
 
     public GamblerDbXls() throws IOException, BiffException {
+        gamblerDb = new HashMap<>();
+        plugin = new ExcelPlugin();
         ArrayList<ArrayList<String>> gamblers = plugin.read(new File("src/bestanden/speler.xls"));
 
         for(ArrayList<String> gambler:gamblers){

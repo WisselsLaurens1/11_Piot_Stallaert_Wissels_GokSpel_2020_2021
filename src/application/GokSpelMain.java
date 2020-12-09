@@ -26,7 +26,7 @@ public class GokSpelMain extends Application {
 		gameModel.addObserver(gamblerView);
 
 	}
-	//comment
+
 	public static void main(String[] args) {
 		launch(args);
 	}
