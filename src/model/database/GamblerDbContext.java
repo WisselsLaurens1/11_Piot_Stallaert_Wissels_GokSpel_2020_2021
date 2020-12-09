@@ -6,7 +6,7 @@ import model.GamblerEnum;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GamblerDbContext implements GamblerDbInterface{
+public class GamblerDbContext {
     private GamblerDbInterface gamblerInterface;
 
     public GamblerDbContext(){

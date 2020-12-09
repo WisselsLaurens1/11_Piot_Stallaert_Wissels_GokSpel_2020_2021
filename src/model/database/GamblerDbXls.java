@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class GamblerDbXls {
+public class GamblerDbXls implements GamblerDbInterface{
     private HashMap<String, Gambler> gamblerDb;
     private ExcelPlugin plugin;
 

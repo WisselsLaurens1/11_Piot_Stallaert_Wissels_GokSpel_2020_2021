@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class GamblerDbTxt {
+public class GamblerDbTxt implements GamblerDbInterface {
     private HashMap<String, Gambler> gamblerDb;
 
     public GamblerDbTxt() throws FileNotFoundException {

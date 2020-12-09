@@ -7,7 +7,7 @@ import java.lang.reflect.Constructor;
 
 
 public class GamblerFactory {
-    public static GamblerDbContext createDb(String dbCode){
+    public static GamblerDbInterface createDb(String dbCode){
         GamblerEnum gamblerEnum = GamblerEnum.valueOf(dbCode);
         String className = gamblerEnum.getKlasseNaam();
         GamblerDbInterface gamblerInterface = null;
@@ -24,7 +24,7 @@ public class GamblerFactory {
             Class<?> dbClass = Class.forName(className);
             Constructor constructor = dbClass.getConstructor();
             Object db = constructor.newInstance();
-            return (GamblerDbContext) db;
+            return (GamblerDbInterface) db;
 
 
         }
