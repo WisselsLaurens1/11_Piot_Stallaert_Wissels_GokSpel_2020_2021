@@ -6,8 +6,54 @@ import java.util.Random;
 import model.GambleStrategey.GambleStrategies;
 import model.GambleStrategey.GambleStrategy;
 import model.GambleStrategey.GamblerStrategyFactory;
+import model.gambleState.*;
 
 public class GameModel implements Observable {
+private Changeinzet changeinzet;
+private Trowdice trowdice;
+private Choose choose;
+private Wait wait;
+private State currentstat;
+
+    public Changeinzet getChangeinzet() {
+        return changeinzet;
+    }
+
+    public void setChangeinzet(Changeinzet changeinzet) {
+        this.changeinzet = changeinzet;
+    }
+
+    public Trowdice getTrowdice() {
+        return trowdice;
+    }
+
+    public void setTrowdice(Trowdice trowdice) {
+        this.trowdice = trowdice;
+    }
+
+    public Choose getChoose() {
+        return choose;
+    }
+
+    public void setChoose(Choose choose) {
+        this.choose = choose;
+    }
+
+    public Wait getWait() {
+        return wait;
+    }
+
+    public void setWait(Wait wait) {
+        this.wait = wait;
+    }
+
+    public State getCurrentstat() {
+        return currentstat;
+    }
+
+    public void setCurrentstat(State currentstat) {
+        this.currentstat = currentstat;
+    }
 
     Random rand = new Random();
 
@@ -28,6 +74,7 @@ public class GameModel implements Observable {
     }
 
     public void setCurrentPlayer(Gambler currentPlayer) {
+        this.currentstat.login();
         this.currentPlayer = currentPlayer;
     }
 
@@ -44,6 +91,7 @@ public class GameModel implements Observable {
     }
 
     public void setGambleStrategy(GambleStrategy gambleStrategy) {
+        this.currentstat.choosestrategy();
         this.gambleStrategy = gambleStrategy;
         System.out.println("this has been set: "+this.getGambleStrategy());
 
@@ -126,6 +174,11 @@ public class GameModel implements Observable {
     public GameModel(){
         initGamblerStrategies();
         setPlayerTurnsLeft(maximumPlayerTruns);
+        this.changeinzet=new Changeinzet(this);
+        this.choose=new Choose(this);
+        this.currentstat=new Wait(this);
+        this.wait=new Wait(this);
+        this.trowdice=new Trowdice(this);
 
     }
 
@@ -144,13 +197,18 @@ public class GameModel implements Observable {
 
         /* check if player has a turn left */
         if(getPlayerTurnsLeft() >0){
+            this.currentstat.throwdice();
             /*thow the dice*/
             int diceEyes =  this.get_random_number(1,6);
 
             setPlayerTurnsLeft(getPlayerTurnsLeft()-1);
+            if (getPlayerTurnsLeft() == 2) {setCurrentstat(getChangeinzet());}
 
            setDiceThrown(diceEyes);
            updateObservers();
+        }
+        else {
+            this.currentstat.eind();
         }
 
     };
