@@ -1,7 +1,6 @@
 package model.database;
 
 import model.Gambler;
-import model.GamblerEnum;
 
 import java.util.ArrayList;
 import java.util.List;

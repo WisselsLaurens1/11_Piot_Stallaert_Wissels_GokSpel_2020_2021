@@ -1,4 +1,4 @@
-package model;
+package model.database;
 
 public enum GamblerEnum {
     TEKSTBESTAND ("Tekstbestand", "model.database.GamblerDbTxt"),
