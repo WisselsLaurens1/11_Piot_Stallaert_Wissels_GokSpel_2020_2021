@@ -11,11 +11,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import model.database.DatabaseModel;
 import model.database.GamblerFactory;
 import model.database.GamblerDbContext;
 import model.database.GamblerDbInterface;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
 
 public class GamblerOverviewPane extends GridPane{
@@ -23,13 +27,14 @@ public class GamblerOverviewPane extends GridPane{
 	private TableView<Gambler> table;
 	private ObservableList<Gambler> gamblers;
 
+	private DatabaseModel database;
 
-	public GamblerOverviewPane() throws FileNotFoundException {
+	public GamblerOverviewPane(DatabaseModel database) throws FileNotFoundException {
+		this.database = database;
 		gamblerDbContext = new GamblerDbContext();
 		this.setPadding(new Insets(5, 5, 5, 5));
 		this.setVgap(5);
 		this.setHgap(5);
-
 		ComboBox<String> bestandenComboBox = new ComboBox<String>();
 		ObservableList <String> bestanden = FXCollections.observableList(gamblerDbContext.getBestandenLijst());
 		bestandenComboBox.setItems(bestanden);
@@ -59,9 +64,13 @@ public class GamblerOverviewPane extends GridPane{
 		public void changed(ObservableValue ov, String db, String db1) {
 			GamblerDbInterface gamblerDbInterface = GamblerFactory.createDb(db1);
 			gamblerDbContext.setGamblerDbInterface(gamblerDbInterface);
-			gamblers = FXCollections.observableArrayList(gamblerDbContext.getGamblerDb());
+			HashMap<String, Gambler> gamblerDB =  gamblerDbContext.getGamblerDb();
+			database.setGamblers(gamblerDB);
+			ArrayList<Gambler> valuesList = new ArrayList<Gambler>(gamblerDB.values());
+			gamblers = FXCollections.observableArrayList(valuesList);
 			table.setItems(gamblers);
 			table.refresh();
+
 		}
 	}
 }

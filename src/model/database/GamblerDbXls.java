@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class GamblerDbXls implements GamblerDbInterface{
     private HashMap<String, Gambler> gamblerDb;
@@ -25,7 +24,7 @@ public class GamblerDbXls implements GamblerDbInterface{
         }
     }
 
-    public List<Gambler> getGamblerDb() {
-        return new ArrayList<>(gamblerDb.values());
+    public HashMap<String, Gambler> getGamblerDb() {
+        return new HashMap<String, Gambler>(gamblerDb);
     }
 }

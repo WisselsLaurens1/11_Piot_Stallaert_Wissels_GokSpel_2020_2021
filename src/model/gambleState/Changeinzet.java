@@ -8,7 +8,7 @@ public class Changeinzet extends State{
     }
 
     @Override
-    public void login() {
+    public void login(String name) {
         throw new IllegalStateException("je bent al ingelogt");
     }
 
@@ -19,19 +19,19 @@ public class Changeinzet extends State{
 
     @Override
     public void throwdice() {
-        if(getModel().getCurrentstat() instanceof Wait) throw new IllegalStateException();
-        if(getModel().getCurrentstat() instanceof Choose)throw new IllegalStateException();
-        if(getModel().getCurrentstat() instanceof Trowdice)throw new IllegalStateException();
+        if(getModel().getCurrentstate() instanceof Login) throw new IllegalStateException();
+        if(getModel().getCurrentstate() instanceof Choose)throw new IllegalStateException();
+        if(getModel().getCurrentstate() instanceof Trowdice)throw new IllegalStateException();
 
     }
 
     @Override
     public void changeinzet() {
-        if(getModel().getCurrentstat() instanceof Wait) throw new IllegalStateException();
-        if(getModel().getCurrentstat() instanceof Choose)throw new IllegalStateException();
-        if(getModel().getCurrentstat() instanceof Trowdice)throw new IllegalStateException();
-        if(getModel().getCurrentstat() instanceof Changeinzet){
-            getModel().setCurrentstat(getModel().getTrowdice());
+        if(getModel().getCurrentstate() instanceof Login) throw new IllegalStateException();
+        if(getModel().getCurrentstate() instanceof Choose)throw new IllegalStateException();
+        if(getModel().getCurrentstate() instanceof Trowdice)throw new IllegalStateException();
+        if(getModel().getCurrentstate() instanceof Changeinzet){
+            getModel().setCurrentstate(getModel().getTrowdice());
         }
     }
 

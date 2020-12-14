@@ -3,6 +3,7 @@ package model.database;
 import model.Gambler;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class GamblerDbContext {
@@ -16,7 +17,7 @@ public class GamblerDbContext {
         this.gamblerInterface = gamblerDbInterface;
     }
 
-    public List<Gambler> getGamblerDb(){
+    public HashMap<String, Gambler> getGamblerDb(){
         return gamblerInterface.getGamblerDb();
     }
 

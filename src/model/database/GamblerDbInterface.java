@@ -2,8 +2,8 @@ package model.database;
 
 import model.Gambler;
 
-import java.util.List;
+import java.util.HashMap;
 
 public interface GamblerDbInterface {
-    List<Gambler> getGamblerDb();
+    HashMap<String, Gambler> getGamblerDb();
 }

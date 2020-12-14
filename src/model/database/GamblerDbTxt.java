@@ -4,9 +4,7 @@ import model.Gambler;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Scanner;
 
 public class GamblerDbTxt implements GamblerDbInterface {
@@ -24,7 +22,8 @@ public class GamblerDbTxt implements GamblerDbInterface {
         }
     }
 
-    public List<Gambler> getGamblerDb() {
-        return new ArrayList<>(gamblerDb.values());
+
+    public HashMap<String, Gambler> getGamblerDb() {
+        return new HashMap<String, Gambler>(gamblerDb);
     }
 }

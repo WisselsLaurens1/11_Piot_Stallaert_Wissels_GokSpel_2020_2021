@@ -8,17 +8,17 @@ public class Choose extends State{
     }
 
     @Override
-    public void login() {
+    public void login(String name) {
         throw new IllegalStateException("je bent al ingelogt");
     }
 
     @Override
     public void choosestrategy() {
-        if(getModel().getCurrentstat() instanceof Wait) throw new IllegalStateException();
-        if(getModel().getCurrentstat() instanceof Trowdice)throw new IllegalStateException();
-        if(getModel().getCurrentstat() instanceof Changeinzet)throw new IllegalStateException();
-        if(getModel().getCurrentstat() instanceof Choose){
-            getModel().setCurrentstat(getModel().getTrowdice());
+        if(getModel().getCurrentstate() instanceof Login) throw new IllegalStateException();
+        if(getModel().getCurrentstate() instanceof Trowdice)throw new IllegalStateException();
+        if(getModel().getCurrentstate() instanceof Changeinzet)throw new IllegalStateException();
+        if(getModel().getCurrentstate() instanceof Choose){
+            getModel().setCurrentstate(getModel().getTrowdice());
         }
     }
 

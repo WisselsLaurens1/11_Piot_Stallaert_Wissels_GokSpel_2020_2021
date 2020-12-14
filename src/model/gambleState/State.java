@@ -9,7 +9,7 @@ public State(GameModel model){this.model=model;}
     public GameModel getModel() {
         return model;
     }
-    public abstract void login();
+    public abstract void login(String name);
     public abstract void choosestrategy();
     public abstract void throwdice();
     public abstract void changeinzet();
