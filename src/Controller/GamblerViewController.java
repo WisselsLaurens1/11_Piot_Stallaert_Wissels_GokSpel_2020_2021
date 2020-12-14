@@ -19,11 +19,20 @@ public class GamblerViewController implements Controller {
 
     // TODO: 08/12/2020 update
     public void throwDice(){
+
         this.gameModel.throwDice();
     }
 
 
     public void update(){};
+
+    public void login(String name){
+        gameModel.login(name);
+    }
+
+    public void logout(){
+        gameModel.logout();
+    }
 
 
     @Override

@@ -45,7 +45,7 @@ private State currentstate;
         this.choose = choose;
     }
 
-    public Login getWait() {
+    public Login getLogin() {
         return login;
     }
 
@@ -225,6 +225,10 @@ private State currentstate;
         this.getCurrentstate().login(name);
     }
 
-
+    public void logout(){
+        this.setCurrentPlayer(null);
+        this.getCurrentstate().logout();
+        System.out.println("logging out");
+    }
 
 }

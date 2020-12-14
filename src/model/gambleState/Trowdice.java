@@ -36,7 +36,7 @@ public class Trowdice extends State{
         if(getModel().getCurrentstate() instanceof Choose)throw new IllegalStateException();
         if(getModel().getCurrentstate() instanceof Changeinzet)throw new IllegalStateException();
         if (getModel().getCurrentstate() instanceof  Trowdice){
-            getModel().setCurrentstate(getModel().getWait());
+            getModel().setCurrentstate(getModel().getLogin());
         }
     }
 }

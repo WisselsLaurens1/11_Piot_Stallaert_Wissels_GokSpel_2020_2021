@@ -35,7 +35,7 @@ public class GamblerViewContainerPane extends GridPane {
         row3.setPercentHeight(100/3);
         this.getRowConstraints().addAll(row1,row2,row3);
 
-        GamblerViewTopPane gamblerViewTopPane = new GamblerViewTopPane();
+        GamblerViewTopPane gamblerViewTopPane = new GamblerViewTopPane(model,this.controller);
         GamblerViewMiddlePane gamblerViewMiddlePane = new GamblerViewMiddlePane(model,this.controller);
         GamblerViewBottomPane gamblerViewBottomPane = new GamblerViewBottomPane(model,this.controller
         );
