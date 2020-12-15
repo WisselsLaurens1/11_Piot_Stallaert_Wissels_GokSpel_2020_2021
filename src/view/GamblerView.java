@@ -11,7 +11,7 @@ import view.panes.GamblerViewPanes.GamblerViewContainerPane;
 
 import java.io.IOException;
 
-public class GamblerView implements View {
+public class GamblerView implements View  {
 	private Stage stage = new Stage();
 	private Controller controller;
 	private GameModel gameModel;

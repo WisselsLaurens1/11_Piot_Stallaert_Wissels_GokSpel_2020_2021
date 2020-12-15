@@ -11,11 +11,12 @@ private GameModel model;
         return model;
     }
     public abstract void login(String name);
-    public abstract void choosestrategy();
+    public abstract void choseStrategy();
     public abstract void throwdice();
-    public abstract void changeinzet();
+    public abstract void changeBettingAmount();
     public abstract void eind();
     public void logout(){
-        model.setCurrentstate(model.getLogin());
+        model.setCurrentPlayer(null);
+        model.setCurrentstate(model.getLoginState());
     }
 }

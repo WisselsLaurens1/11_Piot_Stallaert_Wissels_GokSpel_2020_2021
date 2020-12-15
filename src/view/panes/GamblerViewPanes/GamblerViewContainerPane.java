@@ -14,7 +14,7 @@ public class GamblerViewContainerPane extends GridPane {
     private GamblerViewTopPane gamblerViewTopPane;
     private GamblerViewBottomPane gamblerViewBottomPane;
     private GamblerViewPane3 gamblerViewPane3;
-    private GamblerViewPane5 gamblerPane4;
+    private GamblerViewPane5 gamblerViewPane5;
 
     public GamblerViewContainerPane(GameModel model, Controller gamblerViewController){
 
@@ -46,19 +46,19 @@ public class GamblerViewContainerPane extends GridPane {
         GamblerViewMiddlePane gamblerViewMiddlePane = new GamblerViewMiddlePane(model,this.controller);
         GamblerViewBottomPane gamblerViewBottomPane = new GamblerViewBottomPane(model,this.controller);
         GamblerViewPane3 gamblerPane3 = new GamblerViewPane3(model,this.controller);
-        GamblerViewPane5 gamblerPane4 = new GamblerViewPane5(model,this.controller);
+        GamblerViewPane5 gamblerPane5 = new GamblerViewPane5(model,this.controller);
 
         this.gamblerViewMiddlePane = gamblerViewMiddlePane;
         this.gamblerViewTopPane = gamblerViewTopPane;
         this.gamblerViewBottomPane = gamblerViewBottomPane;
         this.gamblerViewPane3 = gamblerPane3;
-        this.gamblerPane4  = gamblerPane4;
+        this.gamblerViewPane5  = gamblerPane5;
 
         gamblerViewMiddlePane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
         gamblerViewTopPane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
         gamblerViewBottomPane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
         gamblerViewPane3.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
-        gamblerPane4.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
+        gamblerPane5.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
 
 
 
@@ -66,7 +66,7 @@ public class GamblerViewContainerPane extends GridPane {
         this.add(gamblerViewMiddlePane,0,1,1,1);
         this.add(gamblerPane3,0,2,1,1);
         this.add(gamblerViewBottomPane,0,3,1,1);
-        this.add(gamblerPane4,0,4,1,1);
+        this.add(gamblerPane5,0,4,1,1);
 
         this.getStylesheets().add("stylesheets/GamblerViewStylesheet.css");
 
@@ -74,8 +74,12 @@ public class GamblerViewContainerPane extends GridPane {
     }
 
     public void update() {
+        System.out.println("updating");
         gamblerViewTopPane.update();
         gamblerViewMiddlePane.update();
         gamblerViewBottomPane.update();
+        gamblerViewPane3.update();
+        gamblerViewPane5.update();
+
     }
 }

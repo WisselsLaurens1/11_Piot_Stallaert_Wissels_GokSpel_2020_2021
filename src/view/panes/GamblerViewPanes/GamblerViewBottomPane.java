@@ -7,11 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import model.GameModel;
 import Controller.GamblerViewController;
+import view.View;
 
 import java.util.ArrayList;
 
 
-public class GamblerViewBottomPane extends GridPane {
+public class GamblerViewBottomPane extends GridPane implements View {
 
     private GameModel gameModel;
     private GamblerViewController controller;

@@ -11,12 +11,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import model.GameModel;
+import view.View;
 
-public class GamblerViewPane5 extends GridPane {
+public class GamblerViewPane5 extends GridPane implements View {
 
 
     private GameModel gameModel;
     private GamblerViewController controller;
+    private Label terminalOutput;
     public GamblerViewPane5(GameModel gameModel, Controller gameblerViewController){
 
         // TODO: 06/12/2020  set minmium size
@@ -43,7 +45,14 @@ public class GamblerViewPane5 extends GridPane {
         row2.setPrefHeight(130);
         this.getRowConstraints().addAll(row1,row2);
 
-        Pane terminal = new Pane();
+        GridPane terminal = new GridPane();
+        Label terminalOutput = new Label("");
+        this.terminalOutput = terminalOutput;
+/*
+        terminal.getColumnConstraints().addAll(column1);
+*/
+        terminal.add(terminalOutput,0,0);
+        terminal.setGridLinesVisible(true);
 
 
         Label output = new Label("Output");
@@ -65,6 +74,8 @@ public class GamblerViewPane5 extends GridPane {
     }
 
     public void update() {
+        System.out.println(gameModel.getTerminalOutput());
+        terminalOutput.setText(gameModel.getTerminalOutput());
         System.out.println("update");
     }
 }

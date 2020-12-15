@@ -10,48 +10,60 @@ import model.database.DatabaseModel;
 import model.gambleState.*;
 
 public class GameModel implements Observable {
-private Changeinzet changeinzet;
-private Trowdice trowdice;
-private Choose choose;
-private Login login;
-private State currentstate;
+
+    private LoginState loginState;
+    private State currentstate;
+    private ThrowDiceState throwDiceState;
+    private ChoseStrategyState choseStrategyState;
+
+
+
+    public ChangeBettingAmountState getChangeBettingAmountState() {
+        return changeBettingAmountState;
+    }
+
+    public void setChangeBettingAmountState(ChangeBettingAmountState changeBettingAmountState) {
+        this.changeBettingAmountState = changeBettingAmountState;
+    }
+
+    private ChangeBettingAmountState changeBettingAmountState;
+
+    public ThrowDiceState getThrowDiceState() {
+        return throwDiceState;
+    }
+
+    public void setThrowDiceState(ThrowDiceState throwDiceState) {
+        this.throwDiceState = throwDiceState;
+    }
+
+
+    public ChoseStrategyState getChoseStrategyState() {
+        return choseStrategyState;
+    }
+
+    public void setChoseStrategyState(ChoseStrategyState choseStrategyState) {
+        this.choseStrategyState = choseStrategyState;
+    }
+
+
+    public LoginState getLoginState() {
+        return loginState;
+    }
+
+    public void setLoginState(LoginState loginState) {
+        this.loginState = loginState;
+    }
+
+
 
     public DatabaseModel getDatabase() {
         return database;
     }
 
     private DatabaseModel database;
-    public Changeinzet getChangeinzet() {
-        return changeinzet;
-    }
 
-    public void setChangeinzet(Changeinzet changeinzet) {
-        this.changeinzet = changeinzet;
-    }
 
-    public Trowdice getTrowdice() {
-        return trowdice;
-    }
 
-    public void setTrowdice(Trowdice trowdice) {
-        this.trowdice = trowdice;
-    }
-
-    public Choose getChoose() {
-        return choose;
-    }
-
-    public void setChoose(Choose choose) {
-        this.choose = choose;
-    }
-
-    public Login getLogin() {
-        return login;
-    }
-
-    public void setWait(Login login) {
-        this.login = login;
-    }
 
     public State getCurrentstate() {
         return currentstate;
@@ -96,7 +108,7 @@ private State currentstate;
     }
 
     public void setGambleStrategy(GambleStrategy gambleStrategy) {
-        this.currentstate.choosestrategy();
+        this.currentstate.choseStrategy();
         this.gambleStrategy = gambleStrategy;
         System.out.println("this has been set: "+this.getGambleStrategy());
 
@@ -179,11 +191,11 @@ private State currentstate;
     public GameModel(DatabaseModel database){
         initGamblerStrategies();
         setPlayerTurnsLeft(maximumPlayerTruns);
-        this.changeinzet=new Changeinzet(this);
-        this.choose=new Choose(this);
-        this.currentstate =new Login(this);
-        this.login =new Login(this);
-        this.trowdice=new Trowdice(this);
+        this.changeBettingAmountState =new ChangeBettingAmountState(this);
+        this.choseStrategyState =new ChoseStrategyState(this);
+        this.currentstate = new LoginState(this);
+        this.loginState =new LoginState(this);
+        this.throwDiceState =new ThrowDiceState(this);
         this.database = database;
 
 
@@ -210,7 +222,7 @@ private State currentstate;
 
             setPlayerTurnsLeft(getPlayerTurnsLeft()-1);
             if (getPlayerTurnsLeft() == 2) {
-                setCurrentstate(getChangeinzet());}
+                setCurrentstate(getChangeBettingAmountState());}
 
            setDiceThrown(diceEyes);
            updateObservers();
@@ -239,5 +251,18 @@ private State currentstate;
     }
 
     private int currentBettingAmount;
+
+
+    public String getTerminalOutput() {
+        return terminalOutput;
+    }
+
+    public void setTerminalOutput(String terminalOutput) {
+        this.terminalOutput = terminalOutput;
+        System.out.println("update temrinal: "+terminalOutput);
+        this.updateObservers();
+    }
+
+    public String terminalOutput = null;
 
 }

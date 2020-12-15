@@ -99,7 +99,12 @@ public class GamblerViewMiddlePane extends GridPane{
     }
 
     public void update() {
-        this.description.setText(this.gameModel.getGambleStrategy().getDescription());
+        if(this.gameModel.getGambleStrategy() != null){
+            this.description.setText(this.gameModel.getGambleStrategy().getDescription());
+        }
+
+
+
     }
 
 }

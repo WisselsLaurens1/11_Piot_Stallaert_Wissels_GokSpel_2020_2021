@@ -2,8 +2,8 @@ package model.gambleState;
 
 import model.GameModel;
 
-public class Choose extends State{
-    public Choose(GameModel model) {
+public class ChoseStrategyState extends State{
+    public ChoseStrategyState(GameModel model) {
         super(model);
     }
 
@@ -13,14 +13,14 @@ public class Choose extends State{
     }
 
     @Override
-    public void choosestrategy() {
-        if(getModel().getCurrentstate() instanceof Login) throw new IllegalStateException();
-        if(getModel().getCurrentstate() instanceof Trowdice)throw new IllegalStateException();
+    public void choseStrategy() {
+        if(getModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
+        if(getModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
 /*
         if(getModel().getCurrentstate() instanceof Changeinzet)throw new IllegalStateException();
 */
-        if(getModel().getCurrentstate() instanceof Choose){
-            getModel().setCurrentstate(getModel().getTrowdice());
+        if(getModel().getCurrentstate() instanceof ChoseStrategyState){
+            getModel().setCurrentstate(getModel().getThrowDiceState());
         }
     }
 
@@ -30,7 +30,7 @@ public class Choose extends State{
     }
 
     @Override
-    public void changeinzet() {
+    public void changeBettingAmount() {
         throw new IllegalStateException("je moet een strategie kiezen");
     }
 
