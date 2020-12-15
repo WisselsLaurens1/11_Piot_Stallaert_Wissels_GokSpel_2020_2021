@@ -226,9 +226,18 @@ private State currentstate;
     }
 
     public void logout(){
-        this.setCurrentPlayer(null);
         this.getCurrentstate().logout();
         System.out.println("logging out");
     }
+
+    public int getCurrentBettingAmount() {
+        return currentBettingAmount;
+    }
+
+    public void setCurrentBettingAmount(int currentBettingAmount) {
+        this.currentBettingAmount = currentBettingAmount;
+    }
+
+    private int currentBettingAmount;
 
 }

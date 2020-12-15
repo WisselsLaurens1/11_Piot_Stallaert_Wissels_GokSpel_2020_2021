@@ -34,6 +34,10 @@ public class GamblerViewController implements Controller {
         gameModel.logout();
     }
 
+    public void setBettingAmount(int amount){
+        gameModel.setCurrentBettingAmount(amount);
+    }
+
 
     @Override
     public void setView(view.View view) {

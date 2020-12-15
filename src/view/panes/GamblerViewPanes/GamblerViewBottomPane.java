@@ -1,6 +1,7 @@
 package view.panes.GamblerViewPanes;
 
 import Controller.Controller;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
@@ -35,11 +36,15 @@ public class GamblerViewBottomPane extends GridPane {
         column2.setPercentWidth(50);
 
         this.getColumnConstraints().addAll(column1, column2); // each get 50% of width
-
+/*
+        this.setGridLinesVisible(true);
+*/
+        this.setHgap(20); //horizontal gap in pixels => that's what you are asking for
+        this.setPadding(new Insets(20, 10, 10, 10)); //margins around the whole grid
 
         for(int i = 0; i<6;i++){
             RowConstraints row = new RowConstraints();
-            row.setPercentHeight(i/6);
+            row.setPercentHeight(100/6);
             this.getRowConstraints().addAll(row);
         }
 
@@ -47,10 +52,10 @@ public class GamblerViewBottomPane extends GridPane {
         this.add(throwDice,0,0);
 
         ArrayList<Label> diceThrows = new ArrayList<>();
-        for (int i = 0; i<this.gameModel.getMaximumPlayerTruns(); i++){
+        for (int i = 1; i<this.gameModel.getMaximumPlayerTruns()+1; i++){
             diceThrows.add(new Label("Dice throw: "));
             System.out.println(i);
-            this.add(diceThrows.get(i),0,i+1);
+            this.add(diceThrows.get(i-1),0,i+1);
         }
         this.diceThrows = diceThrows;
 

@@ -16,7 +16,9 @@ public class Choose extends State{
     public void choosestrategy() {
         if(getModel().getCurrentstate() instanceof Login) throw new IllegalStateException();
         if(getModel().getCurrentstate() instanceof Trowdice)throw new IllegalStateException();
+/*
         if(getModel().getCurrentstate() instanceof Changeinzet)throw new IllegalStateException();
+*/
         if(getModel().getCurrentstate() instanceof Choose){
             getModel().setCurrentstate(getModel().getTrowdice());
         }

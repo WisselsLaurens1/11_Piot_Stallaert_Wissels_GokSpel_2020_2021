@@ -16,6 +16,7 @@ public class Login extends State{
             if(getModel().getDatabase().getGamblers().keySet().contains(name)){
                 System.out.println("whooop");
                 getModel().setCurrentstate(getModel().getChoose());
+                getModel().setCurrentPlayer(null);
             }
         }
 

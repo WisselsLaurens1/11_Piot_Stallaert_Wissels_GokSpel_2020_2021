@@ -2,6 +2,7 @@ package view.panes.GamblerViewPanes;
 
 import Controller.Controller;
 import Controller.GamblerViewController;
+import javafx.geometry.Insets;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
@@ -31,23 +32,32 @@ public class GamblerViewMiddlePane extends GridPane{
         this.getStylesheets().add("stylesheets/GamblerViewStylesheet.css");
 
         ColumnConstraints column1 = new ColumnConstraints();
+/*
         column1.setPercentWidth(25);
+*/
+        column1.setPrefWidth(150);
         ColumnConstraints column2 = new ColumnConstraints();
-        column1.setPercentWidth(25);
+        column1.setPrefWidth(150);
         ColumnConstraints column3 = new ColumnConstraints();
-        column1.setPercentWidth(25);
+        column1.setPrefWidth(150);
         ColumnConstraints column4 = new ColumnConstraints();
-        column1.setPercentWidth(25);
+        column1.setPrefWidth(150);
 
-        this.getColumnConstraints().addAll(column1, column2,column3,column4); // each get 50% of width
+/*
+        this.setGridLinesVisible(true);
+*/
+
+        this.getColumnConstraints().addAll(column1,column2,column3,column4); // each get 50% of width
 
         RowConstraints row1 = new RowConstraints();
-        row1.setPercentHeight(100/3);
+        row1.setPercentHeight(100/2);
         RowConstraints row2 = new RowConstraints();
-        row2.setPercentHeight(100/3);
+        row2.setPercentHeight(100/2);
         RowConstraints row3 = new RowConstraints();
         row2.setPercentHeight(100/3);
         this.getRowConstraints().addAll(row1,row2,row3);
+        this.setHgap(10); //horizontal gap in pixels => that's what you are asking for
+        this.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
 
 
         HashMap<String,GambleStrategy> gambleStrategies = this.gameModel.getGambleStrategyHashMap();
@@ -74,10 +84,10 @@ public class GamblerViewMiddlePane extends GridPane{
         }
         this.description = description;
 
-        this.add(description,0,1);
+        this.add(description,0,1,3,1);
         
 
-        this.add(comboBoxGambleStrategies,1,0);
+        this.add(comboBoxGambleStrategies,2,0);
 
 
         comboBoxGambleStrategies.setOnAction((e) -> {
