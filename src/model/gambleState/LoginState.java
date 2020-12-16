@@ -15,35 +15,36 @@ public class LoginState extends State{
         if(getModel().getCurrentstate() instanceof LoginState){
             if(getModel().getDatabase().getGamblers().keySet().contains(name)){
                 System.out.println("whooop");
+                getModel().setCurrentPlayer(getModel().getDatabase().getGamblers().get(name));
                 getModel().setCurrentstate(getModel().getChoseStrategyState());
-                getModel().setCurrentPlayer(null);
+
             }
         }
     }
 
     @Override
     public void choseStrategy() {
-        getModel().setTerminalOutput("You have to login");
+        getModel().setTerminalOutput("You have to login first");
         throw new IllegalStateException("You have to login");
 
     }
 
     @Override
     public void throwdice() {
-        getModel().setTerminalOutput("You have to login");
+        getModel().setTerminalOutput("You have to login first");
         throw new IllegalStateException("You have to login");
     }
 
     @Override
     public void changeBettingAmount() {
-        getModel().setTerminalOutput("You have to login");
+        getModel().setTerminalOutput("You have to login first");
         throw new IllegalStateException("You have to login");
 
     }
 
     @Override
     public void eind() {
-        getModel().setTerminalOutput("You have to login");
+        getModel().setTerminalOutput("You have to login first");
         throw new IllegalStateException("You have to login");
 
     }

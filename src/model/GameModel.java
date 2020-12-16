@@ -93,6 +93,7 @@ public class GameModel implements Observable {
 
     public void setCurrentPlayer(Gambler currentPlayer) {
         this.currentPlayer = currentPlayer;
+        updateObservers();
     }
 
     private Gambler currentPlayer;

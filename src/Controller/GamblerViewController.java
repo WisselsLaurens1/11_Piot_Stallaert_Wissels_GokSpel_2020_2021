@@ -14,6 +14,7 @@ public class GamblerViewController implements Controller {
 
     public void selectStrategey(String strategey){
         this.gameModel.setGambleStrategy(this.gameModel.getGambleStrategyHashMap().get(strategey));
+
     }
 
 
@@ -37,6 +38,7 @@ public class GamblerViewController implements Controller {
     public void setBettingAmount(int amount){
         gameModel.setCurrentBettingAmount(amount);
     }
+
 
 
     @Override

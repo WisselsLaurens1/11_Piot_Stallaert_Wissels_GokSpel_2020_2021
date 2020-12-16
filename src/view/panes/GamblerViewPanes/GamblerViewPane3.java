@@ -49,9 +49,9 @@ public class GamblerViewPane3 extends GridPane {
 
         Label label1 = new Label("Enter bet amount");
         Button confirmButton = new Button("Confirm");
-        TextField textField = new TextField ();
+        TextField bettingAmount = new TextField ();
         this.add(label1, 0,1);
-        this.add(textField, 1,1);
+        this.add(bettingAmount, 1,1);
         this.add(confirmButton, 2,1);
         this.setHgap(10); //horizontal gap in pixels => that's what you are asking for
         this.setHgap(10); //horizontal gap in pixels => that's what you are asking for
@@ -60,7 +60,7 @@ public class GamblerViewPane3 extends GridPane {
 
 
         confirmButton.setOnAction((e)->{
-            controller.login(textField.getText());
+            controller.setBettingAmount(Integer.parseInt(bettingAmount.getText()));
         });
 
 

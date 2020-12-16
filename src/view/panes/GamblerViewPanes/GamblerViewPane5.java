@@ -48,19 +48,15 @@ public class GamblerViewPane5 extends GridPane implements View {
         GridPane terminal = new GridPane();
         Label terminalOutput = new Label("");
         this.terminalOutput = terminalOutput;
-/*
-        terminal.getColumnConstraints().addAll(column1);
-*/
         terminal.add(terminalOutput,0,0);
-        terminal.setGridLinesVisible(true);
+        terminal.setPadding(new Insets(20, 10, 10, 10)); //margins around the whole grid
 
 
         Label output = new Label("Output");
         terminal.setStyle("-fx-background-color: white;");
 
         this.add(output, 0,0);
-        this.add(terminal, 0,1,2
-                ,1);
+        this.add(terminal, 0,1,2,1);
         this.setHgap(20); //horizontal gap in pixels => that's what you are asking for
         this.setPadding(new Insets(20, 10, 10, 10)); //margins around the whole grid
 

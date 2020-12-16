@@ -6,13 +6,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
+import model.Gambler;
 import model.GameModel;
 import Controller.GamblerViewController;
+
 
 public class GamblerViewTopPane extends GridPane {
 
     private GameModel gameModel;
     private GamblerViewController controller;
+    private Label currentPlayer;
+    private Label saldo;
+
+
     public GamblerViewTopPane(GameModel gameModel, Controller gameblerViewController){
 
         // TODO: 06/12/2020  set minmium size
@@ -40,9 +46,16 @@ public class GamblerViewTopPane extends GridPane {
         RowConstraints row2 = new RowConstraints();
         row2.setPercentHeight(50);
         this.getRowConstraints().addAll(row1,row2);
+/*
+        this.setGridLinesVisible(true);
+*/
+
 
         Label playerName = new Label("Enter player name");
-        Label saldo = new Label("Saldo");
+        Label saldo = new Label("Saldo: ");
+        Label currentPlayer = new Label("Current player: ");
+        this.currentPlayer = currentPlayer;
+        this.saldo = saldo;
 
         Button loginButton = new Button("Login");
         Button logOutButton = new Button("Logout");
@@ -51,7 +64,9 @@ public class GamblerViewTopPane extends GridPane {
         this.add(textField, 1,0);
         this.add(loginButton, 2,0);
         this.add(logOutButton, 3,0);
-        this.add(saldo,0,1);
+        this.add(currentPlayer,0,1,2,1);
+
+        this.add(saldo,2,1);
 
         this.setHgap(10); //horizontal gap in pixels => that's what you are asking for
         this.setPadding(new Insets(20, 10, 10, 10)); //margins around the whole grid
@@ -74,6 +89,9 @@ public class GamblerViewTopPane extends GridPane {
     }
 
     public void update() {
+        Gambler currentPlayer = gameModel.getCurrentPlayer();
+        this.currentPlayer.setText("Player: "+currentPlayer.getName());
+        this.saldo.setText("Saldo: "+currentPlayer.getGamblingSaldo());
         System.out.println("update");
     }
 
