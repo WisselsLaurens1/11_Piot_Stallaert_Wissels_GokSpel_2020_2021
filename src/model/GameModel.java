@@ -229,8 +229,9 @@ public class GameModel implements Observable {
         return diceThrows;
     }
 
-    public void setDiceThrows(ArrayList<Integer> diceThrows) {
-        this.diceThrows = diceThrows;
+    public void resetDiceThrows() {
+        this.diceThrows.clear();
+        updateObservers();
     }
 
     private ArrayList<Integer> diceThrows = new ArrayList<Integer>();

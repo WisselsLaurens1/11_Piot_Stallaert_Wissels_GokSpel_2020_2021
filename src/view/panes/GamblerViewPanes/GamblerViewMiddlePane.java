@@ -78,14 +78,18 @@ public class GamblerViewMiddlePane extends GridPane{
         GambleStrategy selectedStrategy= this.gameModel.getGambleStrategy();
         
         if(selectedStrategy != null){
-            description.setText(selectedStrategy.getDescription());
+            description.setText("Description: "+ selectedStrategy.getDescription());
         }else{
-            description.setText("Select a strategy");
+            description.setText("Description: ");
         }
         this.description = description;
 
+
         this.add(description,0,1,3,1);
         
+        Label selectLabel = new Label();
+        selectLabel.setText("Selected: ");
+        this.add(selectLabel,1,0,1,1);
 
         this.add(comboBoxGambleStrategies,2,0);
 
@@ -100,7 +104,7 @@ public class GamblerViewMiddlePane extends GridPane{
 
     public void update() {
         if(this.gameModel.getGambleStrategy() != null){
-            this.description.setText(this.gameModel.getGambleStrategy().getDescription());
+            this.description.setText("Description: "+this.gameModel.getGambleStrategy().getDescription());
         }
 
 

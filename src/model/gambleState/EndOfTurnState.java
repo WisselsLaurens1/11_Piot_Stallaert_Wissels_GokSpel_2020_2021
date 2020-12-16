@@ -33,9 +33,12 @@ public class EndOfTurnState extends State {
     public void endTurn() {
         ArrayList<Integer> diceTrhows = getModel().getDiceThrows();
         Boolean didWin = getModel().getGambleStrategy().didWin(diceTrhows);
+        getModel().resetDiceThrows();
         if(didWin){
-            getModel().setTerminalOutput("Player has won");
-            getModel().getCurrentPlayer().setGamblingSaldo(Double.toString(getModel().getCurrentPlayer().getGamblingSaldo()+100));
+
+            int wonAmount = 100;
+            getModel().setTerminalOutput("Player has won: "+wonAmount);
+            getModel().getCurrentPlayer().setGamblingSaldo(Double.toString(getModel().getCurrentPlayer().getGamblingSaldo()+wonAmount));
         }
     }
 }

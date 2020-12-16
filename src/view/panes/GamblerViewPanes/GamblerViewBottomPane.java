@@ -75,11 +75,20 @@ public class GamblerViewBottomPane extends GridPane implements View {
 
     // TODO: 08/12/2020 should this logic be in controller?
     public void update() {
-        int diceEyes = this.gameModel.getDiceThrown();
-        if(diceEyes != -1){
-            int throwIndex = this.gameModel.getMaximumPlayerTruns()-this.gameModel.getPlayerTurnsLeft()-1;
-            this.diceThrows.get(throwIndex).setText("Dice throw: "+Integer.toString(diceEyes));
+        if(gameModel.getDiceThrows().size() == 0){
+            for(int i = 0; i<gameModel.getMaximumPlayerTruns();i++){
+                this.diceThrows.get(i).setText("Dice throw: ");
+
+            }
+        }else{
+            int diceEyes = this.gameModel.getDiceThrown();
+            if(diceEyes != -1){
+                int throwIndex = this.gameModel.getMaximumPlayerTruns()-this.gameModel.getPlayerTurnsLeft()-1;
+                this.diceThrows.get(throwIndex).setText("Dice throw: "+Integer.toString(diceEyes));
+            }
         }
+
+
 
     }
 

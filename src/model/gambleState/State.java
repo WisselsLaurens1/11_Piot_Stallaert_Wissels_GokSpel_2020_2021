@@ -17,6 +17,8 @@ private GameModel model;
     public abstract void endTurn();
     public void logout(){
         model.setCurrentPlayer(null);
+        getModel().resetDiceThrows();
+        getModel().setGambleStrategy(null);
         model.setCurrentstate(model.getLoginState());
     }
 }
