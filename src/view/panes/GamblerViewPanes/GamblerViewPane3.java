@@ -40,12 +40,14 @@ public class GamblerViewPane3 extends GridPane {
 
 
         this.getColumnConstraints().addAll(column1, column2,column3,column4); // each get 50% of width
-
+        this.setGridLinesVisible(true);
         RowConstraints row1 = new RowConstraints();
         row1.setPercentHeight(100/3);
         RowConstraints row2 = new RowConstraints();
         row2.setPercentHeight(100/3);
-        this.getRowConstraints().addAll(row1,row2);
+        RowConstraints row3 = new RowConstraints();
+        row3.setPercentHeight(100/3);
+        this.getRowConstraints().addAll(row1,row2,row3);
 
         Label label1 = new Label("Enter bet amount");
         Button confirmButton = new Button("Confirm");

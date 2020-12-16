@@ -36,7 +36,7 @@ public class ChangeBettingAmountState extends State{
     }
 
     @Override
-    public void eind() {
+    public void endTurn() {
         throw new IllegalStateException("je moet eerst 4 dice throws doen");
     }
 }

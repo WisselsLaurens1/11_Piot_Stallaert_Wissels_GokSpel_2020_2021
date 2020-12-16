@@ -35,7 +35,7 @@ public class ChoseStrategyState extends State{
     }
 
     @Override
-    public void eind() {
+    public void endTurn() {
         throw new IllegalStateException("je moet een strategie kiezen");
     }
 }

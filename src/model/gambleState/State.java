@@ -14,7 +14,7 @@ private GameModel model;
     public abstract void choseStrategy();
     public abstract void throwdice();
     public abstract void changeBettingAmount();
-    public abstract void eind();
+    public abstract void endTurn();
     public void logout(){
         model.setCurrentPlayer(null);
         model.setCurrentstate(model.getLoginState());

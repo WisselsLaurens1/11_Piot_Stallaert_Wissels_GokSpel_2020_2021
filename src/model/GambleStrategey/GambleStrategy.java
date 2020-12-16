@@ -1,6 +1,8 @@
 package model.GambleStrategey;
 
 
+import java.util.ArrayList;
+
 /*abstract class for strategy*/
  public abstract class GambleStrategy extends GamblerStrategyStatistic {
 
@@ -29,7 +31,7 @@ package model.GambleStrategey;
         returns false otherwise.
      *
      * */
-     public abstract boolean didWin(int diceEyes);
+     public abstract boolean didWin(ArrayList<Integer> diceTrhows);
 
 
  }

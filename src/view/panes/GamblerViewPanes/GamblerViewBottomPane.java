@@ -35,6 +35,7 @@ public class GamblerViewBottomPane extends GridPane implements View {
         column1.setPercentWidth(50);
         ColumnConstraints column2 = new ColumnConstraints();
         column2.setPercentWidth(50);
+        this.setGridLinesVisible(true);
 
         this.getColumnConstraints().addAll(column1, column2); // each get 50% of width
 /*
@@ -50,13 +51,13 @@ public class GamblerViewBottomPane extends GridPane implements View {
         }
 
         Button throwDice = new Button("Throw Dice");
-        this.add(throwDice,0,0);
+        this.add(throwDice,0,1);
 
         ArrayList<Label> diceThrows = new ArrayList<>();
         for (int i = 1; i<this.gameModel.getMaximumPlayerTruns()+1; i++){
             diceThrows.add(new Label("Dice throw: "));
             System.out.println(i);
-            this.add(diceThrows.get(i-1),0,i+1);
+            this.add(diceThrows.get(i-1),1,i+1);
         }
         this.diceThrows = diceThrows;
 

@@ -54,7 +54,7 @@ public class GamblerViewMiddlePane extends GridPane{
         RowConstraints row2 = new RowConstraints();
         row2.setPercentHeight(100/2);
         RowConstraints row3 = new RowConstraints();
-        row2.setPercentHeight(100/3);
+        row2.setPercentHeight(100/2);
         this.getRowConstraints().addAll(row1,row2,row3);
         this.setHgap(10); //horizontal gap in pixels => that's what you are asking for
         this.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid

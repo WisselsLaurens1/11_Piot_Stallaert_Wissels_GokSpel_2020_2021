@@ -43,7 +43,7 @@ public class LoginState extends State{
     }
 
     @Override
-    public void eind() {
+    public void endTurn() {
         getModel().setTerminalOutput("You have to login first");
         throw new IllegalStateException("You have to login");
 

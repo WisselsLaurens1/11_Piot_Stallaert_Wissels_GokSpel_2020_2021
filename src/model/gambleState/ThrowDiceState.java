@@ -23,6 +23,30 @@ public class ThrowDiceState extends State{
         if(getModel().getCurrentstate() instanceof ChoseStrategyState)throw new IllegalStateException();
         if(getModel().getCurrentstate() instanceof ChangeBettingAmountState)throw new IllegalStateException();
 
+        System.out.println(getModel().getPlayerTurnsLeft());
+
+        /* check if player has a turn left */
+        if(getModel().getPlayerTurnsLeft()-1 >= 0){
+            /*getModel().getCurrentstate().throwdice();*/
+            /*thow the dice*/
+            int diceEyes =  getModel().get_random_number(1,6);
+
+            getModel().setPlayerTurnsLeft(getModel().getPlayerTurnsLeft()-1);
+/*            if (getModel().getPlayerTurnsLeft() == 2) {
+                getModel().setCurrentstate(getModel().getChangeBettingAmountState());
+            }*/
+
+            getModel().setDiceThrown(diceEyes);
+            getModel().getDiceThrows().add(getModel().getDiceThrown());
+            getModel().updateObservers();
+        }
+        if(getModel().getPlayerTurnsLeft() == 0) {
+            System.out.println("end tuuuurn");
+            /*if all dice are thrown, end game*/
+            getModel().setCurrentstate(getModel().getEndOfTurnState());
+            getModel().getCurrentstate().endTurn();
+        }
+
     }
 
     @Override
@@ -31,7 +55,7 @@ public class ThrowDiceState extends State{
     }
 
     @Override
-    public void eind() {
+    public void endTurn() {
         if(getModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
         if(getModel().getCurrentstate() instanceof ChoseStrategyState)throw new IllegalStateException();
         if(getModel().getCurrentstate() instanceof ChangeBettingAmountState)throw new IllegalStateException();

@@ -1,5 +1,7 @@
 package model.GambleStrategey;
 
+import java.util.ArrayList;
+
 public class SumIs21Strategy extends GambleStrategy {
 
     public static final String description = "The sum of all dice throws is equal to 21";
@@ -9,7 +11,7 @@ public class SumIs21Strategy extends GambleStrategy {
     }
 
     @Override
-    public boolean didWin(int diceEyes) {
+    public boolean didWin(ArrayList<Integer> diceTrhows) {
         return false;
     }
 }

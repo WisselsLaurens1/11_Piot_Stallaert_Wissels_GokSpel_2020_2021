@@ -15,6 +15,17 @@ public class GameModel implements Observable {
     private State currentstate;
     private ThrowDiceState throwDiceState;
     private ChoseStrategyState choseStrategyState;
+    private EndOfTurnState endOfTurnState;
+
+
+
+    public EndOfTurnState getEndOfTurnState() {
+        return endOfTurnState;
+    }
+
+    public void setEndOfTurnState(EndOfTurnState endOfTurnState) {
+        this.endOfTurnState = endOfTurnState;
+    }
 
 
 
@@ -196,6 +207,7 @@ public class GameModel implements Observable {
         this.choseStrategyState =new ChoseStrategyState(this);
         this.currentstate = new LoginState(this);
         this.loginState =new LoginState(this);
+        this.endOfTurnState = new EndOfTurnState(this);
         this.throwDiceState =new ThrowDiceState(this);
         this.database = database;
 
@@ -213,24 +225,19 @@ public class GameModel implements Observable {
     private int diceThrown = -1;
 
 
+    public ArrayList<Integer> getDiceThrows() {
+        return diceThrows;
+    }
+
+    public void setDiceThrows(ArrayList<Integer> diceThrows) {
+        this.diceThrows = diceThrows;
+    }
+
+    private ArrayList<Integer> diceThrows = new ArrayList<Integer>();
+
     public void throwDice(){
 
-        /* check if player has a turn left */
-        if(getPlayerTurnsLeft() >0){
-            this.currentstate.throwdice();
-            /*thow the dice*/
-            int diceEyes =  this.get_random_number(1,6);
-
-            setPlayerTurnsLeft(getPlayerTurnsLeft()-1);
-            if (getPlayerTurnsLeft() == 2) {
-                setCurrentstate(getChangeBettingAmountState());}
-
-           setDiceThrown(diceEyes);
-           updateObservers();
-        }
-        else {
-            this.currentstate.eind();
-        }
+        this.currentstate.throwdice();
 
     };
 
@@ -265,5 +272,9 @@ public class GameModel implements Observable {
     }
 
     public String terminalOutput = null;
+
+    public void endTurn(){
+        this.currentstate.endTurn();
+    }
 
 }

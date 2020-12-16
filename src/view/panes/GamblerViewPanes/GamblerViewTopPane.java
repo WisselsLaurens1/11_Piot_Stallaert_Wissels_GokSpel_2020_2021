@@ -59,9 +59,9 @@ public class GamblerViewTopPane extends GridPane {
 
         Button loginButton = new Button("Login");
         Button logOutButton = new Button("Logout");
-        TextField textField = new TextField ();
+        TextField loginField = new TextField ();
         this.add(playerName, 0,0);
-        this.add(textField, 1,0);
+        this.add(loginField, 1,0);
         this.add(loginButton, 2,0);
         this.add(logOutButton, 3,0);
         this.add(currentPlayer,0,1,2,1);
@@ -74,7 +74,8 @@ public class GamblerViewTopPane extends GridPane {
         this.setGridLinesVisible(true);
 */
         loginButton.setOnAction((e)->{
-            controller.login(textField.getText());
+            controller.login(loginField.getText());
+            loginField.clear();
         });
 
         logOutButton.setOnAction((e)->{
@@ -90,8 +91,14 @@ public class GamblerViewTopPane extends GridPane {
 
     public void update() {
         Gambler currentPlayer = gameModel.getCurrentPlayer();
-        this.currentPlayer.setText("Player: "+currentPlayer.getName());
-        this.saldo.setText("Saldo: "+currentPlayer.getGamblingSaldo());
+        if (currentPlayer != null){
+            this.currentPlayer.setText("Player: "+currentPlayer.getName());
+            this.saldo.setText("Saldo: "+currentPlayer.getGamblingSaldo());
+        }else{
+            this.currentPlayer.setText("Player: ");
+            this.saldo.setText("Saldo: ");
+        }
+
         System.out.println("update");
     }
 
