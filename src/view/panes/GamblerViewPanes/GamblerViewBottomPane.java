@@ -17,12 +17,12 @@ public class GamblerViewBottomPane extends GridPane implements View {
     private GameModel gameModel;
     private GamblerViewController controller;
     private ArrayList<Label> diceThrows;
+    private Label playerTurnsLeft;
 
     public GamblerViewBottomPane(GameModel gameModel, Controller gameblerViewController){
 
         this.gameModel = gameModel;
         this.controller = (GamblerViewController) gameblerViewController;
-
 
 
         // TODO: 06/12/2020  set minmium size
@@ -52,6 +52,10 @@ public class GamblerViewBottomPane extends GridPane implements View {
 
         Button throwDice = new Button("Throw Dice");
         this.add(throwDice,0,1);
+        Label playerTurnsLeft = new Label("Turns left: "+this.gameModel.getPlayerTurnsLeft());
+        this.playerTurnsLeft = playerTurnsLeft;
+        this.add(playerTurnsLeft,0,3);
+
 
         ArrayList<Label> diceThrows = new ArrayList<>();
         for (int i = 1; i<this.gameModel.getMaximumPlayerTruns()+1; i++){
@@ -73,22 +77,26 @@ public class GamblerViewBottomPane extends GridPane implements View {
     }
 
 
-    // TODO: 08/12/2020 should this logic be in controller?
     public void update() {
-        if(gameModel.getDiceThrows().size() == 0){
+/*        if(gameModel.getDiceThrows().size() == 0){
             for(int i = 0; i<gameModel.getMaximumPlayerTruns();i++){
                 this.diceThrows.get(i).setText("Dice throw: ");
-
             }
         }else{
             int diceEyes = this.gameModel.getDiceThrown();
             if(diceEyes != -1){
                 int throwIndex = this.gameModel.getMaximumPlayerTruns()-this.gameModel.getPlayerTurnsLeft()-1;
                 this.diceThrows.get(throwIndex).setText("Dice throw: "+Integer.toString(diceEyes));
+                this.playerTurnsLeft.setText("Turns left: "+gameModel.getPlayerTurnsLeft());
             }
+        }*/
+
+        int diceEyes = this.gameModel.getDiceThrown();
+        if(diceEyes != -1){
+            int throwIndex = this.gameModel.getMaximumPlayerTruns()-this.gameModel.getPlayerTurnsLeft()-1;
+            this.diceThrows.get(throwIndex).setText("Dice throw: "+Integer.toString(diceEyes));
+            this.playerTurnsLeft.setText("Turns left: "+gameModel.getPlayerTurnsLeft());
         }
-
-
 
     }
 

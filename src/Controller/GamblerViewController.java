@@ -36,7 +36,7 @@ public class GamblerViewController implements Controller {
     }
 
     public void setBettingAmount(int amount){
-        gameModel.setCurrentBettingAmount(amount);
+        gameModel.changeCurrentBettingAmount(amount);
     }
 
 

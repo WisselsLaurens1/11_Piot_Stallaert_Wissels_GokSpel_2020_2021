@@ -26,11 +26,10 @@ public class ThrowDiceState extends State{
         System.out.println(getModel().getPlayerTurnsLeft());
 
         /* check if player has a turn left */
-        if(getModel().getPlayerTurnsLeft()-1 >= 0){
+        if(getModel().getPlayerTurnsLeft() >= 0){
             /*getModel().getCurrentstate().throwdice();*/
             /*thow the dice*/
             int diceEyes =  getModel().get_random_number(1,6);
-
             getModel().setPlayerTurnsLeft(getModel().getPlayerTurnsLeft()-1);
 /*            if (getModel().getPlayerTurnsLeft() == 2) {
                 getModel().setCurrentstate(getModel().getChangeBettingAmountState());
@@ -38,7 +37,6 @@ public class ThrowDiceState extends State{
 
             getModel().setDiceThrown(diceEyes);
             getModel().getDiceThrows().add(getModel().getDiceThrown());
-            getModel().updateObservers();
         }
         if(getModel().getPlayerTurnsLeft() == 0) {
             System.out.println("end tuuuurn");
@@ -50,7 +48,7 @@ public class ThrowDiceState extends State{
     }
 
     @Override
-    public void changeBettingAmount() {
+    public void changeBettingAmount(int bettingAmount) {
         throw new IllegalStateException("je moet eerst 2 dice throws nodig");
     }
 

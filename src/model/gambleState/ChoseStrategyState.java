@@ -20,22 +20,23 @@ public class ChoseStrategyState extends State{
         if(getModel().getCurrentstate() instanceof Changeinzet)throw new IllegalStateException();
 */
         if(getModel().getCurrentstate() instanceof ChoseStrategyState){
-            getModel().setCurrentstate(getModel().getThrowDiceState());
+            getModel().setCurrentstate(getModel().getChangeBettingAmountState());
         }
     }
 
     @Override
     public void throwdice() {
-        throw new IllegalStateException("je moet eerst een strategie kiezen");
+        getModel().setTerminalOutput("You have to chose a strategy first");
+        throw new IllegalStateException("You have to chose a strategy first");
     }
 
     @Override
-    public void changeBettingAmount() {
-        throw new IllegalStateException("je moet een strategie kiezen");
-    }
+    public void changeBettingAmount(int bettingAmount) {
+        getModel().setTerminalOutput("You have to chose a strategy first");
+        throw new IllegalStateException("You have to chose a strategy first");    }
 
     @Override
     public void endTurn() {
-        throw new IllegalStateException("je moet een strategie kiezen");
-    }
+        getModel().setTerminalOutput("You have to chose a strategy first");
+        throw new IllegalStateException("You have to chose a strategy first");    }
 }

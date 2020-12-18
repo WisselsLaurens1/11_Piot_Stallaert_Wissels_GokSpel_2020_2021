@@ -36,7 +36,7 @@ public class LoginState extends State{
     }
 
     @Override
-    public void changeBettingAmount() {
+    public void changeBettingAmount(int bettingAmount) {
         getModel().setTerminalOutput("You have to login first");
         throw new IllegalStateException("You have to login");
 

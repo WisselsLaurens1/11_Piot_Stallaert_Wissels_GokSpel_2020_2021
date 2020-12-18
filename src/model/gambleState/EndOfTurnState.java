@@ -25,7 +25,7 @@ public class EndOfTurnState extends State {
     }
 
     @Override
-    public void changeBettingAmount() {
+    public void changeBettingAmount(int bettingAmount) {
 
     }
 
@@ -35,10 +35,13 @@ public class EndOfTurnState extends State {
         Boolean didWin = getModel().getGambleStrategy().didWin(diceTrhows);
         getModel().resetDiceThrows();
         if(didWin){
-
             int wonAmount = 100;
-            getModel().setTerminalOutput("Player has won: "+wonAmount);
+            getModel().setTerminalOutput("You won: "+wonAmount);
             getModel().getCurrentPlayer().setGamblingSaldo(Double.toString(getModel().getCurrentPlayer().getGamblingSaldo()+wonAmount));
+        }else{
+            getModel().setTerminalOutput("You lost!");
         }
+
+        getModel().resetDiceThrows();
     }
 }

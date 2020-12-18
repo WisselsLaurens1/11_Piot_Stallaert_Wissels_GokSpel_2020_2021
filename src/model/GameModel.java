@@ -141,6 +141,7 @@ public class GameModel implements Observable {
 
     public void setPlayerTurnsLeft(int playerTurnsLeft) {
         this.playerTurnsLeft = playerTurnsLeft;
+        updateObservers();
     }
 
     private int playerTurnsLeft = maximumPlayerTruns;
@@ -220,6 +221,7 @@ public class GameModel implements Observable {
 
     public void setDiceThrown(int diceThrown) {
         this.diceThrown = diceThrown;
+        updateObservers();
     }
 
     private int diceThrown = -1;
@@ -260,6 +262,11 @@ public class GameModel implements Observable {
     }
 
     private int currentBettingAmount;
+
+
+    public void changeCurrentBettingAmount(int bettingAmount){
+        this.currentstate.changeBettingAmount(bettingAmount);
+    }
 
 
     public String getTerminalOutput() {

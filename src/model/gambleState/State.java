@@ -13,7 +13,7 @@ private GameModel model;
     public abstract void login(String name);
     public abstract void choseStrategy();
     public abstract void throwdice();
-    public abstract void changeBettingAmount();
+    public abstract void changeBettingAmount(int bettingAmount);
     public abstract void endTurn();
     public void logout(){
         model.setCurrentPlayer(null);
