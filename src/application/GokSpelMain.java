@@ -21,8 +21,8 @@ public class GokSpelMain extends Application {
 		DatabaseModel database = new DatabaseModel();
 
 		GameModel gameModel = new GameModel(database);
-		AdminView adminView = new AdminView(database);
 		Controller gamblerViewController = new GamblerViewController(gameModel);
+		AdminView adminView = new AdminView(database,gamblerViewController,gameModel);
 		View gamblerView = new GamblerView(gamblerViewController,gameModel);
 		gamblerViewController.setView(gamblerView);
 

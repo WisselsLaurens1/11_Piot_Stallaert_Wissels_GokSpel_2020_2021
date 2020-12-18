@@ -45,4 +45,13 @@
     -fx-min-width: 600px;
 }
 
+#GameProgressTabPane{
+    -fx-background-color: #a8bac6;
+
+}
+
+#containerPane{
+    -fx-background-color: #ffffff;
+}
+
 

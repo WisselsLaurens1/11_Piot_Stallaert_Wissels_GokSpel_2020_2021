@@ -60,13 +60,16 @@ public class GamblerViewContainerPane extends GridPane {
         gamblerViewPane3.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
         gamblerPane5.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
 
+/*
+        OutputPane test = new OutputPane(model, controller,4,4);
+*/
 
 
         this.add(gamblerViewTopPane, 0, 0,1,1);
         this.add(gamblerViewMiddlePane,0,1,1,1);
         this.add(gamblerPane3,0,2,1,1);
         this.add(gamblerViewBottomPane,0,3,1,1);
-        this.add(gamblerPane5,0,4,1,1);
+        this.add(gamblerPane5,0,4);
 
         this.getStylesheets().add("stylesheets/GamblerViewStylesheet.css");
 

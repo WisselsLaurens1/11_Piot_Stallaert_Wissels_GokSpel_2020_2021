@@ -17,8 +17,6 @@ public class GameModel implements Observable {
     private ChoseStrategyState choseStrategyState;
     private EndOfTurnState endOfTurnState;
 
-
-
     public EndOfTurnState getEndOfTurnState() {
         return endOfTurnState;
     }
@@ -26,8 +24,6 @@ public class GameModel implements Observable {
     public void setEndOfTurnState(EndOfTurnState endOfTurnState) {
         this.endOfTurnState = endOfTurnState;
     }
-
-
 
     public ChangeBettingAmountState getChangeBettingAmountState() {
         return changeBettingAmountState;
@@ -211,10 +207,7 @@ public class GameModel implements Observable {
         this.endOfTurnState = new EndOfTurnState(this);
         this.throwDiceState =new ThrowDiceState(this);
         this.database = database;
-
-
     }
-
     public int getDiceThrown() {
         return diceThrown;
     }
