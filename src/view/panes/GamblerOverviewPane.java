@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import model.PropertiesHandler;
 import model.database.DatabaseModel;
 import model.database.GamblerFactory;
 import model.database.GamblerDbContext;
@@ -26,6 +27,7 @@ public class GamblerOverviewPane extends GridPane{
 	private GamblerDbContext gamblerDbContext;
 	private TableView<Gambler> table;
 	private ObservableList<Gambler> gamblers;
+	private PropertiesHandler handler =new PropertiesHandler();
 
 	private DatabaseModel database;
 
@@ -57,6 +59,10 @@ public class GamblerOverviewPane extends GridPane{
 		table.getColumns().addAll(colGamblerName, colAchternaam, colVoornaam, colSaldo);
 
 		this.add(table,0,1);
+		if(handler.getLoadSaveType() != null){
+			bestandenComboBox.setValue(handler.getLoadSaveType().toString());
+		}
+
 	}
 
 	class ClickComboBoxLineHandler implements ChangeListener<String> {
