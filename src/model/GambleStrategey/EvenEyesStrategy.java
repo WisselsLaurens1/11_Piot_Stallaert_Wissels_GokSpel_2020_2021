@@ -7,7 +7,7 @@ public class EvenEyesStrategy extends GambleStrategy {
     public static final String description = "The amount of eyes of each dice throw is even";
 
     public EvenEyesStrategy(String name) {
-        super(name,description);
+        super(name,description,4);
     }
 
     @Override

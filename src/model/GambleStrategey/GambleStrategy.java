@@ -22,9 +22,12 @@ import java.util.ArrayList;
 
     private String name;
 
-    public GambleStrategy(String name,String description){
+    public int winMultiplier;
+
+    public GambleStrategy(String name,String description,int winMultiplier){
         this.name = name;
         this.description = description;
+        this.winMultiplier = winMultiplier;
     }
 
      /*returns true if the thrown dice meets the required winning conditions.

@@ -36,12 +36,15 @@ public class EndOfTurnState extends State {
         Boolean didWin = getGameModel().getGambleStrategy().didWin(diceTrhows);
 
         if(didWin){
-            int wonAmount = 100;
+            int wonAmount = gameModel.getCurrentBettingAmount()*gameModel.getGambleStrategy().winMultiplier;
             getGameModel().setTerminalOutput("You won: "+wonAmount);
             getGameModel().getCurrentPlayer().setGamblingSaldo(Double.toString(getGameModel().getCurrentPlayer().getGamblingSaldo()+wonAmount));
         }else{
             getGameModel().setTerminalOutput("You lost!");
         }
+
+        gameModel.setCurrentstate(gameModel.getChoseStrategyState());
+
 
     }
 

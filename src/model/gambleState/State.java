@@ -29,7 +29,7 @@ protected GameModel gameModel;
         this.gameModel.setGambleStrategy(null);
         this.gameModel.setCurrentBettingAmount(0);
         this.gameModel.setTerminalOutput(" ");
-        this.gameModel.setPlayerTurnsLeft(this.gameModel.getMaximumPlayerTruns());
+        this.gameModel.setPlayerTurnsLeft(gameModel.getMaximumPlayerTruns());
         gameModel.setGameCount(gameModel.getGameCount()+1);
     }
 

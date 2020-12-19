@@ -25,6 +25,11 @@ public class ThrowDiceState extends State{
 
         System.out.println(getGameModel().getPlayerTurnsLeft());
 
+        /* subtract betted amount from player saldo*/
+        if(gameModel.getPlayerTurnsLeft() == gameModel.getMaximumPlayerTruns()){
+            gameModel.getCurrentPlayer().setGamblingSaldo(Double.toString(gameModel.getCurrentPlayer().getGamblingSaldo()-gameModel.getCurrentBettingAmount()));
+        }
+
         /* check if player has a turn left */
         if(getGameModel().getPlayerTurnsLeft() > 0){
             /*thow the dice*/

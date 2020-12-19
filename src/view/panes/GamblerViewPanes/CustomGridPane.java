@@ -8,7 +8,7 @@ import javafx.scene.layout.RowConstraints;
 import model.GameModel;
 import model.Observer;
 
-public abstract class customGridPane extends GridPane implements Observer {
+public abstract class CustomGridPane extends GridPane implements Observer {
 
     public GameModel getGameModel() {
         return gameModel;
@@ -23,7 +23,7 @@ public abstract class customGridPane extends GridPane implements Observer {
     public GridPane containerPane;
 
 
-    public customGridPane(GameModel gameModel, Controller viewController,int rows,int columns){
+    public CustomGridPane(GameModel gameModel, Controller viewController, int rows, int columns){
         this.gameModel = gameModel;
         this.viewController = viewController;
         GridPane containerPane = new GridPane();
@@ -40,13 +40,14 @@ public abstract class customGridPane extends GridPane implements Observer {
         this.add(containerPane,0,0);
         containerPane.setId("containerPane");
         containerPane.setGridLinesVisible(true);
+        this.containerPane.setStyle("-fx-font-size: 1.2em");
 
         this.setStyle("-fx-background-color: #136399");
 
         /*adding collumns*/
         for(int i=0; i<columns; i++){
             ColumnConstraints column = new ColumnConstraints();
-            column.setPercentWidth(100/columns);
+            column.setPrefWidth(500/columns);
             containerPane.getColumnConstraints().add(column);
         }
         /*adding rows*/
@@ -58,7 +59,7 @@ public abstract class customGridPane extends GridPane implements Observer {
 
         this.setMargin(containerPane, new Insets(10, 10, 10, 10));
 
-
+        containerPane.setHgap(10);
 
 
     }

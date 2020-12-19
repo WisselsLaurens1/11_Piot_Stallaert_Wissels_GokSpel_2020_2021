@@ -5,14 +5,9 @@ import Controller.SettingsController;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import model.GameModel;
 import model.database.DatabaseModel;
-import model.database.GamblerEnum;
-import view.View;
-import view.panes.GamblerViewPanes.GamblerViewPane3;
 import view.panes.GamblerViewPanes.SettingsViewPane;
-import view.panes.GamblerViewPanes.customGridPane;
 import Controller.GameProgressTabController;
 
 import java.io.FileNotFoundException;

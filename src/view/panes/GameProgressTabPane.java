@@ -2,21 +2,14 @@ package view.panes;
 
 import Controller.Controller;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import model.GambleStrategey.GambleStrategy;
-import model.Gambler;
 import model.GameModel;
 import view.panes.GamblerViewPanes.CustomLabel;
-import view.panes.GamblerViewPanes.customGridPane;
+import view.panes.GamblerViewPanes.CustomGridPane;
 import Controller.GameProgressTabController;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-
-public class GameProgressTabPane extends customGridPane {
+public class GameProgressTabPane extends CustomGridPane {
 
     CustomLabel gameCount;
     CustomLabel currentPlayer;

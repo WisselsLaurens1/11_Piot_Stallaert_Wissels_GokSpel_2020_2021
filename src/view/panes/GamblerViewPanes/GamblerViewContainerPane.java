@@ -10,10 +10,10 @@ public class GamblerViewContainerPane extends GridPane {
 
     private GameModel model;
     private Controller controller;
-    private GamblerViewMiddlePane gamblerViewMiddlePane;
-    private GamblerViewTopPane gamblerViewTopPane;
-    private GamblerViewBottomPane gamblerViewBottomPane;
-    private GamblerViewPane3 gamblerViewPane3;
+    private GamblerViewSelectStrategyPane gamblerViewSelectStrategyPane;
+    private GamblerViewLoginPane gamblerViewLoginPane;
+    private GamblerViewThrowDicePane gamblerViewThrowDicePane;
+    private GamblerViewEnterBettingAmountPane3 gamblerViewEnterBettingAmountPane3;
     private GamblerViewPane5 gamblerViewPane5;
 
     public GamblerViewContainerPane(GameModel model, Controller gamblerViewController){
@@ -42,22 +42,22 @@ public class GamblerViewContainerPane extends GridPane {
 
 
 
-        GamblerViewTopPane gamblerViewTopPane = new GamblerViewTopPane(model,this.controller);
-        GamblerViewMiddlePane gamblerViewMiddlePane = new GamblerViewMiddlePane(model,this.controller);
-        GamblerViewBottomPane gamblerViewBottomPane = new GamblerViewBottomPane(model,this.controller);
-        GamblerViewPane3 gamblerPane3 = new GamblerViewPane3(model,this.controller);
+        GamblerViewLoginPane gamblerViewLoginPane = new GamblerViewLoginPane(model,this.controller);
+        GamblerViewSelectStrategyPane gamblerViewSelectStrategyPane = new GamblerViewSelectStrategyPane(model,this.controller);
+        GamblerViewThrowDicePane gamblerViewThrowDicePane = new GamblerViewThrowDicePane(model,this.controller);
+        GamblerViewEnterBettingAmountPane3 gamblerPane3 = new GamblerViewEnterBettingAmountPane3(model,this.controller);
         GamblerViewPane5 gamblerPane5 = new GamblerViewPane5(model,this.controller);
 
-        this.gamblerViewMiddlePane = gamblerViewMiddlePane;
-        this.gamblerViewTopPane = gamblerViewTopPane;
-        this.gamblerViewBottomPane = gamblerViewBottomPane;
-        this.gamblerViewPane3 = gamblerPane3;
+        this.gamblerViewSelectStrategyPane = gamblerViewSelectStrategyPane;
+        this.gamblerViewLoginPane = gamblerViewLoginPane;
+        this.gamblerViewThrowDicePane = gamblerViewThrowDicePane;
+        this.gamblerViewEnterBettingAmountPane3 = gamblerPane3;
         this.gamblerViewPane5  = gamblerPane5;
 
-        gamblerViewMiddlePane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
-        gamblerViewTopPane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
-        gamblerViewBottomPane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
-        gamblerViewPane3.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
+        gamblerViewSelectStrategyPane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
+        gamblerViewLoginPane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
+        gamblerViewThrowDicePane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
+        gamblerViewEnterBettingAmountPane3.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
         gamblerPane5.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
 
 /*
@@ -65,10 +65,10 @@ public class GamblerViewContainerPane extends GridPane {
 */
 
 
-        this.add(gamblerViewTopPane, 0, 0,1,1);
-        this.add(gamblerViewMiddlePane,0,1,1,1);
+        this.add(gamblerViewLoginPane, 0, 0,1,1);
+        this.add(gamblerViewSelectStrategyPane,0,1,1,1);
         this.add(gamblerPane3,0,2,1,1);
-        this.add(gamblerViewBottomPane,0,3,1,1);
+        this.add(gamblerViewThrowDicePane,0,3,1,1);
         this.add(gamblerPane5,0,4);
 
         this.getStylesheets().add("stylesheets/GamblerViewStylesheet.css");
@@ -78,10 +78,10 @@ public class GamblerViewContainerPane extends GridPane {
 
     public void update() {
         System.out.println("updating");
-        gamblerViewTopPane.update();
-        gamblerViewMiddlePane.update();
-        gamblerViewBottomPane.update();
-        gamblerViewPane3.update();
+        gamblerViewLoginPane.update();
+        gamblerViewSelectStrategyPane.update();
+        gamblerViewThrowDicePane.update();
+        gamblerViewEnterBettingAmountPane3.update();
         gamblerViewPane5.update();
 
     }

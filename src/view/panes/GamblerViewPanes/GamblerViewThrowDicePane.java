@@ -12,20 +12,20 @@ import view.View;
 import java.util.ArrayList;
 
 
-public class GamblerViewBottomPane extends GridPane implements View {
+public class GamblerViewThrowDicePane extends CustomGridPane {
 
     private GameModel gameModel;
     private GamblerViewController controller;
     private ArrayList<Label> diceThrows;
     private Label playerTurnsLeft;
 
-    public GamblerViewBottomPane(GameModel gameModel, Controller gameblerViewController){
+    public GamblerViewThrowDicePane(GameModel gameModel, Controller gameblerViewController){
+        super(gameModel,gameblerViewController,6,8);
+        GamblerViewController myController = (GamblerViewController) gameblerViewController;
 
-        this.gameModel = gameModel;
+/*        this.gameModel = gameModel;
         this.controller = (GamblerViewController) gameblerViewController;
 
-
-        // TODO: 06/12/2020  set minmium size
 
         this.setId("bottomView");
         this.getStylesheets().add("stylesheets/GamblerViewStylesheet.css");
@@ -38,9 +38,9 @@ public class GamblerViewBottomPane extends GridPane implements View {
         this.setGridLinesVisible(true);
 
         this.getColumnConstraints().addAll(column1, column2); // each get 50% of width
-/*
+*//*
         this.setGridLinesVisible(true);
-*/
+*//*
         this.setHgap(20); //horizontal gap in pixels => that's what you are asking for
         this.setPadding(new Insets(20, 10, 10, 10)); //margins around the whole grid
 
@@ -68,10 +68,10 @@ public class GamblerViewBottomPane extends GridPane implements View {
 
 
 
-                /*action for throwing button*/
+                *//*action for throwing button*//*
         throwDice.setOnAction((e) -> {
             this.controller.throwDice();
-        });
+        });*/
 
 
     }

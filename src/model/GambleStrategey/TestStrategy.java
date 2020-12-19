@@ -7,12 +7,10 @@ public class TestStrategy extends GambleStrategy {
     public static final String description = "Test Strat";
 
     public TestStrategy(String name) {
-        super(name,description);
+        super(name,description,10);
     }
 
-    public TestStrategy(String name, String description) {
-        super(name, description);
-    }
+
 
     @Override
     public boolean didWin(ArrayList<Integer> diceTrhows) {
