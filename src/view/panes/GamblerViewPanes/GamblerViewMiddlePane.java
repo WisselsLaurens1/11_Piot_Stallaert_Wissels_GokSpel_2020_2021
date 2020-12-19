@@ -6,8 +6,10 @@ import javafx.geometry.Insets;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import model.GambleStrategey.GambleStrategies;
 import model.GambleStrategey.GambleStrategy;
 import model.GameModel;
+import model.PropertiesHandler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +21,7 @@ public class GamblerViewMiddlePane extends GridPane{
     private GameModel gameModel;
     private GamblerViewController controller;
     private Label description;
+    private PropertiesHandler handler =new PropertiesHandler();
 
     public GamblerViewMiddlePane(GameModel gameModel, Controller gameblerViewController){
 
@@ -62,11 +65,21 @@ public class GamblerViewMiddlePane extends GridPane{
 
         HashMap<String,GambleStrategy> gambleStrategies = this.gameModel.getGambleStrategyHashMap();
         ArrayList<String> strategyNames = new ArrayList<>();
+        ArrayList<GambleStrategies> strats = handler.getGambleStrategyTypes();
 
         for(String gs: gambleStrategies.keySet()){
 /*            String[] strategyString = gs.getClass().toString().split(Pattern.quote("."));
             String strategyName = strategyString[strategyString.length-1];*/
-            strategyNames.add(gs);
+            if(handler.getGambleStrategyTypes().size() != 0){
+                if(strats.contains(GambleStrategies.valueOf(gs))){
+                    strategyNames.add(gs);
+                }
+            }else{
+                strategyNames.add(gs);
+            }
+
+
+
         }
 
         ComboBox<String> comboBoxGambleStrategies = new ComboBox();

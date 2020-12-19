@@ -1,12 +1,17 @@
 package view.panes;
 
 import Controller.Controller;
+import Controller.SettingsController;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import model.GameModel;
 import model.database.DatabaseModel;
+import model.database.GamblerEnum;
+import view.View;
 import view.panes.GamblerViewPanes.GamblerViewPane3;
+import view.panes.GamblerViewPanes.SettingsViewPane;
 import view.panes.GamblerViewPanes.customGridPane;
 
 import java.io.FileNotFoundException;
@@ -28,7 +33,11 @@ public class AdminMainPane extends BorderPane {
         GamblerOverviewPane gamblerOverviewPane = new GamblerOverviewPane(database);
         Tab spelerTab = new Tab("Spelers",gamblerOverviewPane);
 
-        Tab instellingTab = new Tab("Instellingen");
+        SettingsViewPane settingsPane = new SettingsViewPane();
+        SettingsController settingsController = new SettingsController();
+        settingsController.setView( settingsPane);
+
+        Tab instellingTab = new Tab("Instellingen",settingsPane);
         Tab statistiekTab = new Tab("Statistieken");
         tabPane.getTabs().add(GameProgressTabPane);
         tabPane.getTabs().add(spelerTab);
