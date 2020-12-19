@@ -14,29 +14,32 @@ public class ChoseStrategyState extends State{
 
     @Override
     public void choseStrategy() {
-        if(getModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
-        if(getModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
+        if(getGameModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
+        if(getGameModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
 /*
         if(getModel().getCurrentstate() instanceof Changeinzet)throw new IllegalStateException();
 */
-        if(getModel().getCurrentstate() instanceof ChoseStrategyState){
-            getModel().setCurrentstate(getModel().getChangeBettingAmountState());
+        if(getGameModel().getCurrentstate() instanceof ChoseStrategyState){
+            getGameModel().setCurrentstate(getGameModel().getChangeBettingAmountState());
         }
     }
 
     @Override
     public void throwdice() {
-        getModel().setTerminalOutput("You have to chose a strategy first");
+        getGameModel().setTerminalOutput("You have to chose a strategy first");
         throw new IllegalStateException("You have to chose a strategy first");
     }
 
     @Override
     public void changeBettingAmount(int bettingAmount) {
-        getModel().setTerminalOutput("You have to chose a strategy first");
+        getGameModel().setTerminalOutput("You have to chose a strategy first");
         throw new IllegalStateException("You have to chose a strategy first");    }
 
     @Override
     public void endTurn() {
-        getModel().setTerminalOutput("You have to chose a strategy first");
+        getGameModel().setTerminalOutput("You have to chose a strategy first");
         throw new IllegalStateException("You have to chose a strategy first");    }
+
 }
+
+

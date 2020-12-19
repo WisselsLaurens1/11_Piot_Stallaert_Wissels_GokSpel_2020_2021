@@ -6,8 +6,9 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import model.GameModel;
+import model.Observer;
 
-public abstract class customGridPane extends GridPane {
+public abstract class customGridPane extends GridPane implements Observer {
 
     public GameModel getGameModel() {
         return gameModel;

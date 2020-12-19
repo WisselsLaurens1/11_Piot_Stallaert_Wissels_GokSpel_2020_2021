@@ -78,7 +78,7 @@ public class GamblerViewBottomPane extends GridPane implements View {
 
 
     public void update() {
-/*        if(gameModel.getDiceThrows().size() == 0){
+        if(gameModel.getDiceThrows().size() == 0){
             for(int i = 0; i<gameModel.getMaximumPlayerTruns();i++){
                 this.diceThrows.get(i).setText("Dice throw: ");
             }
@@ -89,14 +89,14 @@ public class GamblerViewBottomPane extends GridPane implements View {
                 this.diceThrows.get(throwIndex).setText("Dice throw: "+Integer.toString(diceEyes));
                 this.playerTurnsLeft.setText("Turns left: "+gameModel.getPlayerTurnsLeft());
             }
-        }*/
+        }
 
-        int diceEyes = this.gameModel.getDiceThrown();
+/*        int diceEyes = this.gameModel.getDiceThrown();
         if(diceEyes != -1){
             int throwIndex = this.gameModel.getMaximumPlayerTruns()-this.gameModel.getPlayerTurnsLeft()-1;
             this.diceThrows.get(throwIndex).setText("Dice throw: "+Integer.toString(diceEyes));
             this.playerTurnsLeft.setText("Turns left: "+gameModel.getPlayerTurnsLeft());
-        }
+        }*/
 
     }
 

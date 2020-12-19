@@ -2,13 +2,11 @@ package Controller;
 import model.GameModel;
 import view.View;
 
-public class GamblerViewController implements Controller {
+public class GamblerViewController extends Controller {
 
-    private View view;
-    private GameModel gameModel;
 
     public GamblerViewController(GameModel gameModel){
-        this.gameModel = gameModel;
+        super(gameModel);
     }
 
 

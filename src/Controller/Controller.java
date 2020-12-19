@@ -4,10 +4,17 @@ import model.GameModel;
 import model.Observer;
 import view.View;
 
-public interface Controller extends Observer {
-     public GameModel gameModel = null;
-     public View view = null;
+public abstract class Controller implements Observer {
+     public GameModel gameModel;
+     public View view;
 
-     public void setView(View view);
+     public Controller(GameModel gameModel){
+          this.gameModel = gameModel;
+     }
+
+
+     public void setView(View view){
+          this.view = view;
+     };
 
 }

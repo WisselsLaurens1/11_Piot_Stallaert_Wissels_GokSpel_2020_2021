@@ -14,39 +14,39 @@ public class ChangeBettingAmountState extends State{
 
     @Override
     public void choseStrategy() {
-        if(getModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
-        if(getModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
+        if(getGameModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
+        if(getGameModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
 /*
         if(getModel().getCurrentstate() instanceof Changeinzet)throw new IllegalStateException();
 */
-        if(getModel().getCurrentstate() instanceof ChoseStrategyState){
-            getModel().setCurrentstate(getModel().getThrowDiceState());
+        if(getGameModel().getCurrentstate() instanceof ChoseStrategyState){
+            getGameModel().setCurrentstate(getGameModel().getThrowDiceState());
         }    }
 
     @Override
     public void throwdice() {
-        if(getModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
-        if(getModel().getCurrentstate() instanceof ChoseStrategyState)throw new IllegalStateException();
-        if(getModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
-        getModel().setTerminalOutput("Enter betting amount first");
+        if(getGameModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
+        if(getGameModel().getCurrentstate() instanceof ChoseStrategyState)throw new IllegalStateException();
+        if(getGameModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
+        getGameModel().setTerminalOutput("Enter betting amount first");
         throw new IllegalStateException("Enter betting amount first");
 
     }
 
     @Override
     public void changeBettingAmount(int bettingAmount) {
-        if(getModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
-        if(getModel().getCurrentstate() instanceof ChoseStrategyState)throw new IllegalStateException();
-        if(getModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
-        if(getModel().getCurrentstate() instanceof ChangeBettingAmountState){
-            getModel().setTerminalOutput(Integer.toString((int) getModel().getCurrentPlayer().getGamblingSaldo()));
+        if(getGameModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
+        if(getGameModel().getCurrentstate() instanceof ChoseStrategyState)throw new IllegalStateException();
+        if(getGameModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
+        if(getGameModel().getCurrentstate() instanceof ChangeBettingAmountState){
+            getGameModel().setTerminalOutput(Integer.toString((int) getGameModel().getCurrentPlayer().getGamblingSaldo()));
 
-            if(bettingAmount > getModel().getCurrentPlayer().getGamblingSaldo()){
-                getModel().setTerminalOutput("Entered betting amount is to big, not enough saldo");
+            if(bettingAmount > getGameModel().getCurrentPlayer().getGamblingSaldo()){
+                getGameModel().setTerminalOutput("Entered betting amount is to big, not enough saldo");
                 throw new IllegalStateException("Entered betting amount is to big, not enough saldo");
             }
-            getModel().setCurrentBettingAmount(bettingAmount);
-            getModel().setCurrentstate(getModel().getThrowDiceState());
+            getGameModel().setCurrentBettingAmount(bettingAmount);
+            getGameModel().setCurrentstate(getGameModel().getThrowDiceState());
 
         }
     }
@@ -55,4 +55,6 @@ public class ChangeBettingAmountState extends State{
     public void endTurn() {
         throw new IllegalStateException("je moet eerst 4 dice throws doen");
     }
+
+
 }

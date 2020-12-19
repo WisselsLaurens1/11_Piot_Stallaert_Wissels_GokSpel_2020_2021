@@ -3,12 +3,12 @@ package model.gambleState;
 import model.GameModel;
 
 public abstract class State {
-private GameModel model;
+protected GameModel gameModel;
 
-    public State(GameModel model){this.model=model;}
+    public State(GameModel model){this.gameModel =model;}
 
-    public GameModel getModel() {
-        return model;
+    public GameModel getGameModel() {
+        return gameModel;
     }
     public abstract void login(String name);
     public abstract void choseStrategy();
@@ -16,9 +16,20 @@ private GameModel model;
     public abstract void changeBettingAmount(int bettingAmount);
     public abstract void endTurn();
     public void logout(){
-        model.setCurrentPlayer(null);
-        getModel().resetDiceThrows();
-        getModel().setGambleStrategy(null);
-        model.setCurrentstate(model.getLoginState());
+        gameModel.setCurrentPlayer(null);
+        getGameModel().resetDiceThrows();
+        getGameModel().setGambleStrategy(null);
+        gameModel.setCurrentstate(gameModel.getLoginState());
     }
+
+    public void newGame() {
+        System.out.println("new game");
+        this.gameModel.setCurrentstate(this.gameModel.getChoseStrategyState());
+        this.gameModel.resetDiceThrows();
+        this.gameModel.setGambleStrategy(null);
+        this.gameModel.setCurrentBettingAmount(0);
+        this.gameModel.setTerminalOutput(" ");
+        this.gameModel.setPlayerTurnsLeft(this.gameModel.getMaximumPlayerTruns());
+    }
+
 }

@@ -7,4 +7,9 @@ public class OutputPane extends customGridPane {
     public OutputPane(GameModel gameModel, Controller viewController, int rows, int columns) {
         super(gameModel, viewController, rows, columns);
     }
+
+    @Override
+    public void update() {
+
+    }
 }

@@ -1,4 +1,5 @@
 package model;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -280,10 +281,7 @@ public class GameModel implements Observable {
 
 
     public void newGame(){
-        this.setCurrentstate(choseStrategyState);
-        this.resetDiceThrows();
-        this.setGambleStrategy(null);
-        this.setCurrentBettingAmount(0);
+        this.currentstate.newGame();
     }
 
 }
