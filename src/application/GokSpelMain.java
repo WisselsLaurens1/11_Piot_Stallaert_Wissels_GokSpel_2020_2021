@@ -10,6 +10,7 @@ import model.database.DatabaseModel;
 import view.AdminView;
 import view.GamblerView;
 import view.View;
+import Controller.GameProgressTabController;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -22,6 +23,7 @@ public class GokSpelMain extends Application {
 
 		GameModel gameModel = new GameModel(database);
 		Controller gamblerViewController = new GamblerViewController(gameModel);
+		Controller gameProgressTabController = new GameProgressTabController();
 		AdminView adminView = new AdminView(database,gamblerViewController,gameModel);
 		View gamblerView = new GamblerView(gamblerViewController,gameModel);
 		gamblerViewController.setView(gamblerView);

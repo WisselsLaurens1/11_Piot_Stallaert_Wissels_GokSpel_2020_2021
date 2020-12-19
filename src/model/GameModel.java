@@ -278,4 +278,12 @@ public class GameModel implements Observable {
         this.currentstate.endTurn();
     }
 
+
+    public void newGame(){
+        this.setCurrentstate(choseStrategyState);
+        this.resetDiceThrows();
+        this.setGambleStrategy(null);
+        this.setCurrentBettingAmount(0);
+    }
+
 }

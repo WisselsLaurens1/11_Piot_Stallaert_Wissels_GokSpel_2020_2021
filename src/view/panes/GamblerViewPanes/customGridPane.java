@@ -43,13 +43,13 @@ public abstract class customGridPane extends GridPane {
         this.setStyle("-fx-background-color: #136399");
 
         /*adding collumns*/
-        for(int i=0; i<=columns; i++){
+        for(int i=0; i<columns; i++){
             ColumnConstraints column = new ColumnConstraints();
             column.setPercentWidth(100/columns);
             containerPane.getColumnConstraints().add(column);
         }
         /*adding rows*/
-        for(int i=0; i<=rows; i++){
+        for(int i=0; i<rows; i++){
             RowConstraints row = new RowConstraints();
             row.setPercentHeight(100/rows);
             containerPane.getRowConstraints().add(row);

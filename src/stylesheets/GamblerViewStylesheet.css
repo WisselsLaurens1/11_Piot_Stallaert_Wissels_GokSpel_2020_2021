@@ -54,4 +54,8 @@
     -fx-background-color: #ffffff;
 }
 
+#cotentContainer{
+    -fx-label-padding: 20px;
+}
+
 

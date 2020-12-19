@@ -8,6 +8,7 @@ import model.GameModel;
 import model.database.DatabaseModel;
 import view.panes.GamblerViewPanes.GamblerViewPane3;
 import view.panes.GamblerViewPanes.customGridPane;
+import Controller.GameProgressTabController;
 
 import java.io.FileNotFoundException;
 
@@ -21,7 +22,20 @@ public class AdminMainPane extends BorderPane {
         this.gameModel = model;
 
 	    TabPane tabPane = new TabPane();
-        GameProgressTabPane gameProgressTabPane = new GameProgressTabPane(model,gamblerViewController);
+
+
+        GameProgressTabController gameProgressTabController = new GameProgressTabController();
+
+
+/*
+        gameProgressTabController = (Controller) gameProgressTabController;
+*/
+        GameProgressTabPane gameProgressTabPane =  new GameProgressTabPane(model,gameProgressTabController);
+/*
+
+
+        customGridPane gameProgressTabPane =  new customGridPane(model,controller,4,4);
+*/
 
         Tab GameProgressTabPane = new Tab("Game progress",gameProgressTabPane);
 
