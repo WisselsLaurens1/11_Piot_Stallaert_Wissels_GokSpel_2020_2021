@@ -20,16 +20,17 @@ protected GameModel gameModel;
         getGameModel().resetDiceThrows();
         getGameModel().setGambleStrategy(null);
         gameModel.setCurrentstate(gameModel.getLoginState());
+        gameModel.setGameCount(1);
     }
 
     public void newGame() {
-        System.out.println("new game");
         this.gameModel.setCurrentstate(this.gameModel.getChoseStrategyState());
         this.gameModel.resetDiceThrows();
         this.gameModel.setGambleStrategy(null);
         this.gameModel.setCurrentBettingAmount(0);
         this.gameModel.setTerminalOutput(" ");
         this.gameModel.setPlayerTurnsLeft(this.gameModel.getMaximumPlayerTruns());
+        gameModel.setGameCount(gameModel.getGameCount()+1);
     }
 
 }

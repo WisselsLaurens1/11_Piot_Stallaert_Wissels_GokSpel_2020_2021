@@ -51,10 +51,8 @@ public class LoginState extends State{
 
     @Override
     public void newGame() {
-        System.out.println("new game");
-        this.gameModel.setCurrentstate(this.gameModel.getChoseStrategyState());
-        this.gameModel.resetDiceThrows();
-        this.gameModel.setGambleStrategy(null);
-        this.gameModel.setCurrentBettingAmount(0);
+        getGameModel().setTerminalOutput("You have to login first");
+        throw new IllegalStateException("You have to login");
+
     }
 }

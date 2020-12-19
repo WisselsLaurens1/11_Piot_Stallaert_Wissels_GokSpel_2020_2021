@@ -3,6 +3,7 @@ package view.panes;
 import Controller.Controller;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import model.GambleStrategey.GambleStrategy;
 import model.Gambler;
@@ -17,59 +18,45 @@ import java.util.ArrayList;
 
 public class GameProgressTabPane extends customGridPane {
 
-
-    private Label CurrentPlayer = new Label("Current player: ");
-    private  Label GameCount = new Label("Game: ");
-/*
-    private Label CurrentBettingAmount = new Label("Amount beted: ");
-*/
-/*
-    private Label GambleStrategy = new Label("Selected strategy: ");
-*/
-/*
-    private Label DiceThrows = new Label("Dice throws: ");
-*/
-    private Label result = new Label("Result: ");
-    private ArrayList<Label> labels = new ArrayList<Label>();
-    CustomLabel test = new CustomLabel("Current player: ","getCurrentPlayer().getName()",null);
-    CustomLabel GambleStrategy = new CustomLabel("Selected strategy: ","getGambleStrategy().getName()",null);
-    CustomLabel DiceThrows = new CustomLabel("Dice throws: ","getDiceThrows()",null);
-    CustomLabel CurrentBettingAmount = new CustomLabel("Amount beted: ","getCurrentBettingAmount()",null);
-
+    CustomLabel gameCount;
+    CustomLabel currentPlayer;
+    CustomLabel selectedStrategy;
+    CustomLabel diceThrows;
+    CustomLabel bettedAmount;
+    CustomLabel result;
 
     public GameProgressTabPane(GameModel gameModel, Controller controller){
 
 
-        super(gameModel,controller,2,2);
+        super(gameModel,controller,2,1);
         this.containerPane.setStyle("-fx-font-size: 2em");
 
-        test.setGameModel(gameModel);
-        GambleStrategy.setGameModel(gameModel);
-        DiceThrows.setGameModel(gameModel);
-        CurrentBettingAmount.setGameModel(gameModel);
-/*
-        labels.add(CurrentPlayer);
-*/
-/*        labels.add(GambleStrategy);
-        labels.add(DiceThrows);*/
-
-/*
-        this.getGameModel().getCurrentPlayer().get
-*/
+        gameCount = new CustomLabel("Game: ","getGameCount()",gameModel);
+        currentPlayer = new CustomLabel("Current player: ","getCurrentPlayer().getName()",gameModel);
+        selectedStrategy = new CustomLabel("Selected strategy: ","getGambleStrategy().getName()",gameModel);
+        diceThrows = new CustomLabel("Dice throws: ","getDiceThrows()",gameModel);
+        bettedAmount = new CustomLabel("Amount betted: ","getCurrentBettingAmount()",gameModel);
+        result = new CustomLabel("Result: ","getCurrentBettingAmount()",gameModel);
 
         GameProgressTabController myController = (GameProgressTabController) this.getViewController();
 
         System.out.println(gameModel.getDiceThrows());
 
         GridPane contentContainer = new GridPane();
+
+        ColumnConstraints column1 = new ColumnConstraints();
+        column1.setPercentWidth(100);
+
+        contentContainer.getColumnConstraints().addAll(column1);
+
+
         contentContainer.setGridLinesVisible(true);
-        contentContainer.add(GameCount,0,0);
-        contentContainer.add(test.label,0,1);
-        contentContainer.add(CurrentBettingAmount.label,0,2);
-        contentContainer.add(GambleStrategy.label
-                ,0,3);
-        contentContainer.add(DiceThrows.label,0,4);
-        contentContainer.add(result,0,5);
+        contentContainer.add(gameCount.label,0,0);
+        contentContainer.add(currentPlayer.label,0,1);
+        contentContainer.add(bettedAmount.label,0,2);
+        contentContainer.add(selectedStrategy.label,0,3);
+        contentContainer.add(diceThrows.label,0,4);
+        contentContainer.add(result.label,0,5);
         contentContainer.setId("contentContainer");
 
         Button newGame = new Button("New game");
@@ -88,10 +75,12 @@ public class GameProgressTabPane extends customGridPane {
 
     @Override
     public void update(){
-        test.update();
-        GambleStrategy.update();
-        DiceThrows.update();
-        CurrentBettingAmount.update();
+        gameCount.update();
+        currentPlayer.update();
+        selectedStrategy.update();
+        diceThrows.update();
+        bettedAmount.update();
+        result.update();
 
     }
 }

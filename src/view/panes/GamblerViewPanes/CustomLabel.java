@@ -1,10 +1,4 @@
 package view.panes.GamblerViewPanes;
-import com.sun.javafx.geom.BaseBounds;
-import com.sun.javafx.geom.transform.BaseTransform;
-import com.sun.javafx.jmx.MXNodeAlgorithm;
-import com.sun.javafx.jmx.MXNodeAlgorithmContext;
-import com.sun.javafx.sg.prism.NGNode;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -22,7 +16,6 @@ public class CustomLabel{
     String methodPath;
     GameModel gameModel;
 
-
     public CustomLabel(String text, String metodPath, GameModel gameModel){
         label = new Label(text);
         this.labelText = text;
@@ -33,7 +26,7 @@ public class CustomLabel{
 
     /*get the methods that need to be called to get new value of label */
     private ArrayList<String> parseMethodPath(){
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
         String[] path = this.methodPath.split(Pattern.quote(".")); // Split on period.
         for (String str: path){
             result.add(str.substring(0,str.length()-2));
@@ -68,12 +61,8 @@ public class CustomLabel{
             }
         }
 
-
-
     }
 
-    public void setGameModel(GameModel gameModel){
-        this.gameModel = gameModel;
-    }
+
 
 }

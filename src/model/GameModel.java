@@ -12,6 +12,8 @@ import model.gambleState.*;
 
 public class GameModel implements Observable {
 
+
+
     private LoginState loginState;
     private State currentstate;
     private ThrowDiceState throwDiceState;
@@ -208,6 +210,7 @@ public class GameModel implements Observable {
         this.endOfTurnState = new EndOfTurnState(this);
         this.throwDiceState =new ThrowDiceState(this);
         this.database = database;
+        this.setGameCount(1);
     }
     public int getDiceThrown() {
         return diceThrown;
@@ -283,5 +286,17 @@ public class GameModel implements Observable {
     public void newGame(){
         this.currentstate.newGame();
     }
+
+    public int getGameCount() {
+        return gameCount;
+    }
+
+    public void setGameCount(int gameCount) {
+        this.gameCount = gameCount;
+        updateObservers();
+    }
+
+    private int gameCount;
+
 
 }
