@@ -11,12 +11,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import model.GameModel;
 
-public class GamblerViewEnterBettingAmountPane3 extends CustomGridPane {
+public class GamblerViewEnterBettingAmountPane extends CustomGridPane {
 
 
     private GameModel gameModel;
     private GamblerViewController controller;
-    public GamblerViewEnterBettingAmountPane3(GameModel gameModel, Controller gameblerViewController){
+    public GamblerViewEnterBettingAmountPane(GameModel gameModel, Controller gameblerViewController){
         super(gameModel, gameblerViewController,1,8);
 
         GamblerViewController myController = (GamblerViewController) gameblerViewController;

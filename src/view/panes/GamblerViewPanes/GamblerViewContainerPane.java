@@ -13,7 +13,7 @@ public class GamblerViewContainerPane extends GridPane {
     private GamblerViewSelectStrategyPane gamblerViewSelectStrategyPane;
     private GamblerViewLoginPane gamblerViewLoginPane;
     private GamblerViewThrowDicePane gamblerViewThrowDicePane;
-    private GamblerViewEnterBettingAmountPane3 gamblerViewEnterBettingAmountPane3;
+    private GamblerViewEnterBettingAmountPane gamblerViewEnterBettingAmountPane;
     private GamblerViewPane5 gamblerViewPane5;
 
     public GamblerViewContainerPane(GameModel model, Controller gamblerViewController){
@@ -45,19 +45,19 @@ public class GamblerViewContainerPane extends GridPane {
         GamblerViewLoginPane gamblerViewLoginPane = new GamblerViewLoginPane(model,this.controller);
         GamblerViewSelectStrategyPane gamblerViewSelectStrategyPane = new GamblerViewSelectStrategyPane(model,this.controller);
         GamblerViewThrowDicePane gamblerViewThrowDicePane = new GamblerViewThrowDicePane(model,this.controller);
-        GamblerViewEnterBettingAmountPane3 gamblerPane3 = new GamblerViewEnterBettingAmountPane3(model,this.controller);
+        GamblerViewEnterBettingAmountPane gamblerPane3 = new GamblerViewEnterBettingAmountPane(model,this.controller);
         GamblerViewPane5 gamblerPane5 = new GamblerViewPane5(model,this.controller);
 
         this.gamblerViewSelectStrategyPane = gamblerViewSelectStrategyPane;
         this.gamblerViewLoginPane = gamblerViewLoginPane;
         this.gamblerViewThrowDicePane = gamblerViewThrowDicePane;
-        this.gamblerViewEnterBettingAmountPane3 = gamblerPane3;
+        this.gamblerViewEnterBettingAmountPane = gamblerPane3;
         this.gamblerViewPane5  = gamblerPane5;
 
         gamblerViewSelectStrategyPane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
         gamblerViewLoginPane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
         gamblerViewThrowDicePane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
-        gamblerViewEnterBettingAmountPane3.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
+        gamblerViewEnterBettingAmountPane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
         gamblerPane5.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
 
 /*
@@ -81,7 +81,7 @@ public class GamblerViewContainerPane extends GridPane {
         gamblerViewLoginPane.update();
         gamblerViewSelectStrategyPane.update();
         gamblerViewThrowDicePane.update();
-        gamblerViewEnterBettingAmountPane3.update();
+        gamblerViewEnterBettingAmountPane.update();
         gamblerViewPane5.update();
 
     }

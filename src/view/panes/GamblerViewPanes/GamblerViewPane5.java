@@ -13,65 +13,21 @@ import javafx.scene.layout.RowConstraints;
 import model.GameModel;
 import view.View;
 
-public class GamblerViewPane5 extends GridPane implements View {
+public class GamblerViewPane5 extends CustomGridPane {
 
-
-    private GameModel gameModel;
-    private GamblerViewController controller;
-    private Label terminalOutput;
+    private CustomLabel terminalOutput;
     public GamblerViewPane5(GameModel gameModel, Controller gameblerViewController){
+        super(gameModel, gameblerViewController, 3,8);
 
-        // TODO: 06/12/2020  set minmium size
+        terminalOutput = new CustomLabel(" ","getTerminalOutput()",gameModel);
 
-
-        this.setId("Pane5");
-        this.gameModel = gameModel;
-        this.controller = (GamblerViewController) gameblerViewController;
-
-/*
-        this.setGridLinesVisible(true);
-*/
-
-        ColumnConstraints column1 = new ColumnConstraints();
-        column1.setPrefWidth(50);
-        ColumnConstraints column2 = new ColumnConstraints();
-        column2.setPrefWidth(510);
-
-        this.getColumnConstraints().addAll(column1, column2); // each get 50% of width
-
-        RowConstraints row1 = new RowConstraints();
-        row1.setPrefHeight(30);
-        RowConstraints row2 = new RowConstraints();
-        row2.setPrefHeight(130);
-        this.getRowConstraints().addAll(row1,row2);
-
-        GridPane terminal = new GridPane();
-        Label terminalOutput = new Label("");
-        this.terminalOutput = terminalOutput;
-        terminal.add(terminalOutput,0,0);
-        terminal.setPadding(new Insets(20, 10, 10, 10)); //margins around the whole grid
-
-
-        Label output = new Label("Output");
-        terminal.setStyle("-fx-background-color: white;");
-
-        this.add(output, 0,0);
-        this.add(terminal, 0,1,2,1);
-        this.setHgap(20); //horizontal gap in pixels => that's what you are asking for
-        this.setPadding(new Insets(20, 10, 10, 10)); //margins around the whole grid
-
-
-
-
-
-        this.getStylesheets().add("stylesheets/GamblerViewStylesheet.css");
-
+        Label output = new Label("Output: ");
+        this.containerPane.add(output,0,0,2,1);
+        this.containerPane.add(terminalOutput.label,2,1,4,1);
 
     }
 
     public void update() {
-        System.out.println(gameModel.getTerminalOutput());
-        terminalOutput.setText(gameModel.getTerminalOutput());
-        System.out.println("update");
+        terminalOutput.update();
     }
 }

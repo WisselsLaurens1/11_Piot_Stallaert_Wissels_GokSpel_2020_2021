@@ -42,16 +42,18 @@ public class GamblerViewThrowDicePane extends CustomGridPane {
     public void update() {
             playerTurnsLeft.update();
 
+            /*reset all dice*/
             if(this.getGameModel().getDiceThrown() == -1){
                 for(CustomLabel label: diceThrows){
                     label.update();
                 }
             }
 
+            /*update dice throws*/
             if(this.getGameModel().getPlayerTurnsLeft() >= 1){
                 diceThrows.get(this.getGameModel().getDiceThrows().size()).update();
             }else{
-                diceThrows.get(this.getGameModel().getMaximumPlayerTruns()-this.getGameModel().getPlayerTurnsLeft()-1).update();
+                diceThrows.get(this.getGameModel().getDiceThrows().size()-1).update();
             }
 
 
