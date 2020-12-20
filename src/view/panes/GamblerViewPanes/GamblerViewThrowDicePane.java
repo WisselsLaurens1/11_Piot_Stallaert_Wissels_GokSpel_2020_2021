@@ -22,13 +22,13 @@ public class GamblerViewThrowDicePane extends CustomGridPane {
         super(gameModel,gameblerViewController,4,8);
         GamblerViewController myController = (GamblerViewController) gameblerViewController;
 
-        this.playerTurnsLeft = new CustomLabel("Turns left: ","getPlayerTurnsLeft()",gameModel);
+        this.playerTurnsLeft = new CustomLabel("Turns left: ",gameModel,"getPlayerTurnsLeft()",gameModel);
         this.containerPane.add(playerTurnsLeft.label,0,0,2,1);
         Button throwDice = new Button("Throw Dice");
         this.containerPane.add(throwDice,2,0,2,1);
 
         for (int i = 0; i<this.getGameModel().getMaximumPlayerTruns()+1; i++){
-            diceThrows.add(new CustomLabel("Dice throw: ","getDiceThrown()",gameModel));
+            diceThrows.add(new CustomLabel("Dice throw: ",gameModel,"getDiceThrown()",gameModel));
             this.containerPane.add(diceThrows.get(i).label,4,i,2,1);
         }
 

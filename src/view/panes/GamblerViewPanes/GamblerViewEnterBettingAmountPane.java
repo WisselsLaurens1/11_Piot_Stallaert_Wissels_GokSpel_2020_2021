@@ -25,7 +25,7 @@ public class GamblerViewEnterBettingAmountPane extends CustomGridPane {
         this.containerPane.add(bettingAmount,2,0,2,1);
         Button confirmButton = new Button("Confirm");
         this.containerPane.add(confirmButton,4,0,2,1);
-        this.enteredAmount = new CustomLabel ("Entered amount: ","getCurrentBettingAmount()",gameModel);
+        this.enteredAmount = new CustomLabel ("Entered amount: ", gameModel,"getCurrentBettingAmount()",gameModel);
         this.containerPane.add(enteredAmount.label,0,1,4,1);
 
         confirmButton.setOnAction((e)->{

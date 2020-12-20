@@ -15,12 +15,14 @@ public class CustomLabel{
     public String labelText;
     String methodPath;
     GameModel gameModel;
+    Object obj;
 
-    public CustomLabel(String text, String metodPath, GameModel gameModel){
+    public CustomLabel(String text,Object obj, String metodPath, GameModel gameModel){
         label = new Label(text);
         this.labelText = text;
         this.methodPath = metodPath;
         this.gameModel = gameModel;
+        this.obj = obj;
     }
 
 
@@ -38,7 +40,7 @@ public class CustomLabel{
     public void update() {
         Method method = null;
         ArrayList<String> methodPath = parseMethodPath();
-        Object result = this.gameModel;
+        Object result = obj;
         for (String str: methodPath){
             try {
                 if(result != null){
@@ -52,6 +54,7 @@ public class CustomLabel{
                             label.setText(labelText);
                         }
                     }else if(result != null){
+
                         label.setText(labelText + (String) result.toString());
 
                     }else{

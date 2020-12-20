@@ -1,5 +1,6 @@
 package model.gambleState;
 
+import model.GambleStrategey.GambleStrategy;
 import model.GameModel;
 
 import java.util.ArrayList;
@@ -40,8 +41,12 @@ public class EndOfTurnState extends State {
 
         if(didWin){
             int wonAmount = gameModel.getCurrentBettingAmount()*gameModel.getGambleStrategy().winMultiplier;
+            GambleStrategy strategy =  gameModel.getGambleStrategy();
             getGameModel().setTerminalOutput("You won: "+wonAmount);
+            strategy.setTotalWins(strategy.getTotalWins()+1);
+            strategy.setTotalProfit(strategy.getTotalProfit()+wonAmount);
             getGameModel().getCurrentPlayer().setGamblingSaldo(Double.toString(getGameModel().getCurrentPlayer().getGamblingSaldo()+wonAmount));
+            gameModel.updateObservers();
         }else{
             getGameModel().setTerminalOutput("You lost!");
         }

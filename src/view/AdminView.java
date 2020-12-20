@@ -13,6 +13,7 @@ import view.panes.AdminMainPane;
 
 import model.Observer;
 import view.panes.GameProgressTabPane;
+import view.panes.StrategiesInfoPane;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class AdminView implements Observer {
 	private Stage stage = new Stage();
 	private Controller controller;
 	private GameModel gameModel;
-	public AdminView(DatabaseModel database, GameProgressTabPane gameProgressTabPane, Controller gamblerViewController, GameModel model) throws FileNotFoundException, IOException, BiffException {
+	public AdminView(DatabaseModel database, GameProgressTabPane gameProgressTabPane, StrategiesInfoPane strategiesInfoPane, Controller gamblerViewController, GameModel model) throws FileNotFoundException, IOException, BiffException {
 		this.controller = gamblerViewController;
 		this.gameModel = gameModel;
 
@@ -31,7 +32,7 @@ public class AdminView implements Observer {
 		stage.setY(20);
 		Group root = new Group();
 		Scene scene = new Scene(root, 600, 600);
-		BorderPane borderPane = new AdminMainPane(database,gameProgressTabPane, gamblerViewController,gameModel);
+		BorderPane borderPane = new AdminMainPane(database,gameProgressTabPane,strategiesInfoPane, gamblerViewController,gameModel);
 		borderPane.prefHeightProperty().bind(scene.heightProperty());
 		borderPane.prefWidthProperty().bind(scene.widthProperty());
 		root.getChildren().add(borderPane);

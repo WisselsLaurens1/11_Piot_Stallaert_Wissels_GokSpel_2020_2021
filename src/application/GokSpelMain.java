@@ -2,6 +2,7 @@ package application;
 
 import Controller.Controller;
 import Controller.GamblerViewController;
+import Controller.StrategiesInfoController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import jxl.read.biff.BiffException;
@@ -12,6 +13,7 @@ import view.GamblerView;
 import view.View;
 import Controller.GameProgressTabController;
 import view.panes.GameProgressTabPane;
+import view.panes.StrategiesInfoPane;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -27,13 +29,21 @@ public class GokSpelMain extends Application {
 		Controller gameProgressTabController = new GameProgressTabController(gameModel);
 		View gamblerView = new GamblerView(gamblerViewController,gameModel);
 		GameProgressTabPane gameProgressTabPane = new GameProgressTabPane(gameModel,gameProgressTabController);
-		AdminView adminView = new AdminView(database,gameProgressTabPane, gamblerViewController,gameModel);
+
+		StrategiesInfoController strategiesInfoController = new StrategiesInfoController(gameModel);
+		StrategiesInfoPane strategiesInfoPane = new StrategiesInfoPane(gameModel,strategiesInfoController);
+
+		AdminView adminView = new AdminView(database,gameProgressTabPane, strategiesInfoPane,gamblerViewController,gameModel);
 
 		gamblerViewController.setView(gamblerView);
+/*
+		strategiesInfoController.setView((View) strategiesInfoPane);
+*/
 
 		/*adding observers*/
 		gameModel.addObserver(gamblerView);
 		gameModel.addObserver(gameProgressTabPane);
+		gameModel.addObserver(strategiesInfoPane);
 
 	}
 

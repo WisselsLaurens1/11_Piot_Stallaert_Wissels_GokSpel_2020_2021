@@ -23,6 +23,10 @@ public class ThrowDiceState extends State{
         /* subtract betted amount from player saldo*/
         if(gameModel.getPlayerTurnsLeft() == gameModel.getMaximumPlayerTruns()){
             gameModel.getCurrentPlayer().setGamblingSaldo(Double.toString(gameModel.getCurrentPlayer().getGamblingSaldo()-gameModel.getCurrentBettingAmount()));
+
+            /*update times selected for slected strategy*/
+            gameModel.getGambleStrategy().setTimesSelected(gameModel.getGambleStrategy().getTimesSelected()+1);
+            gameModel.updateObservers();
         }
 
         /* check if player has a turn left */

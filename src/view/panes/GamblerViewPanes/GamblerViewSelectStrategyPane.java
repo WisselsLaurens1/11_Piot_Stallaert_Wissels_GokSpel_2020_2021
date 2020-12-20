@@ -59,7 +59,7 @@ public class GamblerViewSelectStrategyPane extends CustomGridPane{
 
         });
 
-        description = new CustomLabel("Description: ","getGambleStrategy().getDescription()",gameModel);
+        description = new CustomLabel("Description: ",gameModel,"getGambleStrategy().getDescription()",gameModel);
         this.containerPane.add(description.label,0,1,8,1);
 
     }
