@@ -32,7 +32,7 @@ public class GamblerViewLoginPane extends CustomGridPane{
         Button logOutButton = new Button("Logout");
         this.containerPane.add(loginButton, 5,0);
         this.containerPane.add(logOutButton, 6,0,2,1);
-        this.containerPane.add(currentPlayer.label, 0,1,2,1);
+        this.containerPane.add(currentPlayer.label, 0,1,4,1);
         this.containerPane.add(saldo.label, 4,1,2,1);
 
         loginButton.setOnAction((e)->{

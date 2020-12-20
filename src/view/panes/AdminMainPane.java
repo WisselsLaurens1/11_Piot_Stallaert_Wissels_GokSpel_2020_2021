@@ -24,17 +24,6 @@ public class AdminMainPane extends BorderPane {
 	    TabPane tabPane = new TabPane();
 
 
-        GameProgressTabController gameProgressTabController = new GameProgressTabController(gameModel);
-
-
-/*
-        gameProgressTabController = (Controller) gameProgressTabController;
-*/
-/*
-
-
-        customGridPane gameProgressTabPane =  new customGridPane(model,controller,4,4);
-*/
 
         Tab GameProgressTabPane = new Tab("Game progress",gameProgressTabPane);
 

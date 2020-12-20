@@ -37,7 +37,6 @@ public class CustomLabel{
     /*use reflection to get new value of label and update */
     public void update() {
         Method method = null;
-        System.out.println(label);
         ArrayList<String> methodPath = parseMethodPath();
         Object result = this.gameModel;
         for (String str: methodPath){
@@ -45,9 +44,7 @@ public class CustomLabel{
                 if(result != null){
                     method = result.getClass().getMethod(str);
                     result = method.invoke(result);
-                    System.out.println("result: "+result);
                     if (result != null && result instanceof Integer){
-                        System.out.println("whaaaaaaaaaaaaaaaaaa: "+Integer.toString((int) result));
                         label.setText(labelText + Integer.toString((int) result));
                         if((int) result != -1){
                             label.setText(labelText + Integer.toString((int) result));

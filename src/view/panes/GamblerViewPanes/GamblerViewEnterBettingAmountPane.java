@@ -13,11 +13,9 @@ import model.GameModel;
 
 public class GamblerViewEnterBettingAmountPane extends CustomGridPane {
 
-
-    private GameModel gameModel;
-    private GamblerViewController controller;
+    CustomLabel enteredAmount;
     public GamblerViewEnterBettingAmountPane(GameModel gameModel, Controller gameblerViewController){
-        super(gameModel, gameblerViewController,1,8);
+        super(gameModel, gameblerViewController,2,8);
 
         GamblerViewController myController = (GamblerViewController) gameblerViewController;
 
@@ -27,12 +25,17 @@ public class GamblerViewEnterBettingAmountPane extends CustomGridPane {
         this.containerPane.add(bettingAmount,2,0,2,1);
         Button confirmButton = new Button("Confirm");
         this.containerPane.add(confirmButton,4,0,2,1);
+        this.enteredAmount = new CustomLabel ("Entered amount: ","getCurrentBettingAmount()",gameModel);
+        this.containerPane.add(enteredAmount.label,0,1,4,1);
 
         confirmButton.setOnAction((e)->{
             myController.setBettingAmount(Integer.parseInt(bettingAmount.getText()));
+            bettingAmount.clear();
         });
     }
 
     public void update() {
+        enteredAmount.update();
     }
+
 }

@@ -60,8 +60,9 @@ public abstract class CustomGridPane extends GridPane implements Observer {
         }
 
         this.setMargin(containerPane, new Insets(10, 10, 10, 10));
-
         containerPane.setHgap(10);
+
+
 
 
     }

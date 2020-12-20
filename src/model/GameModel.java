@@ -80,6 +80,7 @@ public class GameModel implements Observable {
     }
 
     public void setCurrentstate(State currentstate) {
+        System.out.println("state: "+currentstate);
         this.currentstate = currentstate;
     }
 
@@ -121,8 +122,6 @@ public class GameModel implements Observable {
     public void setGambleStrategy(GambleStrategy gambleStrategy) {
         this.currentstate.choseStrategy();
         this.gambleStrategy = gambleStrategy;
-        System.out.println("this has been set: "+this.getGambleStrategy());
-
         updateObservers();
     }
 
@@ -247,7 +246,6 @@ public class GameModel implements Observable {
 
     public void logout(){
         this.getCurrentstate().logout();
-        System.out.println("logging out");
     }
 
     public int getCurrentBettingAmount() {
@@ -256,6 +254,7 @@ public class GameModel implements Observable {
 
     public void setCurrentBettingAmount(int currentBettingAmount) {
         this.currentBettingAmount = currentBettingAmount;
+        updateObservers();
     }
 
     private int currentBettingAmount;
@@ -272,7 +271,6 @@ public class GameModel implements Observable {
 
     public void setTerminalOutput(String terminalOutput) {
         this.terminalOutput = terminalOutput;
-        System.out.println("update temrinal: "+terminalOutput);
         this.updateObservers();
     }
 

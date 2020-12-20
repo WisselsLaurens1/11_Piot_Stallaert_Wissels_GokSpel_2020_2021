@@ -17,20 +17,20 @@ protected GameModel gameModel;
     public abstract void endTurn();
     public void logout(){
         gameModel.setDiceThrown(-1);
-
         gameModel.setCurrentPlayer(null);
         getGameModel().resetDiceThrows();
         getGameModel().setGambleStrategy(null);
-        gameModel.setCurrentstate(gameModel.getLoginState());
         gameModel.setGameCount(1);
+        gameModel.setPlayerTurnsLeft(gameModel.getMaximumPlayerTruns());
+        gameModel.setCurrentstate(gameModel.getLoginState());
+
 
     }
 
     public void newGame() {
         gameModel.setDiceThrown(-1);
-        this.gameModel.setCurrentstate(this.gameModel.getChoseStrategyState());
+        this.gameModel.setCurrentstate(this.gameModel.getChangeBettingAmountState());
         this.gameModel.resetDiceThrows();
-        this.gameModel.setGambleStrategy(null);
         this.gameModel.setCurrentBettingAmount(0);
         this.gameModel.setTerminalOutput(" ");
         this.gameModel.setPlayerTurnsLeft(gameModel.getMaximumPlayerTruns());

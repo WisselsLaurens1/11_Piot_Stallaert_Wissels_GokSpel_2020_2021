@@ -16,9 +16,7 @@ public class ChoseStrategyState extends State{
     public void choseStrategy() {
         if(getGameModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
         if(getGameModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
-/*
-        if(getModel().getCurrentstate() instanceof Changeinzet)throw new IllegalStateException();
-*/
+
         if(getGameModel().getCurrentstate() instanceof ChoseStrategyState){
             getGameModel().setCurrentstate(getGameModel().getChangeBettingAmountState());
         }

@@ -14,7 +14,7 @@ public class GamblerViewContainerPane extends GridPane {
     private GamblerViewLoginPane gamblerViewLoginPane;
     private GamblerViewThrowDicePane gamblerViewThrowDicePane;
     private GamblerViewEnterBettingAmountPane gamblerViewEnterBettingAmountPane;
-    private GamblerViewPane5 gamblerViewPane5;
+    private GamblerViewOutputPane gamblerViewOutputPane;
 
     public GamblerViewContainerPane(GameModel model, Controller gamblerViewController){
 
@@ -46,13 +46,13 @@ public class GamblerViewContainerPane extends GridPane {
         GamblerViewSelectStrategyPane gamblerViewSelectStrategyPane = new GamblerViewSelectStrategyPane(model,this.controller);
         GamblerViewThrowDicePane gamblerViewThrowDicePane = new GamblerViewThrowDicePane(model,this.controller);
         GamblerViewEnterBettingAmountPane gamblerPane3 = new GamblerViewEnterBettingAmountPane(model,this.controller);
-        GamblerViewPane5 gamblerPane5 = new GamblerViewPane5(model,this.controller);
+        GamblerViewOutputPane gamblerPane5 = new GamblerViewOutputPane(model,this.controller);
 
         this.gamblerViewSelectStrategyPane = gamblerViewSelectStrategyPane;
         this.gamblerViewLoginPane = gamblerViewLoginPane;
         this.gamblerViewThrowDicePane = gamblerViewThrowDicePane;
         this.gamblerViewEnterBettingAmountPane = gamblerPane3;
-        this.gamblerViewPane5  = gamblerPane5;
+        this.gamblerViewOutputPane = gamblerPane5;
 
         gamblerViewSelectStrategyPane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
         gamblerViewLoginPane.setPadding(new Insets(10, 10, 10, 10)); //margins around the whole grid
@@ -77,12 +77,11 @@ public class GamblerViewContainerPane extends GridPane {
     }
 
     public void update() {
-        System.out.println("updating");
         gamblerViewLoginPane.update();
         gamblerViewSelectStrategyPane.update();
         gamblerViewThrowDicePane.update();
         gamblerViewEnterBettingAmountPane.update();
-        gamblerViewPane5.update();
+        gamblerViewOutputPane.update();
 
     }
 }

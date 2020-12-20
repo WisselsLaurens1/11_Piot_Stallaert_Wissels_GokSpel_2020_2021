@@ -16,9 +16,7 @@ public class ChangeBettingAmountState extends State{
     public void choseStrategy() {
         if(getGameModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
         if(getGameModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
-/*
-        if(getModel().getCurrentstate() instanceof Changeinzet)throw new IllegalStateException();
-*/
+
         if(getGameModel().getCurrentstate() instanceof ChoseStrategyState){
             getGameModel().setCurrentstate(getGameModel().getThrowDiceState());
         }    }
@@ -39,7 +37,6 @@ public class ChangeBettingAmountState extends State{
         if(getGameModel().getCurrentstate() instanceof ChoseStrategyState)throw new IllegalStateException();
         if(getGameModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
         if(getGameModel().getCurrentstate() instanceof ChangeBettingAmountState){
-            getGameModel().setTerminalOutput(Integer.toString((int) getGameModel().getCurrentPlayer().getGamblingSaldo()));
 
             if(bettingAmount > getGameModel().getCurrentPlayer().getGamblingSaldo()){
                 getGameModel().setTerminalOutput("Entered betting amount is to big, not enough saldo");

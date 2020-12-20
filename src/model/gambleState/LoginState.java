@@ -9,12 +9,8 @@ public class LoginState extends State{
 
     @Override
     public void login(String name) {
-/*        if(getModel().getCurrentstate() instanceof Choose) throw new IllegalStateException();
-        if(getModel().getCurrentstate() instanceof Trowdice)throw new IllegalStateException();
-        if(getModel().getCurrentstate() instanceof Changeinzet)throw new IllegalStateException();*/
         if(getGameModel().getCurrentstate() instanceof LoginState){
             if(getGameModel().getDatabase().getGamblers().keySet().contains(name)){
-                System.out.println("whooop");
                 getGameModel().setCurrentPlayer(getGameModel().getDatabase().getGamblers().get(name));
                 getGameModel().setCurrentstate(getGameModel().getChoseStrategyState());
             }
@@ -52,6 +48,5 @@ public class LoginState extends State{
     public void newGame() {
         getGameModel().setTerminalOutput("You have to login first");
         throw new IllegalStateException("You have to login");
-
     }
 }

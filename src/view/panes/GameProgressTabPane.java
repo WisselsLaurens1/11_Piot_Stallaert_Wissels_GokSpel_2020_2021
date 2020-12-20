@@ -40,10 +40,6 @@ public class GameProgressTabPane extends CustomGridPane {
 
         contentContainer.getColumnConstraints().addAll(column1);
 
-
-/*
-        contentContainer.setGridLinesVisible(true);
-*/
         contentContainer.add(gameCount.label,0,0);
         contentContainer.add(currentPlayer.label,0,1);
         contentContainer.add(bettedAmount.label,0,2);

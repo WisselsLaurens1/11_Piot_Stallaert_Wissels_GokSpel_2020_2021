@@ -13,10 +13,10 @@ import javafx.scene.layout.RowConstraints;
 import model.GameModel;
 import view.View;
 
-public class GamblerViewPane5 extends CustomGridPane {
+public class GamblerViewOutputPane extends CustomGridPane {
 
     private CustomLabel terminalOutput;
-    public GamblerViewPane5(GameModel gameModel, Controller gameblerViewController){
+    public GamblerViewOutputPane(GameModel gameModel, Controller gameblerViewController){
         super(gameModel, gameblerViewController, 3,8);
 
         terminalOutput = new CustomLabel(" ","getTerminalOutput()",gameModel);

@@ -19,9 +19,6 @@ public class ThrowDiceState extends State{
 
     @Override
     public void throwdice() {
-        if(getGameModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
-        if(getGameModel().getCurrentstate() instanceof ChoseStrategyState)throw new IllegalStateException();
-        if(getGameModel().getCurrentstate() instanceof ChangeBettingAmountState)throw new IllegalStateException();
 
         /* subtract betted amount from player saldo*/
         if(gameModel.getPlayerTurnsLeft() == gameModel.getMaximumPlayerTruns()){
@@ -38,7 +35,6 @@ public class ThrowDiceState extends State{
             getGameModel().getDiceThrows().add(diceEyes);
         }
         if(getGameModel().getPlayerTurnsLeft() == 0) {
-            System.out.println("end tuuuurn");
             /*if all dice are thrown, end game*/
             getGameModel().setCurrentstate(getGameModel().getEndOfTurnState());
             getGameModel().getCurrentstate().endTurn();

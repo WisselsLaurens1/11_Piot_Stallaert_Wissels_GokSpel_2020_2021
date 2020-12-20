@@ -11,7 +11,8 @@ public class EndOfTurnState extends State {
 
     @Override
     public void login(String name) {
-
+        getGameModel().setTerminalOutput("You are already loged in");
+        throw new IllegalStateException("You are already loged in");
     }
 
     @Override
@@ -21,12 +22,14 @@ public class EndOfTurnState extends State {
 
     @Override
     public void throwdice() {
-
+        getGameModel().setTerminalOutput("Start new game first");
+        throw new IllegalStateException("Start new game first");
     }
 
     @Override
     public void changeBettingAmount(int bettingAmount) {
-
+        getGameModel().setTerminalOutput("Start new game first");
+        throw new IllegalStateException("Start new game first");
     }
 
 
@@ -43,7 +46,6 @@ public class EndOfTurnState extends State {
             getGameModel().setTerminalOutput("You lost!");
         }
 
-        gameModel.setCurrentstate(gameModel.getChoseStrategyState());
 
 
     }
