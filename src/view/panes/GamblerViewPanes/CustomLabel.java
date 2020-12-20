@@ -45,8 +45,18 @@ public class CustomLabel{
                 if(result != null){
                     method = result.getClass().getMethod(str);
                     result = method.invoke(result);
-                    if (result != null) {
+                    System.out.println("result: "+result);
+                    if (result != null && result instanceof Integer){
+                        System.out.println("whaaaaaaaaaaaaaaaaaa: "+Integer.toString((int) result));
+                        label.setText(labelText + Integer.toString((int) result));
+                        if((int) result != -1){
+                            label.setText(labelText + Integer.toString((int) result));
+                        }else{
+                            label.setText(labelText);
+                        }
+                    }else if(result != null){
                         label.setText(labelText + (String) result.toString());
+
                     }else{
                         label.setText(labelText);
                     }

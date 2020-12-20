@@ -31,6 +31,7 @@ protected GameModel gameModel;
         this.gameModel.setTerminalOutput(" ");
         this.gameModel.setPlayerTurnsLeft(gameModel.getMaximumPlayerTruns());
         gameModel.setGameCount(gameModel.getGameCount()+1);
+        gameModel.setDiceThrown(-1);
     }
 
 }

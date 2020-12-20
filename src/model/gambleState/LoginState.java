@@ -17,7 +17,6 @@ public class LoginState extends State{
                 System.out.println("whooop");
                 getGameModel().setCurrentPlayer(getGameModel().getDatabase().getGamblers().get(name));
                 getGameModel().setCurrentstate(getGameModel().getChoseStrategyState());
-
             }
         }
     }

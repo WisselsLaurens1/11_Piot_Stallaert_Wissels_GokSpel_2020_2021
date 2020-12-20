@@ -23,8 +23,6 @@ public class ThrowDiceState extends State{
         if(getGameModel().getCurrentstate() instanceof ChoseStrategyState)throw new IllegalStateException();
         if(getGameModel().getCurrentstate() instanceof ChangeBettingAmountState)throw new IllegalStateException();
 
-        System.out.println(getGameModel().getPlayerTurnsLeft());
-
         /* subtract betted amount from player saldo*/
         if(gameModel.getPlayerTurnsLeft() == gameModel.getMaximumPlayerTruns()){
             gameModel.getCurrentPlayer().setGamblingSaldo(Double.toString(gameModel.getCurrentPlayer().getGamblingSaldo()-gameModel.getCurrentBettingAmount()));
@@ -33,10 +31,11 @@ public class ThrowDiceState extends State{
         /* check if player has a turn left */
         if(getGameModel().getPlayerTurnsLeft() > 0){
             /*thow the dice*/
-            int diceEyes =  getGameModel().get_random_number(1,6);
             getGameModel().setPlayerTurnsLeft(getGameModel().getPlayerTurnsLeft()-1);
-            getGameModel().getDiceThrows().add(getGameModel().getDiceThrown());
+
+            int diceEyes =  getGameModel().get_random_number(1,6);
             getGameModel().setDiceThrown(diceEyes);
+            getGameModel().getDiceThrows().add(diceEyes);
         }
         if(getGameModel().getPlayerTurnsLeft() == 0) {
             System.out.println("end tuuuurn");

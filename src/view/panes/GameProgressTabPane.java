@@ -33,8 +33,6 @@ public class GameProgressTabPane extends CustomGridPane {
 
         GameProgressTabController myController = (GameProgressTabController) this.getViewController();
 
-        System.out.println(gameModel.getDiceThrows());
-
         GridPane contentContainer = new GridPane();
 
         ColumnConstraints column1 = new ColumnConstraints();
