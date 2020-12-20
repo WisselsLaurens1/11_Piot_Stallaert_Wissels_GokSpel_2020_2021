@@ -44,7 +44,7 @@ public abstract class CustomGridPane extends GridPane implements Observer {
 */
         this.containerPane.setStyle("-fx-font-size: 1.2em");
 
-        this.setStyle("-fx-background-color: #136399");
+        this.setStyle("-fx-background-color: #203560");
 
         /*adding collumns*/
         for(int i=0; i<columns; i++){
@@ -59,7 +59,7 @@ public abstract class CustomGridPane extends GridPane implements Observer {
             containerPane.getRowConstraints().add(row);
         }
 
-        this.setMargin(containerPane, new Insets(0, 10, 0, 10));
+        this.setMargin(containerPane, new Insets(10, 10, 10, 10));
 
         containerPane.setHgap(10);
 

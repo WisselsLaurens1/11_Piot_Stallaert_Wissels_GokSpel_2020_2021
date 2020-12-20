@@ -16,14 +16,18 @@ protected GameModel gameModel;
     public abstract void changeBettingAmount(int bettingAmount);
     public abstract void endTurn();
     public void logout(){
+        gameModel.setDiceThrown(-1);
+
         gameModel.setCurrentPlayer(null);
         getGameModel().resetDiceThrows();
         getGameModel().setGambleStrategy(null);
         gameModel.setCurrentstate(gameModel.getLoginState());
         gameModel.setGameCount(1);
+
     }
 
     public void newGame() {
+        gameModel.setDiceThrown(-1);
         this.gameModel.setCurrentstate(this.gameModel.getChoseStrategyState());
         this.gameModel.resetDiceThrows();
         this.gameModel.setGambleStrategy(null);
@@ -31,7 +35,6 @@ protected GameModel gameModel;
         this.gameModel.setTerminalOutput(" ");
         this.gameModel.setPlayerTurnsLeft(gameModel.getMaximumPlayerTruns());
         gameModel.setGameCount(gameModel.getGameCount()+1);
-        gameModel.setDiceThrown(-1);
     }
 
 }
