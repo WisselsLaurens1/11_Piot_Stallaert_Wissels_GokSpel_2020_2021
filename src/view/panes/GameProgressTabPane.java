@@ -25,7 +25,7 @@ public class GameProgressTabPane extends CustomGridPane {
         this.containerPane.setStyle("-fx-font-size: 2em");
 
         gameCount = new CustomLabel("Game: ",gameModel,"getGameCount()",gameModel);
-        currentPlayer = new CustomLabel("Current player: ",gameModel,"getCurrentPlayer().getName()",gameModel);
+        currentPlayer = new CustomLabel("Current player: ",gameModel,"getCurrentPlayer().getPlayerName()",gameModel);
         selectedStrategy = new CustomLabel("Selected strategy: ",gameModel,"getGambleStrategy().getName()",gameModel);
         diceThrows = new CustomLabel("Dice throws: ",gameModel,"getDiceThrows()",gameModel);
         bettedAmount = new CustomLabel("Amount betted: ",gameModel,"getCurrentBettingAmount()",gameModel);

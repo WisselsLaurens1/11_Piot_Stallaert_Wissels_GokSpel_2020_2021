@@ -41,18 +41,15 @@ public class EndOfTurnState extends State {
 
         if(didWin){
             int wonAmount = gameModel.getCurrentBettingAmount()*gameModel.getGambleStrategy().winMultiplier;
+            int newSaldo = (int) (getGameModel().getCurrentPlayer().getGamblingSaldo()+wonAmount);
             GambleStrategy strategy =  gameModel.getGambleStrategy();
-            getGameModel().setTerminalOutput("You won: "+wonAmount);
+            getGameModel().setTerminalOutput("You won: "+ wonAmount + ". Your new saldo is: " + newSaldo);
             strategy.setTotalWins(strategy.getTotalWins()+1);
             strategy.setTotalProfit(strategy.getTotalProfit()+wonAmount);
-            getGameModel().getCurrentPlayer().setGamblingSaldo(Double.toString(getGameModel().getCurrentPlayer().getGamblingSaldo()+wonAmount));
+            getGameModel().getCurrentPlayer().setGamblingSaldo(Double.toString(newSaldo));
             gameModel.updateObservers();
         }else{
-            getGameModel().setTerminalOutput("You lost!");
+            getGameModel().setTerminalOutput("You lost! Your new saldo is: " + getGameModel().getCurrentPlayer().getGamblingSaldo());
         }
-
-
-
     }
-
 }

@@ -19,19 +19,19 @@ public class GamblerViewLoginPane extends CustomGridPane{
 
     public GamblerViewLoginPane(GameModel gameModel, Controller gameblerViewController){
 
-        super(gameModel, gameblerViewController,2,8);
+        super(gameModel, gameblerViewController,2,9);
         GamblerViewController myController = (GamblerViewController) gameblerViewController;
-        currentPlayer = new CustomLabel("Player name: ",gameModel,"getCurrentPlayer().getName()",gameModel);
+        currentPlayer = new CustomLabel("Player name: ",gameModel,"getCurrentPlayer().getPlayerName()",gameModel);
         saldo = new CustomLabel("Saldo: ",gameModel, "getCurrentPlayer().getGamblingSaldo()",gameModel);
 
         Label playerName = new Label("Enter player name");
         TextField loginField = new TextField ();
         this.containerPane.add(playerName, 0,0,4,1);
-        this.containerPane.add(loginField, 2,0,3,1);
+        this.containerPane.add(loginField, 3,0,3,1);
         Button loginButton = new Button("Login");
         Button logOutButton = new Button("Logout");
-        this.containerPane.add(loginButton, 5,0);
-        this.containerPane.add(logOutButton, 6,0,2,1);
+        this.containerPane.add(loginButton, 6,0,2,1);
+        this.containerPane.add(logOutButton, 7,0,2,1);
         this.containerPane.add(currentPlayer.label, 0,1,4,1);
         this.containerPane.add(saldo.label, 4,1,2,1);
 

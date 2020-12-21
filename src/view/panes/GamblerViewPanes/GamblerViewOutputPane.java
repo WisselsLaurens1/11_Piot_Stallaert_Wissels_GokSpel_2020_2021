@@ -23,7 +23,7 @@ public class GamblerViewOutputPane extends CustomGridPane {
 
         Label output = new Label("Output: ");
         this.containerPane.add(output,0,0,2,1);
-        this.containerPane.add(terminalOutput.label,2,1,4,1);
+        this.containerPane.add(terminalOutput.label,1,1,7,1);
 
     }
 
