@@ -4,26 +4,46 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.layout.Pane;
 import model.GambleStrategey.GambleStrategies;
+import model.GambleStrategey.GamblerStrategyFactory;
 import model.PropertiesHandler;
 import model.database.GamblerEnum;
 import view.View;
 import view.panes.GamblerViewPanes.SettingsViewPane;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class SettingsController {
     SettingsViewPane view;
+    PropertiesHandler handler = new PropertiesHandler();
 
     private GamblerEnum currentLoadSaveTypeSetting;
+    private HashMap<String,Integer> marges =new HashMap<>();
 
     private List<GambleStrategies> availableTypes = new ArrayList<>();
 
 
     public SettingsController() {
-        load();
+
+        if(handler.getmarges()==null){
+            GamblerStrategyFactory factory= GamblerStrategyFactory.getInstance();
+            for (GambleStrategies gambleStrategies: GambleStrategies.values()){
+                marges.put(gambleStrategies.toString(),factory.getStrategy(gambleStrategies.toString()).getWinMultiplier());
+            }
+        } else{
+            marges=handler.getmarges();
+
+        }
+
+    }
+
+    public void changemarge(String strategies,int aantal){
+        GamblerStrategyFactory factory= GamblerStrategyFactory.getInstance();
+        marges.put(strategies,aantal);
+        System.out.println(factory.getStrategy(strategies.toString()).getWinMultiplier());
+    }
+
+    private void setmarges(HashMap<String,Integer> marges){
+        this.view.setmarges(marges);
     }
 
     public GamblerEnum getCurrentLoadSaveTypeSetting() {
@@ -77,11 +97,16 @@ public class SettingsController {
     public void save () {
         saveLoadSaveType();
         saveGambleStrategies();
+        savemarges();
     }
 
-    public void load () {
-        loadLoadSaveType();
+    private void savemarges() {
+        PropertiesHandler propertiesHandler = new PropertiesHandler();
+        if (marges != null) {
+            propertiesHandler.saveGambleStrategymarges(marges);
+        }
     }
+
 
     private void saveLoadSaveType () {
         PropertiesHandler propertiesHandler = new PropertiesHandler();
@@ -96,12 +121,7 @@ public class SettingsController {
     }
 
 
-    private void loadLoadSaveType () {
-        GamblerEnum loadSaveType = new PropertiesHandler().getLoadSaveType();
-        if (loadSaveType != null) {
-            //PlayerDB.getInstance().setLoadSaveType(loadSaveType);
-        }
-    }
+
 
     private GamblerEnum getLoadSaveType () {
         GamblerEnum loadSaveType = new PropertiesHandler().getLoadSaveType();
@@ -126,6 +146,7 @@ public class SettingsController {
         this.view.setController(this);
         updateLoadSettings();
         updateAvailableGambleStategiesSettings();
+        setmarges(marges);
     }
 
 

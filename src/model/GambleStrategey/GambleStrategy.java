@@ -36,5 +36,11 @@ import java.util.ArrayList;
      * */
      public abstract boolean didWin(ArrayList<Integer> diceTrhows);
 
+    public int getWinMultiplier() {
+        return winMultiplier;
+    }
 
- }
+    public void setWinMultiplier(int winMultiplier) {
+        this.winMultiplier = winMultiplier;
+    }
+}

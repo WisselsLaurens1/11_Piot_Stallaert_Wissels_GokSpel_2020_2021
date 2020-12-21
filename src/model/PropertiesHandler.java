@@ -13,12 +13,16 @@ public class PropertiesHandler {
 
     final String databaseProperties = "src/bestanden/database.properties";
     final String gambleProperties = "src/bestanden/gamble.properties";
+    final String  winstmarges = "src/bestanden/winst.properties";
+
+
 
     public void saveLoadSaveType(GamblerEnum loadSaveType) {
         try {
             FileOutputStream fos = new FileOutputStream(databaseProperties);
             properties.setProperty("loadSaveType",loadSaveType.toString());
             properties.store(fos, "properties");
+            fos.flush();
             fos.close();
         }
 
@@ -58,11 +62,61 @@ public class PropertiesHandler {
             properties.store(fos, "properties");
             fos.flush();
             fos.close();
+
         }
 
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void saveGambleStrategymarges (HashMap<String,Integer> types) {
+        try {
+            FileOutputStream fos = new FileOutputStream(winstmarges);
+
+
+            for (Map.Entry<String, Integer> type : types.entrySet()) {
+                properties.setProperty(type.getKey(), type.getValue().toString());
+            }
+
+            properties.store(fos, "properties");
+            fos.flush();
+            fos.close();
+
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public HashMap<String,Integer> getmarges(){
+        HashMap<String,Integer> marges = new HashMap<>();
+        try {
+            InputStream fis = new FileInputStream(winstmarges);
+            properties.load(fis);
+
+            Set keys = properties.keySet();
+
+            Iterator itr = keys.iterator();
+
+            GambleStrategies type;
+
+            while (itr.hasNext()) {
+                String s = (String)itr.next();
+                String value = properties.getProperty(s);
+
+                type = GambleStrategies.valueOf(s);
+
+                marges.put(s, Integer.valueOf(properties.getProperty(s)));
+
+            }
+
+            fis.close();
+        }
+        catch (Exception e) {
+            return null;
+        }
+        return marges;
+
     }
 
 
