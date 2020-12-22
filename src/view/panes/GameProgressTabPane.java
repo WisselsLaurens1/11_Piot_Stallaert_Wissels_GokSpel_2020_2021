@@ -5,6 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import model.GameModel;
+import model.PropertiesHandler;
+import model.database.GamblerEnum;
 import view.panes.GamblerViewPanes.CustomLabel;
 import view.panes.GamblerViewPanes.CustomGridPane;
 import Controller.GameProgressTabController;
@@ -17,6 +19,7 @@ public class GameProgressTabPane extends CustomGridPane {
     CustomLabel diceThrows;
     CustomLabel bettedAmount;
     CustomLabel result;
+    private PropertiesHandler handler =new PropertiesHandler();
 
     public GameProgressTabPane(GameModel gameModel, Controller controller){
 

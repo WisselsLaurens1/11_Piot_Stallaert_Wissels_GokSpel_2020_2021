@@ -23,13 +23,9 @@ public class AdminMainPane extends BorderPane {
 
 	    TabPane tabPane = new TabPane();
 
-
-
-        Tab GameProgressTabPane = new Tab("Game progress",gameProgressTabPane);
+	    Tab GameProgressTabPane = new Tab("Game progress",gameProgressTabPane);
 
         GamblerOverviewPane gamblerOverviewPane = new GamblerOverviewPane(database);
-
-
 
         Tab spelerTab = new Tab("Spelers",gamblerOverviewPane);
 

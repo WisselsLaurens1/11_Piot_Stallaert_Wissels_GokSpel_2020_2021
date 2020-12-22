@@ -76,7 +76,6 @@ public class GamblerOverviewPane extends GridPane{
 			gamblers = FXCollections.observableArrayList(valuesList);
 			table.setItems(gamblers);
 			table.refresh();
-
 		}
 	}
 }
