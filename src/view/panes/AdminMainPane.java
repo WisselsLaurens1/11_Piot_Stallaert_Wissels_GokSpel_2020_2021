@@ -30,7 +30,7 @@ public class AdminMainPane extends BorderPane {
         Tab spelerTab = new Tab("Spelers",gamblerOverviewPane);
 
         SettingsViewPane settingsPane = new SettingsViewPane();
-        SettingsController settingsController = new SettingsController();
+        SettingsController settingsController = new SettingsController(model);
         settingsController.setView( settingsPane);
 
         Tab instellingTab = new Tab("Instellingen",settingsPane);

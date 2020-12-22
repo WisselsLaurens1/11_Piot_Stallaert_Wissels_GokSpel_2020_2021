@@ -147,4 +147,8 @@ public class PropertiesHandler {
         }
         return types;
     }
+
+    public Properties getProperties() {
+        return properties;
+    }
 }

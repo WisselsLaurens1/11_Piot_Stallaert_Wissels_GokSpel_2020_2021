@@ -1,8 +1,6 @@
 package model;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 import model.GambleStrategey.GambleStrategies;
 import model.GambleStrategey.GambleStrategy;
@@ -11,7 +9,7 @@ import model.database.DatabaseModel;
 import model.gambleState.*;
 
 public class GameModel implements Observable {
-
+    private PropertiesHandler handler =new PropertiesHandler();
 
 
     private LoginState loginState;
@@ -175,6 +173,14 @@ public class GameModel implements Observable {
         for(GambleStrategies gambleStrategy : GambleStrategies.values()){
 
             GambleStrategy strategy = gamblerStrategyFactory.getStrategy(gambleStrategy.toString());
+            if (handler.getmarges() != null){
+                for (Map.Entry<String, Integer> s: handler.getmarges().entrySet()){
+                    if (strategy.getClass().getSimpleName().equals(s.getKey())){
+                        strategy.setWinMultiplier(s.getValue());
+                    }
+                }
+            }
+            System.out.println(gambleStrategy.toString());
             gambleStrategyHashMap.put(gambleStrategy.toString(),strategy);
         }
 
@@ -297,4 +303,10 @@ public class GameModel implements Observable {
     private int gameCount;
 
 
+    public void updateMarges(HashMap<String,Integer> marges) {
+
+        for (Map.Entry<String, Integer> entry : marges.entrySet()){
+            getGambleStrategyHashMap().get(entry.getKey()).setWinMultiplier(entry.getValue());
+        }
+    }
 }

@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.layout.Pane;
 import model.GambleStrategey.GambleStrategies;
 import model.GambleStrategey.GamblerStrategyFactory;
+import model.GameModel;
 import model.PropertiesHandler;
 import model.database.GamblerEnum;
 import view.View;
@@ -12,7 +13,7 @@ import view.panes.GamblerViewPanes.SettingsViewPane;
 
 import java.util.*;
 
-public class SettingsController {
+public class SettingsController extends Controller{
     SettingsViewPane view;
     PropertiesHandler handler = new PropertiesHandler();
 
@@ -22,7 +23,8 @@ public class SettingsController {
     private List<GambleStrategies> availableTypes = new ArrayList<>();
 
 
-    public SettingsController() {
+    public SettingsController(GameModel model) {
+        super(model);
 
         if(handler.getmarges()==null){
             GamblerStrategyFactory factory= GamblerStrategyFactory.getInstance();
@@ -105,6 +107,9 @@ public class SettingsController {
         if (marges != null) {
             propertiesHandler.saveGambleStrategymarges(marges);
         }
+        System.out.println(marges);
+        //this.gameModel.updateMarges(marges);
+
     }
 
 
