@@ -13,9 +13,10 @@ import view.panes.GamblerViewPanes.SettingsViewPane;
 
 import java.util.*;
 
-public class SettingsController extends Controller{
+public class SettingsController{
     SettingsViewPane view;
     PropertiesHandler handler = new PropertiesHandler();
+    private GameModel model;
 
     private GamblerEnum currentLoadSaveTypeSetting;
     private HashMap<String,Integer> marges =new HashMap<>();
@@ -24,7 +25,7 @@ public class SettingsController extends Controller{
 
 
     public SettingsController(GameModel model) {
-        super(model);
+        this.model=model;
 
         if(handler.getmarges()==null){
             GamblerStrategyFactory factory= GamblerStrategyFactory.getInstance();
@@ -108,7 +109,8 @@ public class SettingsController extends Controller{
             propertiesHandler.saveGambleStrategymarges(marges);
         }
         System.out.println(marges);
-        //this.gameModel.updateMarges(marges);
+        System.out.println(marges.get("TestStrategy"));
+        this.model.updateMarges(marges);
 
     }
 

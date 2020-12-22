@@ -32,7 +32,7 @@ public class AdminView implements Observer {
 		stage.setY(20);
 		Group root = new Group();
 		Scene scene = new Scene(root, 600, 600);
-		BorderPane borderPane = new AdminMainPane(database,gameProgressTabPane,strategiesInfoPane, gamblerViewController,gameModel);
+		BorderPane borderPane = new AdminMainPane(database,gameProgressTabPane,strategiesInfoPane, gamblerViewController,model);
 		borderPane.prefHeightProperty().bind(scene.heightProperty());
 		borderPane.prefWidthProperty().bind(scene.widthProperty());
 		root.getChildren().add(borderPane);
