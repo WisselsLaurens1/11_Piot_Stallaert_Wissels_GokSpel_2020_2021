@@ -27,6 +27,8 @@ public final GameModel gameModel;
         gameModel.setGameCount(1);
         gameModel.setPlayerTurnsLeft(gameModel.getMaximumPlayerTruns());
         gameModel.setCurrentstate(gameModel.loginState);
+        gameModel.setTerminalOutput(" ");
+
     }
 
     public void newGame() {
@@ -34,10 +36,11 @@ public final GameModel gameModel;
         gameModel.setCurrentstate(gameModel.changeBettingAmountState);
         gameModel.resetDiceThrows();
         gameModel.setCurrentBettingAmount(0);
-        gameModel.setTerminalOutput(" ");
         gameModel.setPlayerTurnsLeft(gameModel.getMaximumPlayerTruns());
         gameModel.setGameCount(gameModel.getGameCount()+1);
         gameModel.setWonAmount(-1);
+        gameModel.setTerminalOutput(" ");
+
     }
 
 }

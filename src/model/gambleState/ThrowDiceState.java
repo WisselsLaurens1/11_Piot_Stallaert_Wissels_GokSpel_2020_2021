@@ -55,6 +55,8 @@ public class ThrowDiceState extends State{
         if(getGameModel().getPlayerTurnsLeft() == 0) {
             /*if all dice are thrown, end game*/
             gameModel.setCurrentstate(getGameModel().endOfTurnState);
+            gameModel.setTerminalOutput(" ");
+
             gameModel.endTurn();
         }
 

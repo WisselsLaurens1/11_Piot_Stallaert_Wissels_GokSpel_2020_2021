@@ -22,8 +22,7 @@ public class ChangeBettingAmountState extends State{
     public void choseStrategy(GambleStrategy gambleStrategy) {
         gameModel.setGambleStrategy(gambleStrategy);
         gameModel.setCurrentstate(gameModel.changeBettingAmountState);
-
-
+        gameModel.setTerminalOutput(" ");
     }
 
     @Override
@@ -41,6 +40,8 @@ public class ChangeBettingAmountState extends State{
         }
         gameModel.setCurrentBettingAmount(bettingAmount);
         gameModel.setCurrentstate(gameModel.throwDiceState);
+        gameModel.setTerminalOutput(" ");
+
     }
 
     @Override

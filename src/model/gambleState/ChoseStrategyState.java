@@ -22,6 +22,8 @@ public class ChoseStrategyState extends State{
     public void choseStrategy(GambleStrategy gambleStrategy) {
         gameModel.setGambleStrategy(gambleStrategy);
         gameModel.setCurrentstate(gameModel.changeBettingAmountState);
+        gameModel.setTerminalOutput("");
+
     }
 
     @Override

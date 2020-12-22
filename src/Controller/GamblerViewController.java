@@ -28,13 +28,9 @@ public class GamblerViewController extends Controller {
         gameModel.choseStrategy(gameModel.getGambleStrategyHashMap().get(strategey));
     }
 
-
-    // TODO: 08/12/2020 update
     public void throwDice(){
-
         this.gameModel.throwDice();
     }
-
 
     public void update(){};
 

@@ -41,5 +41,7 @@ public class StartGameState extends State {
     @Override
     public void startGame() {
         gameModel.setCurrentstate(gameModel.choseStrategyState);
+        gameModel.setTerminalOutput(" ");
+
     }
 }

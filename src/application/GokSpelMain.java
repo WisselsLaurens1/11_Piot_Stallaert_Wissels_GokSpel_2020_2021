@@ -1,5 +1,4 @@
 package application;
-
 import Controller.Controller;
 import Controller.GamblerViewController;
 import Controller.StrategiesInfoController;
@@ -14,33 +13,34 @@ import view.View;
 import Controller.GameProgressTabController;
 import view.panes.AdminViewPanes.GameProgressTabPane;
 import view.panes.AdminViewPanes.StrategiesInfoPane;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class GokSpelMain extends Application {
 	@Override
-	public void start(Stage primaryStage) throws FileNotFoundException, IOException, BiffException {
+	public void start(Stage primaryStage) throws IOException, BiffException {
 
+
+		/***** models ****/
 		DatabaseModel database = new DatabaseModel();
-
 		GameModel gameModel = new GameModel(database);
+
+		/***** controllers *****/
 		Controller gamblerViewController = new GamblerViewController(gameModel);
 		Controller gameProgressTabController = new GameProgressTabController(gameModel);
-		View gamblerView = new GamblerView(gamblerViewController,gameModel);
+		StrategiesInfoController strategiesInfoController = new StrategiesInfoController(gameModel);
+
+		/***** panes *****/
+		StrategiesInfoPane strategiesInfoPane = new StrategiesInfoPane(gameModel,strategiesInfoController);
 		GameProgressTabPane gameProgressTabPane = new GameProgressTabPane(gameModel,gameProgressTabController);
 
-		StrategiesInfoController strategiesInfoController = new StrategiesInfoController(gameModel);
-		StrategiesInfoPane strategiesInfoPane = new StrategiesInfoPane(gameModel,strategiesInfoController);
 
+		/***** views *****/
+		View gamblerView = new GamblerView(gamblerViewController,gameModel);
 		AdminView adminView = new AdminView(database,gameProgressTabPane, strategiesInfoPane,gamblerViewController,gameModel);
 
+
 		gamblerViewController.setView(gamblerView);
-
-
-/*
 		strategiesInfoController.setView((View) strategiesInfoPane);
-*/
 
 		/***** adding observers *****/
 		gameModel.addObserver(gamblerView);
