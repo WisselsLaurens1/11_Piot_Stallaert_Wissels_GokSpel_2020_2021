@@ -15,6 +15,11 @@ public class ThrowDiceState extends State{
     }
 
     @Override
+    public void startGame() {
+        throw new IllegalStateException("The game has already started");
+    }
+
+    @Override
     public void choseStrategy(GambleStrategy gambleStrategy) {
         this.errorMessage = "You can't change your strategy while playing";
         throw new IllegalStateException("You can't change your strategy while playing");
@@ -65,5 +70,7 @@ public class ThrowDiceState extends State{
     public void endTurn() {
         throw new IllegalStateException("Throw dice first");
     }
+
+
 
 }

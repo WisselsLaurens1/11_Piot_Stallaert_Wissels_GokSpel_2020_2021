@@ -14,6 +14,11 @@ public class ChangeBettingAmountState extends State{
     }
 
     @Override
+    public void startGame() {
+        throw new IllegalStateException("The game has already started");
+    }
+
+    @Override
     public void choseStrategy(GambleStrategy gambleStrategy) {
         gameModel.setGambleStrategy(gambleStrategy);
         gameModel.setCurrentstate(gameModel.changeBettingAmountState);
@@ -42,6 +47,8 @@ public class ChangeBettingAmountState extends State{
     public void endTurn() {
         throw new IllegalStateException("First trhow dice");
     }
+
+
 
 
 }

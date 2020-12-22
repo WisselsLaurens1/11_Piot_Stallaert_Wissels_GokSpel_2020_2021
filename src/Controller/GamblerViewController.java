@@ -25,10 +25,6 @@ public class GamblerViewController extends Controller {
     }
 
     public void selectStrategey(String strategey){
-/*
-        gameModel.setGambleStrategy(gameModel.getGambleStrategyHashMap().get(strategey));
-*/
-        System.out.println("selecting: "+strategey);
         gameModel.choseStrategy(gameModel.getGambleStrategyHashMap().get(strategey));
     }
 
@@ -54,6 +50,9 @@ public class GamblerViewController extends Controller {
         gameModel.changeCurrentBettingAmount(amount);
     }
 
+    public void startGame(){
+        gameModel.startGame();
+    }
 
 
     @Override

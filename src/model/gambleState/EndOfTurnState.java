@@ -28,6 +28,11 @@ public class EndOfTurnState extends State {
     }
 
     @Override
+    public void startGame() {
+        throw new IllegalStateException("The game has already started");
+    }
+
+    @Override
     public void choseStrategy(GambleStrategy gambleStrategy) {
 
     }
@@ -76,4 +81,6 @@ public class EndOfTurnState extends State {
             e.printStackTrace();
         }
     }
+
+
 }

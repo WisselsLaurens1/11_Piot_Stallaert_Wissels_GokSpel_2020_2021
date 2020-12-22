@@ -65,6 +65,10 @@ public class GameModel implements Observable {
         }
     }
 
+    public void startGame(){
+        currentstate.startGame();
+    }
+
 
     /********************** states **********************/
     private State currentstate;
@@ -74,6 +78,7 @@ public class GameModel implements Observable {
     public final ChoseStrategyState choseStrategyState;
     public final EndOfTurnState endOfTurnState;
     public final ChangeBettingAmountState changeBettingAmountState;
+    public final StartGameState startGameState;
 
     public State getCurrentstate() {
         return currentstate;
@@ -209,6 +214,7 @@ public class GameModel implements Observable {
         this.loginState =new LoginState(this);
         this.endOfTurnState = new EndOfTurnState(this);
         this.throwDiceState =new ThrowDiceState(this);
+        this.startGameState = new StartGameState(this);
         this.database = database;
         this.setGameCount(1);
     }
