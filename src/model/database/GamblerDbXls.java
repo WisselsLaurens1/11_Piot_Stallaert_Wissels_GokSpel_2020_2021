@@ -38,16 +38,15 @@ public class GamblerDbXls implements GamblerDbInterface{
         WritableSheet sheet = workbook.getSheet(0);
         for(int i = 0; i < gamblers.size(); i++){
             Gambler g = gamblers.get(i);
-            for(int j = 0; j < 4; j++){
-                Label name = new Label(j, i, g.getName());
-                sheet.addCell(name);
-                Label surname = new Label(j, i, g.getSurname());
-                sheet.addCell(surname);
-                Label playerName = new Label(j, i, g.getPlayerName());
-                sheet.addCell(playerName);
-                Label gamblingSaldo = new Label(j, i, String.valueOf(g.getGamblingSaldo()));
-                sheet.addCell(gamblingSaldo);
-            }
+            Label name = new Label(0, i, g.getName());
+            sheet.addCell(name);
+            Label surname = new Label(1, i, g.getSurname());
+            sheet.addCell(surname);
+            Label playerName = new Label(2, i, g.getPlayerName());
+            sheet.addCell(playerName);
+            Label gamblingSaldo = new Label(3, i, String.valueOf(g.getGamblingSaldo()));
+            sheet.addCell(gamblingSaldo);
+
         }
         workbook.write();
         workbook.close();

@@ -1,15 +1,26 @@
 package view.panes;
 
 import Controller.Controller;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import jxl.read.biff.BiffException;
+import jxl.write.WriteException;
+import model.Gambler;
 import model.GameModel;
 import model.PropertiesHandler;
+import model.database.GamblerDbInterface;
 import model.database.GamblerEnum;
+import model.database.GamblerFactory;
 import view.panes.GamblerViewPanes.CustomLabel;
 import view.panes.GamblerViewPanes.CustomGridPane;
 import Controller.GameProgressTabController;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GameProgressTabPane extends CustomGridPane {
 
@@ -20,6 +31,7 @@ public class GameProgressTabPane extends CustomGridPane {
     CustomLabel bettedAmount;
     CustomLabel result;
     private PropertiesHandler handler =new PropertiesHandler();
+    private ObservableList<Gambler> gamblers;
 
     public GameProgressTabPane(GameModel gameModel, Controller controller){
 
@@ -55,6 +67,22 @@ public class GameProgressTabPane extends CustomGridPane {
         contentContainer.add(newGame,0,7);
 
         newGame.setOnAction((e)->{
+            GamblerDbInterface gamblerDbInterface = GamblerFactory.createDb(handler.getLoadSaveType().toString());
+            System.out.println(gamblerDbInterface);
+            HashMap<String, Gambler> gamblerDB =  gamblerDbInterface.getGamblerDb();
+            ArrayList<Gambler> gamblers = new ArrayList<Gambler>(gamblerDB.values());
+            System.out.println(gamblers);
+            for(Gambler g:gamblers)
+                System.out.println(g.getGamblingSaldo());
+            try {
+                gamblerDbInterface.write(gamblers);
+            } catch (BiffException biffException) {
+                biffException.printStackTrace();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            } catch (WriteException writeException) {
+                writeException.printStackTrace();
+            }
             myController.newGame();
         });
 
