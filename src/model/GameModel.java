@@ -1,5 +1,4 @@
 package model;
-import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 import model.GambleStrategey.GambleStrategies;
@@ -9,84 +8,169 @@ import model.database.DatabaseModel;
 import model.gambleState.*;
 
 public class GameModel implements Observable {
-    private PropertiesHandler handler =new PropertiesHandler();
 
+    /********************** actions player can take **********************/
 
-    private LoginState loginState;
+    public void login(String name){
+        try{
+            this.getCurrentstate().login(name);
+        }catch(IllegalStateException e ){
+            setTerminalOutput(this.getCurrentstate().errorMessage);
+        }
+    }
+
+    public void logout(){
+        currentstate.logout();
+    }
+
+    public void throwDice(){
+        try{
+            this.currentstate.throwdice();
+        }catch(IllegalStateException e ){
+            setTerminalOutput(this.getCurrentstate().errorMessage);
+        }
+    };
+
+    public void changeCurrentBettingAmount(int bettingAmount){
+        try{
+            this.currentstate.changeBettingAmount(bettingAmount);
+        }catch(IllegalStateException e ){
+            setTerminalOutput(this.getCurrentstate().errorMessage);
+        }
+    }
+
+    public void newGame(){
+        try{
+            this.currentstate.newGame();
+        }catch(IllegalStateException e ){
+            setTerminalOutput(this.getCurrentstate().errorMessage);
+        }
+    }
+
+    public void endTurn(){
+        try{
+            this.currentstate.endTurn();
+        }catch(IllegalStateException e ){
+            setTerminalOutput(this.getCurrentstate().errorMessage);
+        }
+    }
+
+    public void choseStrategy(GambleStrategy gambleStrategy){
+        try{
+            currentstate.choseStrategy(gambleStrategy);
+        }catch(IllegalStateException e ){
+            setTerminalOutput(this.getCurrentstate().errorMessage);
+        }
+
+    }
+
+    /********************** states **********************/
     private State currentstate;
-    private ThrowDiceState throwDiceState;
-    private ChoseStrategyState choseStrategyState;
-    private EndOfTurnState endOfTurnState;
 
-    public EndOfTurnState getEndOfTurnState() {
-        return endOfTurnState;
-    }
-
-    public void setEndOfTurnState(EndOfTurnState endOfTurnState) {
-        this.endOfTurnState = endOfTurnState;
-    }
-
-    public ChangeBettingAmountState getChangeBettingAmountState() {
-        return changeBettingAmountState;
-    }
-
-    public void setChangeBettingAmountState(ChangeBettingAmountState changeBettingAmountState) {
-        this.changeBettingAmountState = changeBettingAmountState;
-    }
-
-    private ChangeBettingAmountState changeBettingAmountState;
-
-    public ThrowDiceState getThrowDiceState() {
-        return throwDiceState;
-    }
-
-    public void setThrowDiceState(ThrowDiceState throwDiceState) {
-        this.throwDiceState = throwDiceState;
-    }
-
-
-    public ChoseStrategyState getChoseStrategyState() {
-        return choseStrategyState;
-    }
-
-    public void setChoseStrategyState(ChoseStrategyState choseStrategyState) {
-        this.choseStrategyState = choseStrategyState;
-    }
-
-
-    public LoginState getLoginState() {
-        return loginState;
-    }
-
-    public void setLoginState(LoginState loginState) {
-        this.loginState = loginState;
-    }
-
-
-
-    public DatabaseModel getDatabase() {
-        return database;
-    }
-
-    private DatabaseModel database;
-
-
-
+    public final LoginState loginState;
+    public final ThrowDiceState throwDiceState;
+    public final ChoseStrategyState choseStrategyState;
+    public final EndOfTurnState endOfTurnState;
+    public final ChangeBettingAmountState changeBettingAmountState;
 
     public State getCurrentstate() {
         return currentstate;
     }
-
     public void setCurrentstate(State currentstate) {
-        System.out.println("state: "+currentstate);
         this.currentstate = currentstate;
+        System.out.println("State: "+currentstate);
     }
 
-    Random rand = new Random();
+    /********************** variables & getters & setters **********************/
 
-    public int get_random_number(int min,int max){
-        return rand.nextInt((max - min) + 1) + min;
+    /***variables***/
+
+    private DatabaseModel database;
+    private Gambler currentPlayer;
+    private GambleStrategy gambleStrategy;
+    private final int maximumPlayerTruns = 4;
+    private int playerTurnsLeft = maximumPlayerTruns;
+    private ArrayList<GambleStrategy> gambleStrategies = new ArrayList<>();
+    private HashMap<String, GambleStrategy> gambleStrategyHashMap = new HashMap<>();
+    private int diceThrown = -1;
+    private int currentBettingAmount;
+    private ArrayList<Integer> diceThrows = new ArrayList<Integer>();
+    private GamblerStrategyFactory gamblerStrategyFactory = GamblerStrategyFactory.getInstance();
+    public int getCurrentBettingAmount() {
+        return currentBettingAmount;
     }
+    public void setCurrentBettingAmount(int currentBettingAmount) {
+        this.currentBettingAmount = currentBettingAmount;
+        updateObservers();
+    }
+    public String terminalOutput = null;
+    private int gameCount;
+    private PropertiesHandler handler =new PropertiesHandler();
+
+    /***getters && setters***/
+
+    public DatabaseModel getDatabase() {
+        return database;
+    }
+    public Gambler getCurrentPlayer() {
+        return currentPlayer;
+    }
+    public void setCurrentPlayer(Gambler currentPlayer) {
+        this.currentPlayer = currentPlayer;
+        updateObservers();
+    }
+    public void setGambleStrategy(GambleStrategy gambleStrategy) {
+        this.gambleStrategy = gambleStrategy;
+        updateObservers();
+    }
+    public GambleStrategy getGambleStrategy() {
+        return gambleStrategy;
+    }
+    public int getMaximumPlayerTruns() {
+        return maximumPlayerTruns;
+    }
+    public int getPlayerTurnsLeft() {
+        return playerTurnsLeft;
+    }
+    public void setPlayerTurnsLeft(int playerTurnsLeft) {
+        this.playerTurnsLeft = playerTurnsLeft;
+        updateObservers();
+    }
+    public ArrayList<GambleStrategy> getGambleStrategies() {
+        return gambleStrategies;
+    }
+    public HashMap<String, GambleStrategy> getGambleStrategyHashMap() {
+        return gambleStrategyHashMap;
+    }
+    public int getDiceThrown() {
+        return diceThrown;
+    }
+    public void setDiceThrown(int diceThrown) {
+        this.diceThrown = diceThrown;
+        updateObservers();
+    }
+    public ArrayList<Integer> getDiceThrows() {
+        return diceThrows;
+    }
+    public String getTerminalOutput() {
+        return terminalOutput;
+    }
+    public void setTerminalOutput(String terminalOutput) {
+        this.terminalOutput = terminalOutput;
+        this.updateObservers();
+    }
+    public int getGameCount() {
+        return gameCount;
+    }
+    public void setGameCount(int gameCount) {
+        this.gameCount = gameCount;
+        updateObservers();
+    }
+
+
+
+    /********************** Observers **********************/
+
 
     public ArrayList<Observer> observers = new ArrayList<>();
     public void addObserver(Observer observer){
@@ -95,115 +179,14 @@ public class GameModel implements Observable {
     public void removeObserver(Observer observer){
 
     };
-
-    public Gambler getCurrentPlayer() {
-        return currentPlayer;
-    }
-
-    public void setCurrentPlayer(Gambler currentPlayer) {
-        this.currentPlayer = currentPlayer;
-        updateObservers();
-    }
-
-    private Gambler currentPlayer;
-
-    public GambleStrategy getGambleStrategy() {
-        return gambleStrategy;
-    }
-
     public void updateObservers(){
         for(Observer observer: observers){
             observer.update();
         }
     }
 
-    public void setGambleStrategy(GambleStrategy gambleStrategy) {
-        this.currentstate.choseStrategy();
-        this.gambleStrategy = gambleStrategy;
-        updateObservers();
-    }
 
-    private GambleStrategy gambleStrategy;
-
-    public int getMaximumPlayerTruns() {
-        return maximumPlayerTruns;
-    }
-
-    private final int maximumPlayerTruns = 4;
-
-    public int getPlayerTurnsLeft() {
-        return playerTurnsLeft;
-    }
-
-    public void setPlayerTurnsLeft(int playerTurnsLeft) {
-        this.playerTurnsLeft = playerTurnsLeft;
-        updateObservers();
-    }
-
-    private int playerTurnsLeft = maximumPlayerTruns;
-
-    public boolean playerHasTurnsLeft(){
-        return getPlayerTurnsLeft() > maximumPlayerTruns;
-    }
-
-
-    /* get gamblerStrategyFactory to create strategies*/
-    private GamblerStrategyFactory gamblerStrategyFactory = GamblerStrategyFactory.getInstance();
-
-
-    public ArrayList<GambleStrategy> getGambleStrategies() {
-        return gambleStrategies;
-    }
-    private ArrayList<GambleStrategy> gambleStrategies = new ArrayList<>();
-
-
-    public HashMap<String, GambleStrategy> getGambleStrategyHashMap() {
-        return gambleStrategyHashMap;
-    }
-
-    private HashMap<String, GambleStrategy> gambleStrategyHashMap = new HashMap<>();
-
-
-
-    /* add all the gamblstrategies to the gamblestrategies array*/
-    public void initGamblerStrategies(){
-
-
-        /* for every strategy of the strategy enum create the strategy objet through the factory and add them to the array*/
-        for(GambleStrategies gambleStrategy : GambleStrategies.values()){
-
-            GambleStrategy strategy = gamblerStrategyFactory.getStrategy(gambleStrategy.toString());
-            if (handler.getmarges() != null){
-                for (Map.Entry<String, Integer> s: handler.getmarges().entrySet()){
-                    if (strategy.getClass().getSimpleName().equals(s.getKey())){
-                        strategy.setWinMultiplier(s.getValue());
-                    }
-                }
-            }
-            System.out.println(gambleStrategy.toString());
-            gambleStrategyHashMap.put(gambleStrategy.toString(),strategy);
-        }
-
-    }
-
-
-    // TODO: 06/12/2020  test possible error: maybe past by value instead of value then object in array and currentStrategy are not in sync
-
-    /*method to select a gambleStrategy and updtade its statistics*/
-    public void selectGambleStrategy(GambleStrategy gambleStrategy){
-        if (gambleStrategies.contains(gambleStrategy)){
-            /*get the selected strategy out of the strategies array*/
-            GambleStrategy selectedStrategy = gambleStrategies.get(gambleStrategies.indexOf(gambleStrategy));
-            /* update statistic */
-            selectedStrategy.setTimesSelected(selectedStrategy.getTimesSelected()+1);
-            setGambleStrategy(selectedStrategy);
-
-            // TODO: 06/12/2020 update view with new selected strategy
-            
-        }else{
-            throw new IllegalArgumentException("This strategy does not exist");
-        }
-    }
+    /********************** constructor **********************/
 
     public GameModel(DatabaseModel database){
         initGamblerStrategies();
@@ -217,20 +200,27 @@ public class GameModel implements Observable {
         this.database = database;
         this.setGameCount(1);
     }
-    public int getDiceThrown() {
-        return diceThrown;
-    }
 
-    public void setDiceThrown(int diceThrown) {
-        this.diceThrown = diceThrown;
-        updateObservers();
-    }
-
-    private int diceThrown = -1;
+    /********************** other **********************/
 
 
-    public ArrayList<Integer> getDiceThrows() {
-        return diceThrows;
+    /* add all the gamblstrategies to the gamblestrategies array*/
+    public void initGamblerStrategies(){
+
+        /* for every strategy of the strategy enum create the strategy objet through the factory and add them to the array*/
+        for(GambleStrategies gambleStrategy : GambleStrategies.values()){
+
+            GambleStrategy strategy = gamblerStrategyFactory.getStrategy(gambleStrategy.toString());
+            if (handler.getmarges() != null){
+                for (Map.Entry<String, Integer> s: handler.getmarges().entrySet()){
+                    if (strategy.getClass().getSimpleName().equals(s.getKey())){
+                        strategy.setWinMultiplier(s.getValue());
+                    }
+                }
+            }
+            gambleStrategyHashMap.put(gambleStrategy.toString(),strategy);
+        }
+
     }
 
     public void resetDiceThrows() {
@@ -238,75 +228,19 @@ public class GameModel implements Observable {
         updateObservers();
     }
 
-    private ArrayList<Integer> diceThrows = new ArrayList<Integer>();
-
-    public void throwDice(){
-
-        this.currentstate.throwdice();
-
-    };
-
-    public void login(String name){
-        this.getCurrentstate().login(name);
+    public int get_random_number(int min,int max){
+        return new Random().nextInt((max - min) + 1) + min;
     }
-
-    public void logout(){
-        this.getCurrentstate().logout();
-    }
-
-    public int getCurrentBettingAmount() {
-        return currentBettingAmount;
-    }
-
-    public void setCurrentBettingAmount(int currentBettingAmount) {
-        this.currentBettingAmount = currentBettingAmount;
-        updateObservers();
-    }
-
-    private int currentBettingAmount;
-
-
-    public void changeCurrentBettingAmount(int bettingAmount){
-        this.currentstate.changeBettingAmount(bettingAmount);
-    }
-
-
-    public String getTerminalOutput() {
-        return terminalOutput;
-    }
-
-    public void setTerminalOutput(String terminalOutput) {
-        this.terminalOutput = terminalOutput;
-        this.updateObservers();
-    }
-
-    public String terminalOutput = null;
-
-    public void endTurn(){
-        this.currentstate.endTurn();
-    }
-
-
-    public void newGame(){
-        this.currentstate.newGame();
-    }
-
-    public int getGameCount() {
-        return gameCount;
-    }
-
-    public void setGameCount(int gameCount) {
-        this.gameCount = gameCount;
-        updateObservers();
-    }
-
-    private int gameCount;
-
 
     public void updateMarges(HashMap<String,Integer> marges) {
-
         for (Map.Entry<String, Integer> entry : marges.entrySet()){
             getGambleStrategyHashMap().get(entry.getKey()).setWinMultiplier(entry.getValue());
         }
     }
+
+
+
+
+
+
 }

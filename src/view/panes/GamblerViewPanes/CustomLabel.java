@@ -17,7 +17,7 @@ public class CustomLabel{
     GameModel gameModel;
     Object obj;
 
-    public CustomLabel(String text,Object obj, String metodPath, GameModel gameModel){
+    public CustomLabel(String text,Object obj, String metodPath){
         label = new Label(text);
         this.labelText = text;
         this.methodPath = metodPath;
@@ -54,7 +54,6 @@ public class CustomLabel{
                             label.setText(labelText);
                         }
                     }else if(result != null){
-
                         label.setText(labelText + (String) result.toString());
 
                     }else{

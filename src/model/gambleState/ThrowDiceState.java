@@ -1,5 +1,6 @@
 package model.gambleState;
 
+import model.GambleStrategey.GambleStrategy;
 import model.GameModel;
 
 public class ThrowDiceState extends State{
@@ -9,12 +10,14 @@ public class ThrowDiceState extends State{
 
     @Override
     public void login(String name) {
-        throw new IllegalStateException("je bent al ingelogt");
+
+        throw new IllegalStateException("You are already logged in");
     }
 
     @Override
-    public void choseStrategy() {
-        throw new IllegalStateException("je hebt al een strategie gekozen");
+    public void choseStrategy(GambleStrategy gambleStrategy) {
+        this.errorMessage = "You can't change your strategy while playing";
+        throw new IllegalStateException("You can't change your strategy while playing");
     }
 
     @Override
@@ -22,43 +25,42 @@ public class ThrowDiceState extends State{
 
         /* subtract betted amount from player saldo*/
         if(gameModel.getPlayerTurnsLeft() == gameModel.getMaximumPlayerTruns()){
+
+            GambleStrategy selectedStrategy = gameModel.getGambleStrategy();
             gameModel.getCurrentPlayer().setGamblingSaldo(Double.toString(gameModel.getCurrentPlayer().getGamblingSaldo()-gameModel.getCurrentBettingAmount()));
 
             /*update times selected for slected strategy*/
-            gameModel.getGambleStrategy().setTimesSelected(gameModel.getGambleStrategy().getTimesSelected()+1);
+            selectedStrategy.setTimesSelected(gameModel.getGambleStrategy().getTimesSelected()+1);
+            selectedStrategy.setTotalAmoutBeted(gameModel.getCurrentBettingAmount());
             gameModel.updateObservers();
         }
 
         /* check if player has a turn left */
         if(getGameModel().getPlayerTurnsLeft() > 0){
             /*thow the dice*/
-            getGameModel().setPlayerTurnsLeft(getGameModel().getPlayerTurnsLeft()-1);
+            gameModel.setPlayerTurnsLeft(gameModel.getPlayerTurnsLeft()-1);
 
             int diceEyes =  getGameModel().get_random_number(1,6);
-            getGameModel().setDiceThrown(diceEyes);
-            getGameModel().getDiceThrows().add(diceEyes);
+            gameModel.setDiceThrown(diceEyes);
+            gameModel.getDiceThrows().add(diceEyes);
         }
         if(getGameModel().getPlayerTurnsLeft() == 0) {
             /*if all dice are thrown, end game*/
-            getGameModel().setCurrentstate(getGameModel().getEndOfTurnState());
-            getGameModel().getCurrentstate().endTurn();
+            gameModel.setCurrentstate(getGameModel().endOfTurnState);
+            gameModel.endTurn();
         }
 
     }
 
     @Override
     public void changeBettingAmount(int bettingAmount) {
-        throw new IllegalStateException("je moet eerst 2 dice throws nodig");
+        this.errorMessage = "You can't chang your betting amount while playing";
+        throw new IllegalStateException("You can't chang your betting amount while playing");
     }
 
     @Override
     public void endTurn() {
-        if(getGameModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
-        if(getGameModel().getCurrentstate() instanceof ChoseStrategyState)throw new IllegalStateException();
-        if(getGameModel().getCurrentstate() instanceof ChangeBettingAmountState)throw new IllegalStateException();
-        if (getGameModel().getCurrentstate() instanceof ThrowDiceState){
-            getGameModel().setCurrentstate(getGameModel().getLoginState());
-        }
+        throw new IllegalStateException("Throw dice first");
     }
 
 }

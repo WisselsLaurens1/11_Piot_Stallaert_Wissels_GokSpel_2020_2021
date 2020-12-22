@@ -1,14 +1,9 @@
 package view.panes.GamblerViewPanes;
 
 import Controller.Controller;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.*;
 import model.GameModel;
 import Controller.GamblerViewController;
-import view.View;
-
 import java.util.ArrayList;
 
 
@@ -22,13 +17,13 @@ public class GamblerViewThrowDicePane extends CustomGridPane {
         super(gameModel,gameblerViewController,4,8);
         GamblerViewController myController = (GamblerViewController) gameblerViewController;
 
-        this.playerTurnsLeft = new CustomLabel("Turns left: ",gameModel,"getPlayerTurnsLeft()",gameModel);
+        this.playerTurnsLeft = new CustomLabel("Turns left: ",gameModel,"getPlayerTurnsLeft()");
         this.containerPane.add(playerTurnsLeft.label,0,0,2,1);
         Button throwDice = new Button("Throw Dice");
         this.containerPane.add(throwDice,2,0,2,1);
 
         for (int i = 0; i<this.getGameModel().getMaximumPlayerTruns()+1; i++){
-            diceThrows.add(new CustomLabel("Dice throw: ",gameModel,"getDiceThrown()",gameModel));
+            diceThrows.add(new CustomLabel("Dice throw: ",gameModel,"getDiceThrown()"));
             this.containerPane.add(diceThrows.get(i).label,4,i,2,1);
         }
 

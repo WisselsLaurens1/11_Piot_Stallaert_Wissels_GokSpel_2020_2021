@@ -1,5 +1,6 @@
 package model.gambleState;
 
+import model.GambleStrategey.GambleStrategy;
 import model.GameModel;
 
 public class ChoseStrategyState extends State{
@@ -9,33 +10,29 @@ public class ChoseStrategyState extends State{
 
     @Override
     public void login(String name) {
-        throw new IllegalStateException("je bent al ingelogt");
+        throw new IllegalStateException("You are already logged in");
     }
 
     @Override
-    public void choseStrategy() {
-        if(getGameModel().getCurrentstate() instanceof LoginState) throw new IllegalStateException();
-        if(getGameModel().getCurrentstate() instanceof ThrowDiceState)throw new IllegalStateException();
-
-        if(getGameModel().getCurrentstate() instanceof ChoseStrategyState){
-            getGameModel().setCurrentstate(getGameModel().getChangeBettingAmountState());
-        }
+    public void choseStrategy(GambleStrategy gambleStrategy) {
+        gameModel.setGambleStrategy(gambleStrategy);
+        gameModel.setCurrentstate(gameModel.changeBettingAmountState);
     }
 
     @Override
     public void throwdice() {
-        getGameModel().setTerminalOutput("You have to chose a strategy first");
+        this.errorMessage = "You have to chose a strategy first";
         throw new IllegalStateException("You have to chose a strategy first");
     }
 
     @Override
     public void changeBettingAmount(int bettingAmount) {
-        getGameModel().setTerminalOutput("You have to chose a strategy first");
+        this.errorMessage = "You have to chose a strategy first";
         throw new IllegalStateException("You have to chose a strategy first");    }
 
     @Override
     public void endTurn() {
-        getGameModel().setTerminalOutput("You have to chose a strategy first");
+        this.errorMessage = "You have to chose a strategy first";
         throw new IllegalStateException("You have to chose a strategy first");    }
 
 }

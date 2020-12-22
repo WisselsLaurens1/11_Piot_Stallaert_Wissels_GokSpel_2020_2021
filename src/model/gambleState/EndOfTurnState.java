@@ -12,24 +12,24 @@ public class EndOfTurnState extends State {
 
     @Override
     public void login(String name) {
-        getGameModel().setTerminalOutput("You are already loged in");
+        this.errorMessage = "You are already loged in";
         throw new IllegalStateException("You are already loged in");
     }
 
     @Override
-    public void choseStrategy() {
+    public void choseStrategy(GambleStrategy gambleStrategy) {
 
     }
 
     @Override
     public void throwdice() {
-        getGameModel().setTerminalOutput("Start new game first");
+        this.errorMessage = "Start new game first";
         throw new IllegalStateException("Start new game first");
     }
 
     @Override
     public void changeBettingAmount(int bettingAmount) {
-        getGameModel().setTerminalOutput("Start new game first");
+        this.errorMessage = "Start new game first";
         throw new IllegalStateException("Start new game first");
     }
 
@@ -41,15 +41,15 @@ public class EndOfTurnState extends State {
 
         if(didWin){
             int wonAmount = gameModel.getCurrentBettingAmount()*gameModel.getGambleStrategy().winMultiplier;
-            int newSaldo = (int) (getGameModel().getCurrentPlayer().getGamblingSaldo()+wonAmount);
-            GambleStrategy strategy =  gameModel.getGambleStrategy();
-            getGameModel().setTerminalOutput("You won: "+ wonAmount + ". Your new saldo is: " + newSaldo);
-            strategy.setTotalWins(strategy.getTotalWins()+1);
-            strategy.setTotalProfit(strategy.getTotalProfit()+wonAmount);
-            getGameModel().getCurrentPlayer().setGamblingSaldo(Double.toString(newSaldo));
+            int newSaldo = (int) (gameModel.getCurrentPlayer().getGamblingSaldo()+wonAmount);
+            GambleStrategy selectedStrategy =  gameModel.getGambleStrategy();
+            gameModel.setTerminalOutput("You won: "+ wonAmount + ". Your new saldo is: " + newSaldo);
+            selectedStrategy.setTotalWins(selectedStrategy.getTotalWins()+1);
+            selectedStrategy.setTotalProfit(selectedStrategy.getTotalProfit()+wonAmount);
+            gameModel.getCurrentPlayer().setGamblingSaldo(Double.toString(newSaldo));
             gameModel.updateObservers();
         }else{
-            getGameModel().setTerminalOutput("You lost! Your new saldo is: " + getGameModel().getCurrentPlayer().getGamblingSaldo());
+            gameModel.setTerminalOutput("You lost! Your new saldo is: " + gameModel.getCurrentPlayer().getGamblingSaldo());
         }
     }
 }

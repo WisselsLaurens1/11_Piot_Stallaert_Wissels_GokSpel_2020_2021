@@ -59,18 +59,15 @@ public class GamblerViewSelectStrategyPane extends CustomGridPane{
         comboBoxGambleStrategies.setOnAction((e) -> {
             String selectedItem = comboBoxGambleStrategies.getSelectionModel().getSelectedItem();
             myController.selectStrategey(selectedItem);
-
         });
 
-        description = new CustomLabel("Description: ",gameModel,"getGambleStrategy().getDescription()",gameModel);
+        description = new CustomLabel("Description: ",gameModel,"getGambleStrategy().getDescription()");
         this.containerPane.add(description.label,0,1,8,1);
 
     }
 
     public void update() {
         description.update();
-
-
 
     }
     public void updatestrategies(List<GambleStrategies> stategies){

@@ -21,8 +21,8 @@ public class GamblerViewLoginPane extends CustomGridPane{
 
         super(gameModel, gameblerViewController,2,9);
         GamblerViewController myController = (GamblerViewController) gameblerViewController;
-        currentPlayer = new CustomLabel("Player name: ",gameModel,"getCurrentPlayer().getPlayerName()",gameModel);
-        saldo = new CustomLabel("Saldo: ",gameModel, "getCurrentPlayer().getGamblingSaldo()",gameModel);
+        currentPlayer = new CustomLabel("Player name: ",gameModel,"getCurrentPlayer().getPlayerName()");
+        saldo = new CustomLabel("Saldo: ",gameModel, "getCurrentPlayer().getGamblingSaldo()");
 
         Label playerName = new Label("Enter player name");
         TextField loginField = new TextField ();

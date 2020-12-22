@@ -19,7 +19,7 @@ public class GamblerViewOutputPane extends CustomGridPane {
     public GamblerViewOutputPane(GameModel gameModel, Controller gameblerViewController){
         super(gameModel, gameblerViewController, 3,8);
 
-        terminalOutput = new CustomLabel(" ",gameModel,"getTerminalOutput()",gameModel);
+        terminalOutput = new CustomLabel(" ",gameModel,"getTerminalOutput()");
 
         Label output = new Label("Output: ");
         this.containerPane.add(output,0,0,2,1);
