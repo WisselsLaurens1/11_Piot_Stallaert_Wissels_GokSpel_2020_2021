@@ -32,6 +32,7 @@ public class AdminMainPane extends BorderPane {
         SettingsViewPane settingsPane = new SettingsViewPane();
         SettingsController settingsController = new SettingsController(model);
         settingsController.setView( settingsPane);
+        settingsController.setController(gamblerViewController);
 
         Tab instellingTab = new Tab("Instellingen",settingsPane);
         Tab statistiekTab = new Tab("Strategies",strategiesInfoPane);

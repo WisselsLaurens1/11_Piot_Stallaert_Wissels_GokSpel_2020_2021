@@ -13,6 +13,7 @@ import model.PropertiesHandler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.regex.Pattern;
 
 
@@ -20,11 +21,13 @@ public class GamblerViewSelectStrategyPane extends CustomGridPane{
 
     private PropertiesHandler handler =new PropertiesHandler();
     private CustomLabel description;
+    private GamblerViewController myController;
 
     public GamblerViewSelectStrategyPane(GameModel gameModel, Controller gameblerViewController){
         super(gameModel,gameblerViewController,2,8);
 
-        GamblerViewController myController = (GamblerViewController) gameblerViewController;
+        myController = (GamblerViewController) gameblerViewController;
+        myController.setPane(this);
 
         HashMap<String,GambleStrategy> gambleStrategies = gameModel.getGambleStrategyHashMap();
         ArrayList<String> strategyNames = new ArrayList<>();
@@ -68,6 +71,31 @@ public class GamblerViewSelectStrategyPane extends CustomGridPane{
         description.update();
 
 
+
+    }
+    public void updatestrategies(List<GambleStrategies> stategies){
+        HashMap<String,GambleStrategy> gambleStrategies = this.getGameModel().getGambleStrategyHashMap();
+        ArrayList<String> strategyNames = new ArrayList<>();
+
+
+        for(String gs: gambleStrategies.keySet()){
+            String[] strategyString = gs.getClass().toString().split(Pattern.quote("."));
+            String strategyName = strategyString[strategyString.length-1];
+
+            if(stategies.contains(GambleStrategies.valueOf(gs))){
+                    strategyNames.add(gs);
+            }
+
+        }
+        ComboBox<String> comboBoxGambleStrategies = new ComboBox();
+
+        comboBoxGambleStrategies.getItems().addAll(strategyNames);
+        this.containerPane.add(comboBoxGambleStrategies,2,0,3,1);
+        comboBoxGambleStrategies.setOnAction((e) -> {
+            String selectedItem = comboBoxGambleStrategies.getSelectionModel().getSelectedItem();
+            this.myController.selectStrategey(selectedItem);
+
+        });
 
     }
 

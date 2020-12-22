@@ -17,6 +17,7 @@ public class SettingsController{
     SettingsViewPane view;
     PropertiesHandler handler = new PropertiesHandler();
     private GameModel model;
+    private GamblerViewController controller;
 
     private GamblerEnum currentLoadSaveTypeSetting;
     private HashMap<String,Integer> marges =new HashMap<>();
@@ -24,8 +25,9 @@ public class SettingsController{
     private List<GambleStrategies> availableTypes = new ArrayList<>();
 
 
-    public SettingsController(GameModel model) {
+    public SettingsController(GameModel model ) {
         this.model=model;
+
 
         if(handler.getmarges()==null){
             GamblerStrategyFactory factory= GamblerStrategyFactory.getInstance();
@@ -39,7 +41,11 @@ public class SettingsController{
 
     }
 
-    public void changemarge(String strategies,int aantal){
+    public void setController(Controller controller) {
+        this.controller = (GamblerViewController) controller;
+    }
+
+    public void changemarge(String strategies, int aantal){
         GamblerStrategyFactory factory= GamblerStrategyFactory.getInstance();
         marges.put(strategies,aantal);
         System.out.println(factory.getStrategy(strategies.toString()).getWinMultiplier());
@@ -125,6 +131,7 @@ public class SettingsController{
     private void saveGambleStrategies () {
         PropertiesHandler propertiesHandler = new PropertiesHandler();
         propertiesHandler.saveGambleStrategyTypes(availableTypes);
+        this.controller.updatestrategies(availableTypes);
     }
 
 

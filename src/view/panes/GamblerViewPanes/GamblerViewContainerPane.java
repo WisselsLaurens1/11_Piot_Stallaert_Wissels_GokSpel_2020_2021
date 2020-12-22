@@ -43,7 +43,7 @@ public class GamblerViewContainerPane extends GridPane {
 
 
         GamblerViewLoginPane gamblerViewLoginPane = new GamblerViewLoginPane(model,this.controller);
-        GamblerViewSelectStrategyPane gamblerViewSelectStrategyPane = new GamblerViewSelectStrategyPane(model,this.controller);
+        GamblerViewSelectStrategyPane gamblerViewSelectStrategyPane = new GamblerViewSelectStrategyPane(model,gamblerViewController);
         GamblerViewThrowDicePane gamblerViewThrowDicePane = new GamblerViewThrowDicePane(model,this.controller);
         GamblerViewEnterBettingAmountPane gamblerPane3 = new GamblerViewEnterBettingAmountPane(model,this.controller);
         GamblerViewOutputPane gamblerPane5 = new GamblerViewOutputPane(model,this.controller);

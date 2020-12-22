@@ -34,7 +34,7 @@ public class GamblerView implements View  {
 		Scene scene = new Scene(root, 600, 600);
 		scene.getStylesheets().add(path);
 
-		GamblerViewContainerPane gamblerViewContainerPane = new GamblerViewContainerPane(model,this.controller);
+		GamblerViewContainerPane gamblerViewContainerPane = new GamblerViewContainerPane(model,gamblerViewController);
 		this.gamblerViewContainer = gamblerViewContainerPane;
 
 		stage.setScene(scene);

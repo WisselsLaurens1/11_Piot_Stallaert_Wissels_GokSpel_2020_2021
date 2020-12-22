@@ -1,14 +1,28 @@
 package Controller;
+import model.GambleStrategey.GambleStrategies;
+import model.Gambler;
 import model.GameModel;
 import view.View;
+import view.panes.GamblerViewPanes.GamblerViewSelectStrategyPane;
+
+import java.util.List;
 
 public class GamblerViewController extends Controller {
+    private GamblerViewSelectStrategyPane pane;
 
 
     public GamblerViewController(GameModel gameModel){
         super(gameModel);
+
     }
 
+    public void setPane(GamblerViewSelectStrategyPane pane) {
+        this.pane = pane;
+    }
+
+    public void updatestrategies(List<GambleStrategies> list){
+        this.pane.updatestrategies(list);
+    }
 
     public void selectStrategey(String strategey){
         this.gameModel.setGambleStrategy(this.gameModel.getGambleStrategyHashMap().get(strategey));
