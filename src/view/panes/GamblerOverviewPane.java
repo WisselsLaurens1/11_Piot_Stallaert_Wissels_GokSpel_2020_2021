@@ -62,7 +62,6 @@ public class GamblerOverviewPane extends GridPane{
 		if(handler.getLoadSaveType() != null){
 			bestandenComboBox.setValue(handler.getLoadSaveType().toString());
 		}
-
 	}
 
 	class ClickComboBoxLineHandler implements ChangeListener<String> {

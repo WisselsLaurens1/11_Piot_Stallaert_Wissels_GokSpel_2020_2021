@@ -36,8 +36,8 @@ public class EndOfTurnState extends State {
 
     @Override
     public void endTurn() {
-        ArrayList<Integer> diceTrhows = getGameModel().getDiceThrows();
-        Boolean didWin = getGameModel().getGambleStrategy().didWin(diceTrhows);
+        ArrayList<Integer> diceThrows = getGameModel().getDiceThrows();
+        Boolean didWin = getGameModel().getGambleStrategy().didWin(diceThrows);
 
         if(didWin){
             int wonAmount = gameModel.getCurrentBettingAmount()*gameModel.getGambleStrategy().winMultiplier;

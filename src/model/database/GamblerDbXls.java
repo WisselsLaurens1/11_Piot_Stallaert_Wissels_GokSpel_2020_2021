@@ -31,7 +31,7 @@ public class GamblerDbXls implements GamblerDbInterface{
         }
     }
 
-    public void write(ArrayList<Gambler> gamblers) throws BiffException, IOException, RowsExceededException, WriteException {
+    public void write(ArrayList<Gambler> gamblers, String newPlayerName, Double newGamblingSaldo) throws BiffException, IOException, RowsExceededException, WriteException {
 
         WritableWorkbook workbook = Workbook.createWorkbook(spelers);
         workbook.createSheet("sheet1", 0);
@@ -44,7 +44,12 @@ public class GamblerDbXls implements GamblerDbInterface{
             sheet.addCell(surname);
             Label playerName = new Label(2, i, g.getPlayerName());
             sheet.addCell(playerName);
-            Label gamblingSaldo = new Label(3, i, String.valueOf(g.getGamblingSaldo()));
+            Label gamblingSaldo;
+            if (g.getPlayerName().equals(newPlayerName)) {
+                gamblingSaldo = new Label(3, i, String.valueOf(newGamblingSaldo));
+            } else {
+                gamblingSaldo = new Label(3, i, String.valueOf(g.getGamblingSaldo()));
+            }
             sheet.addCell(gamblingSaldo);
 
         }

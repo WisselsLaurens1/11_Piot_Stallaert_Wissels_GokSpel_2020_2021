@@ -12,5 +12,5 @@ import java.util.HashMap;
 
 public interface GamblerDbInterface {
     HashMap<String, Gambler> getGamblerDb();
-    void write(ArrayList<Gambler> gamblers) throws BiffException, IOException, RowsExceededException, WriteException;
+    void write(ArrayList<Gambler> gamblers, String playerName, Double gamblingSaldo) throws BiffException, IOException, RowsExceededException, WriteException;
 }

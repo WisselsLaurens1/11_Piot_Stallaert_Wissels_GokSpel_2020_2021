@@ -68,14 +68,10 @@ public class GameProgressTabPane extends CustomGridPane {
 
         newGame.setOnAction((e)->{
             GamblerDbInterface gamblerDbInterface = GamblerFactory.createDb(handler.getLoadSaveType().toString());
-            System.out.println(gamblerDbInterface);
             HashMap<String, Gambler> gamblerDB =  gamblerDbInterface.getGamblerDb();
             ArrayList<Gambler> gamblers = new ArrayList<Gambler>(gamblerDB.values());
-            System.out.println(gamblers);
-            for(Gambler g:gamblers)
-                System.out.println(g.getGamblingSaldo());
             try {
-                gamblerDbInterface.write(gamblers);
+                gamblerDbInterface.write(gamblers, getGameModel().getCurrentPlayer().getPlayerName(), getGameModel().getCurrentPlayer().getGamblingSaldo());
             } catch (BiffException biffException) {
                 biffException.printStackTrace();
             } catch (IOException ioException) {

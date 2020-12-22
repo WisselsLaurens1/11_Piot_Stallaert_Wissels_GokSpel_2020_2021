@@ -24,12 +24,16 @@ public class GamblerDbTxt implements GamblerDbInterface {
         }
     }
 
-    public void write(ArrayList<Gambler> gamblers) throws IOException {
+    public void write(ArrayList<Gambler> gamblers, String playerName, Double gamblingSaldo) throws IOException {
         FileWriter writer = new FileWriter(spelers);
         PrintWriter leeg = new PrintWriter(writer);
         leeg.flush();
         for(Gambler g:gamblers){
-            writer.write(g.getName()+","+g.getSurname()+","+g.getPlayerName()+","+g.getGamblingSaldo()+System.lineSeparator());
+            if (g.getPlayerName().equals(playerName)) {
+                writer.write(g.getName()+","+g.getSurname()+","+g.getPlayerName()+","+gamblingSaldo+System.lineSeparator());
+            } else {
+                writer.write(g.getName()+","+g.getSurname()+","+g.getPlayerName()+","+g.getGamblingSaldo()+System.lineSeparator());
+            }
         }
         writer.close();
     }
