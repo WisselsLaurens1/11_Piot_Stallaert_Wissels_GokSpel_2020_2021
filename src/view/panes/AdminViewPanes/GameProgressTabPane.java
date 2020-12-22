@@ -1,7 +1,5 @@
-package view.panes;
-
+package view.panes.AdminViewPanes;
 import Controller.Controller;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.layout.ColumnConstraints;
@@ -12,12 +10,10 @@ import model.Gambler;
 import model.GameModel;
 import model.PropertiesHandler;
 import model.database.GamblerDbInterface;
-import model.database.GamblerEnum;
 import model.database.GamblerFactory;
 import view.panes.GamblerViewPanes.CustomLabel;
 import view.panes.GamblerViewPanes.CustomGridPane;
 import Controller.GameProgressTabController;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +40,7 @@ public class GameProgressTabPane extends CustomGridPane {
         selectedStrategy = new CustomLabel("Selected strategy: ",gameModel,"getGambleStrategy().getName()");
         diceThrows = new CustomLabel("Dice throws: ",gameModel,"getDiceThrows()");
         bettedAmount = new CustomLabel("Amount betted: ",gameModel,"getCurrentBettingAmount()");
-        result = new CustomLabel("Result: ",gameModel,"getCurrentBettingAmount()");
+        result = new CustomLabel("Result: ",gameModel,"getWonAmount()");
 
         GameProgressTabController myController = (GameProgressTabController) this.getViewController();
 

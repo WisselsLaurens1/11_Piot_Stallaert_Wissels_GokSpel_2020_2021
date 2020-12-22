@@ -12,8 +12,8 @@ import view.AdminView;
 import view.GamblerView;
 import view.View;
 import Controller.GameProgressTabController;
-import view.panes.GameProgressTabPane;
-import view.panes.StrategiesInfoPane;
+import view.panes.AdminViewPanes.GameProgressTabPane;
+import view.panes.AdminViewPanes.StrategiesInfoPane;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -36,11 +36,13 @@ public class GokSpelMain extends Application {
 		AdminView adminView = new AdminView(database,gameProgressTabPane, strategiesInfoPane,gamblerViewController,gameModel);
 
 		gamblerViewController.setView(gamblerView);
+
+
 /*
 		strategiesInfoController.setView((View) strategiesInfoPane);
 */
 
-		/*adding observers*/
+		/***** adding observers *****/
 		gameModel.addObserver(gamblerView);
 		gameModel.addObserver(gameProgressTabPane);
 		gameModel.addObserver(strategiesInfoPane);

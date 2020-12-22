@@ -59,7 +59,7 @@ public abstract class CustomGridPane extends GridPane implements Observer {
             containerPane.getRowConstraints().add(row);
         }
 
-        this.setMargin(containerPane, new Insets(10, 10, 10, 10));
+        this.setMargin(containerPane, new Insets(12, 13, 12, 12));
         containerPane.setHgap(10);
 
 

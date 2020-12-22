@@ -5,26 +5,20 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-import model.GameModel;
-
-
 /*class for labels that update automatically*/
 
 public class CustomLabel{
     public Label label;
     public String labelText;
     String methodPath;
-    GameModel gameModel;
     Object obj;
 
     public CustomLabel(String text,Object obj, String metodPath){
         label = new Label(text);
         this.labelText = text;
         this.methodPath = metodPath;
-        this.gameModel = gameModel;
         this.obj = obj;
     }
-
 
     /*get the methods that need to be called to get new value of label */
     private ArrayList<String> parseMethodPath(){
@@ -36,7 +30,11 @@ public class CustomLabel{
         return result;
     }
 
-    /*use reflection to get new value of label and update */
+    /*
+        use reflection to get new value of label
+        if value == null or -1 -> display label text cause there is no value
+        else update label text
+    */
     public void update() {
         Method method = null;
         ArrayList<String> methodPath = parseMethodPath();

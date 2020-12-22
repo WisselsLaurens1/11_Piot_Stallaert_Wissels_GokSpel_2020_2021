@@ -1,4 +1,4 @@
-Dox,Manouche,Woef,1595.0
+Dox,Manouche,Woef,1754.0
 Jansens,Jan,JeJe,100.0
 Vanheel,Anneke,Popje,100.0
 Cox,Frederic,Fre,100.0

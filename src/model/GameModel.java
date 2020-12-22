@@ -23,6 +23,24 @@ public class GameModel implements Observable {
         currentstate.logout();
     }
 
+    public void choseStrategy(GambleStrategy gambleStrategy){
+        try{
+            currentstate.choseStrategy(gambleStrategy);
+            setGambleStrategy(gambleStrategy);
+        }catch(IllegalStateException e ){
+            setTerminalOutput(this.getCurrentstate().errorMessage);
+        }
+
+    }
+
+    public void changeCurrentBettingAmount(int bettingAmount){
+        try{
+            currentstate.changeBettingAmount(bettingAmount);
+        }catch(IllegalStateException e ){
+            setTerminalOutput(this.getCurrentstate().errorMessage);
+        }
+    }
+
     public void throwDice(){
         try{
             this.currentstate.throwdice();
@@ -30,14 +48,6 @@ public class GameModel implements Observable {
             setTerminalOutput(this.getCurrentstate().errorMessage);
         }
     };
-
-    public void changeCurrentBettingAmount(int bettingAmount){
-        try{
-            this.currentstate.changeBettingAmount(bettingAmount);
-        }catch(IllegalStateException e ){
-            setTerminalOutput(this.getCurrentstate().errorMessage);
-        }
-    }
 
     public void newGame(){
         try{
@@ -55,14 +65,6 @@ public class GameModel implements Observable {
         }
     }
 
-    public void choseStrategy(GambleStrategy gambleStrategy){
-        try{
-            currentstate.choseStrategy(gambleStrategy);
-        }catch(IllegalStateException e ){
-            setTerminalOutput(this.getCurrentstate().errorMessage);
-        }
-
-    }
 
     /********************** states **********************/
     private State currentstate;
@@ -96,16 +98,12 @@ public class GameModel implements Observable {
     private int currentBettingAmount;
     private ArrayList<Integer> diceThrows = new ArrayList<Integer>();
     private GamblerStrategyFactory gamblerStrategyFactory = GamblerStrategyFactory.getInstance();
-    public int getCurrentBettingAmount() {
-        return currentBettingAmount;
-    }
-    public void setCurrentBettingAmount(int currentBettingAmount) {
-        this.currentBettingAmount = currentBettingAmount;
-        updateObservers();
-    }
     public String terminalOutput = null;
     private int gameCount;
     private PropertiesHandler handler =new PropertiesHandler();
+
+
+    private int wonAmount;
 
     /***getters && setters***/
 
@@ -166,7 +164,21 @@ public class GameModel implements Observable {
         this.gameCount = gameCount;
         updateObservers();
     }
+    public int getCurrentBettingAmount() {
+        return currentBettingAmount;
+    }
+    public void setCurrentBettingAmount(int currentBettingAmount) {
+        this.currentBettingAmount = currentBettingAmount;
+        updateObservers();
+    }
+    public int getWonAmount() {
+        return wonAmount;
+    }
 
+    public void setWonAmount(int wonAmount) {
+        this.wonAmount = wonAmount;
+        updateObservers();
+    }
 
 
     /********************** Observers **********************/
@@ -236,6 +248,11 @@ public class GameModel implements Observable {
         for (Map.Entry<String, Integer> entry : marges.entrySet()){
             getGambleStrategyHashMap().get(entry.getKey()).setWinMultiplier(entry.getValue());
         }
+    }
+
+    public void addDiceThrow(int diceThrow){
+        diceThrows.add(diceThrow);
+        updateObservers();
     }
 
 

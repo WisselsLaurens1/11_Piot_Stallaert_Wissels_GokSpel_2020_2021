@@ -12,7 +12,6 @@ public class GamblerViewThrowDicePane extends CustomGridPane {
     private CustomLabel playerTurnsLeft;
     private ArrayList<CustomLabel> diceThrows = new ArrayList<>();
 
-
     public GamblerViewThrowDicePane(GameModel gameModel, Controller gameblerViewController){
         super(gameModel,gameblerViewController,4,8);
         GamblerViewController myController = (GamblerViewController) gameblerViewController;
@@ -35,7 +34,6 @@ public class GamblerViewThrowDicePane extends CustomGridPane {
 
     public void update() {
             playerTurnsLeft.update();
-
             /*reset all dice*/
             if(this.getGameModel().getDiceThrown() == -1){
                 for(CustomLabel label: diceThrows){
@@ -45,8 +43,9 @@ public class GamblerViewThrowDicePane extends CustomGridPane {
                 /*update dice throws*/
                 if(this.getGameModel().getPlayerTurnsLeft() >= 1){
                     diceThrows.get(this.getGameModel().getDiceThrows().size()).update();
+
                 }else{
-                    diceThrows.get(this.getGameModel().getDiceThrows().size()-1).update();
+                    diceThrows.get(this.getGameModel().getDiceThrows().size()).update();
                 }
             }
 

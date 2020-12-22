@@ -36,6 +36,7 @@ public final GameModel gameModel;
         gameModel.setTerminalOutput(" ");
         gameModel.setPlayerTurnsLeft(gameModel.getMaximumPlayerTruns());
         gameModel.setGameCount(gameModel.getGameCount()+1);
+        gameModel.setWonAmount(-1);
     }
 
 }

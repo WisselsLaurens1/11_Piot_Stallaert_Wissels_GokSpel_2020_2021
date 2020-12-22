@@ -1,59 +1,9 @@
-
 #containerView {
-    -fx-background-color: #D5D5E3;
     -fx-font-size: 15px;
-    -fx-min-width: 600px;
-    -fx-min-height: 600px;
-}
-
-
-#topView{
-    -fx-background-color: #2e76a5;
-    -fx-min-width: 600px;
-
-    /*
-
-    -fx-font-size: 20px;
-    */
-}
-
-#middleView{
-    -fx-background-color: #a8bac6;
-
-    -fx-min-width: 600px;
-
-    /*
-    -fx-font-size: 20px;
-    */
-    /*
-    -fx-min-width: 100%;
-    */
-
-
-}
-
-#bottomView{
-    -fx-background-color: #a8bac6;
-
-    -fx-min-width: 600px;
-}
-
-#pane5{
-    -fx-background-color: #a8bac6;
-    -fx-padding: 10px;
-    -fx-min-width: 600px;
-}
-
-#GameProgressTabPane{
-    -fx-background-color: #a8bac6;
-
 }
 
 #containerPane{
     -fx-background-color: #ffffff;
-}
-
-#cotentContainer{
     -fx-label-padding: 20px;
 }
 

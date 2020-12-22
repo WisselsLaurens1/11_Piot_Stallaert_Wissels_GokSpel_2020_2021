@@ -1,4 +1,4 @@
-package view.panes;
+package view.panes.AdminViewPanes;
 
 import Controller.Controller;
 import javafx.scene.control.Label;

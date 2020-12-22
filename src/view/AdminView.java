@@ -9,11 +9,11 @@ import javafx.stage.StageStyle;
 import jxl.read.biff.BiffException;
 import model.GameModel;
 import model.database.DatabaseModel;
-import view.panes.AdminMainPane;
+import view.panes.AdminViewPanes.AdminMainPane;
 
 import model.Observer;
-import view.panes.GameProgressTabPane;
-import view.panes.StrategiesInfoPane;
+import view.panes.AdminViewPanes.GameProgressTabPane;
+import view.panes.AdminViewPanes.StrategiesInfoPane;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

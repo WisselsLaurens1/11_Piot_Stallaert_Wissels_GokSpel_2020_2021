@@ -41,6 +41,7 @@ public class EndOfTurnState extends State {
 
         if(didWin){
             int wonAmount = gameModel.getCurrentBettingAmount()*gameModel.getGambleStrategy().winMultiplier;
+            gameModel.setWonAmount(wonAmount);
             int newSaldo = (int) (gameModel.getCurrentPlayer().getGamblingSaldo()+wonAmount);
             GambleStrategy selectedStrategy =  gameModel.getGambleStrategy();
             gameModel.setTerminalOutput("You won: "+ wonAmount + ". Your new saldo is: " + newSaldo);

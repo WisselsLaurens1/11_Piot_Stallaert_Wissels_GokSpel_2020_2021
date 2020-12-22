@@ -1,4 +1,4 @@
-package view.panes;
+package view.panes.AdminViewPanes;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

@@ -1,4 +1,4 @@
-package view.panes;
+package view.panes.AdminViewPanes;
 
 import Controller.Controller;
 import Controller.SettingsController;
@@ -8,7 +8,6 @@ import javafx.scene.layout.BorderPane;
 import model.GameModel;
 import model.database.DatabaseModel;
 import view.panes.GamblerViewPanes.SettingsViewPane;
-import Controller.GameProgressTabController;
 
 import java.io.FileNotFoundException;
 
@@ -16,7 +15,7 @@ public class AdminMainPane extends BorderPane {
 
     private Controller controller;
     private GameModel gameModel;
-	public AdminMainPane(DatabaseModel database,GameProgressTabPane gameProgressTabPane,StrategiesInfoPane strategiesInfoPane, Controller gamblerViewController, GameModel model ) throws FileNotFoundException {
+	public AdminMainPane(DatabaseModel database, GameProgressTabPane gameProgressTabPane, StrategiesInfoPane strategiesInfoPane, Controller gamblerViewController, GameModel model ) throws FileNotFoundException {
 
         this.controller = gamblerViewController;
         this.gameModel = model;

@@ -15,9 +15,9 @@ public class ChangeBettingAmountState extends State{
 
     @Override
     public void choseStrategy(GambleStrategy gambleStrategy) {
-        if(getGameModel().getCurrentstate() instanceof ChoseStrategyState){
-            getGameModel().setCurrentstate(gameModel.throwDiceState);
-        }
+        gameModel.setGambleStrategy(gambleStrategy);
+        gameModel.setCurrentstate(gameModel.changeBettingAmountState);
+
 
     }
 
@@ -34,8 +34,8 @@ public class ChangeBettingAmountState extends State{
             this.errorMessage =  "Entered betting amount is to big, not enough saldo";
             throw new IllegalStateException("Entered betting amount is to big, not enough saldo");
         }
-        getGameModel().setCurrentBettingAmount(bettingAmount);
-        getGameModel().setCurrentstate(gameModel.throwDiceState);
+        gameModel.setCurrentBettingAmount(bettingAmount);
+        gameModel.setCurrentstate(gameModel.throwDiceState);
     }
 
     @Override

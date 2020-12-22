@@ -42,6 +42,9 @@ public class ThrowDiceState extends State{
 
             int diceEyes =  getGameModel().get_random_number(1,6);
             gameModel.setDiceThrown(diceEyes);
+/*
+            gameModel.addDiceThrow(diceEyes);
+*/
             gameModel.getDiceThrows().add(diceEyes);
         }
         if(getGameModel().getPlayerTurnsLeft() == 0) {
