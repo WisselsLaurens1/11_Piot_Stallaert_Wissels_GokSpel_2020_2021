@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Dox,Manouche,Woef,1754.0
+=======
+Dox,Manouche,Woef,1550.0
+>>>>>>> bf700b1245d5799f0133ef96ef2c7818775f30c7
 Jansens,Jan,JeJe,100.0
 Vanheel,Anneke,Popje,100.0
 Cox,Frederic,Fre,100.0

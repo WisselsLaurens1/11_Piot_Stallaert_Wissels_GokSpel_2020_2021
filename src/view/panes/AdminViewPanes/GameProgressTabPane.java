@@ -26,7 +26,6 @@ public class GameProgressTabPane extends CustomGridPane {
     CustomLabel diceThrows;
     CustomLabel bettedAmount;
     CustomLabel result;
-    private PropertiesHandler handler =new PropertiesHandler();
     private ObservableList<Gambler> gamblers;
 
     public GameProgressTabPane(GameModel gameModel, Controller controller){
@@ -63,27 +62,11 @@ public class GameProgressTabPane extends CustomGridPane {
         contentContainer.add(newGame,0,7);
 
         newGame.setOnAction((e)->{
-            GamblerDbInterface gamblerDbInterface = GamblerFactory.createDb(handler.getLoadSaveType().toString());
-            HashMap<String, Gambler> gamblerDB =  gamblerDbInterface.getGamblerDb();
-            ArrayList<Gambler> gamblers = new ArrayList<Gambler>(gamblerDB.values());
-            try {
-                gamblerDbInterface.write(gamblers, getGameModel().getCurrentPlayer().getPlayerName(), getGameModel().getCurrentPlayer().getGamblingSaldo());
-            } catch (BiffException biffException) {
-                biffException.printStackTrace();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            } catch (WriteException writeException) {
-                writeException.printStackTrace();
-            }
             myController.newGame();
         });
 
         this.containerPane.add(contentContainer,0,0);
-
-
-
     }
-
 
     @Override
     public void update(){

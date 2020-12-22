@@ -45,14 +45,13 @@ public class SettingsController{
         this.controller = (GamblerViewController) controller;
     }
 
-    public void changemarge(String strategies, int aantal){
+    public void changeMarge(String strategies, int aantal){
         GamblerStrategyFactory factory= GamblerStrategyFactory.getInstance();
         marges.put(strategies,aantal);
-        System.out.println(factory.getStrategy(strategies.toString()).getWinMultiplier());
     }
 
-    private void setmarges(HashMap<String,Integer> marges){
-        this.view.setmarges(marges);
+    private void setMarges(HashMap<String,Integer> marges){
+        this.view.setMarges(marges);
     }
 
     public GamblerEnum getCurrentLoadSaveTypeSetting() {
@@ -80,7 +79,6 @@ public class SettingsController{
         ObservableList<GamblerEnum> options = FXCollections.observableArrayList(
                 Arrays.asList(GamblerEnum.values())
         );
-
 
         GamblerEnum l = getLoadSaveType();
 
@@ -160,7 +158,7 @@ public class SettingsController{
         this.view.setController(this);
         updateLoadSettings();
         updateAvailableGambleStategiesSettings();
-        setmarges(marges);
+        setMarges(marges);
     }
 
 

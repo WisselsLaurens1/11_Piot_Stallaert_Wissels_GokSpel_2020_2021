@@ -1,11 +1,22 @@
 package model.gambleState;
 
+import jxl.read.biff.BiffException;
+import jxl.write.WriteException;
+import jxl.write.biff.RowsExceededException;
 import model.GambleStrategey.GambleStrategy;
+import model.Gambler;
 import model.GameModel;
+import model.PropertiesHandler;
+import model.database.GamblerDbInterface;
+import model.database.GamblerFactory;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EndOfTurnState extends State {
+    private PropertiesHandler handler =new PropertiesHandler();
+
     public EndOfTurnState(GameModel model) {
         super(model);
     }
@@ -51,6 +62,18 @@ public class EndOfTurnState extends State {
             gameModel.updateObservers();
         }else{
             gameModel.setTerminalOutput("You lost! Your new saldo is: " + gameModel.getCurrentPlayer().getGamblingSaldo());
+        }
+        GamblerDbInterface gamblerDbInterface = GamblerFactory.createDb(handler.getLoadSaveType().toString());
+        HashMap<String, Gambler> gamblerDB =  gamblerDbInterface.getGamblerDb();
+        ArrayList<Gambler> gamblers = new ArrayList<Gambler>(gamblerDB.values());
+        try {
+            gamblerDbInterface.write(gamblers, getGameModel().getCurrentPlayer().getPlayerName(), getGameModel().getCurrentPlayer().getGamblingSaldo());
+        } catch (BiffException biffException) {
+            biffException.printStackTrace();
+        } catch (WriteException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
