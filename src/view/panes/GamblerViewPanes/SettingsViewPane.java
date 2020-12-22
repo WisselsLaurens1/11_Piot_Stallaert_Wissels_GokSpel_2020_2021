@@ -30,19 +30,13 @@ public class SettingsViewPane extends GridPane {
         this.add(new Label("Load & Save to: "), 0,0);
         this.add(playerOverviewSettings,0,1);
 
-
         Button saveBtn = new Button("Save");
         saveBtn.setOnAction(event -> {
             controller.save();
         });
 
         this.add(saveBtn, 0,200);
-
-
-
         this.add(new Label("Available strategies: "), 2,0);
-
-
     }
 
     public void setAvailableGambleStrategiesSettings (HashSet<GambleStrategies> selectTypes ) {
@@ -83,9 +77,9 @@ public class SettingsViewPane extends GridPane {
             controller.setCurrentLoadSaveTypeSetting(type);
         });
     }
-    public  void setmarges(HashMap<String,Integer> marges){
+    public  void setMarges(HashMap<String,Integer> marges){
 
-        GamblerStrategyFactory factory =GamblerStrategyFactory.getInstance();
+        GamblerStrategyFactory factory = GamblerStrategyFactory.getInstance();
         Label label1 = new Label("teststrategy");
         TextField test = new TextField();
 
@@ -98,12 +92,11 @@ public class SettingsViewPane extends GridPane {
         test.setId("TestStrategy");
         test.textProperty().addListener(new ChangeListener<String>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable,
-                                String oldValue, String newValue) {
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if(newValue.equals("")){
                     newValue="0";
                 }
-                controller.changemarge(test.getId(),Integer.parseInt(newValue));
+                controller.changeMarge(test.getId(),Integer.parseInt(newValue));
                 System.out.println(" Text Changed to  " + newValue + "\n");
             }
         });
@@ -123,7 +116,7 @@ public class SettingsViewPane extends GridPane {
                 if(newValue.equals("")){
                     newValue="0";
                 }
-                controller.changemarge(even.getId(),Integer.parseInt(newValue));
+                controller.changeMarge(even.getId(),Integer.parseInt(newValue));
                 System.out.println(" Text Changed to  " + newValue + "\n");
             }
         });
@@ -143,7 +136,7 @@ public class SettingsViewPane extends GridPane {
                 if(newValue.equals("")){
                     newValue="0";
                 }
-                controller.changemarge(twenty.getId(),Integer.parseInt(newValue));
+                controller.changeMarge(twenty.getId(),Integer.parseInt(newValue));
 
                 System.out.println(" Text Changed to  " + newValue + "\n");
             }
