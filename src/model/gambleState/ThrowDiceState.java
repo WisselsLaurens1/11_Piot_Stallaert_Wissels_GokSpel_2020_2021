@@ -23,14 +23,16 @@ public class ThrowDiceState extends State{
     public void increaseBettingAmount(int value) {
         if(gameModel.getPlayerTurnsLeft() == 2 && gameModel.getGambleStrategy().didWin(gameModel.getDiceThrows())){
 
-/*
-            System.out.println(gameModel.getPlayerTurnsLeft());
-*/
+            int temp = gameModel.getDiceThrows().get(1);
+            gameModel.getDiceThrows().remove(1);
+            /*remove one dice throw temporarily so UI get updated correctly */
 
             gameModel.setCurrentBettingAmount(gameModel.getCurrentBettingAmount()+value);
 
+            /*add throw back to dice throws*/
+            gameModel.getDiceThrows().add(temp);
+
         }else{
-            this.errorMessage = "You can't increase your betting amount";
             throw new IllegalStateException("You can't increase your betting amount");
         }
     }

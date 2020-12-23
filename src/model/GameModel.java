@@ -53,7 +53,7 @@ public class GameModel implements Observable {
         try{
            this.currentstate.increaseBettingAmount(value);
         }catch(IllegalStateException e ){
-            setTerminalOutput(this.getCurrentstate().errorMessage);
+
         }
     }
 
