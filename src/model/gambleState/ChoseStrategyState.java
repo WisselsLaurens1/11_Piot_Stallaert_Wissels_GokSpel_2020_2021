@@ -15,7 +15,13 @@ public class ChoseStrategyState extends State{
 
     @Override
     public void startGame() {
-        throw new IllegalStateException("The game has already started");
+        this.errorMessage = "You have to chose a strategy first";
+        throw new IllegalStateException("You have to chose a strategy first");
+    }
+
+    @Override
+    public void increaseBettingAmount(int value) {
+        throw new IllegalStateException("You have to chose a strategy first");
     }
 
     @Override

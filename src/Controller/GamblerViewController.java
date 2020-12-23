@@ -50,6 +50,10 @@ public class GamblerViewController extends Controller {
         gameModel.startGame();
     }
 
+    public void increaseConfirm(int value){
+        gameModel.increaseBettingAmount(value);
+    }
+
 
     @Override
     public void setView(view.View view) {

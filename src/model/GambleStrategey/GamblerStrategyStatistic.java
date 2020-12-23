@@ -1,7 +1,5 @@
 package model.GambleStrategey;
 
-import java.util.ArrayList;
-
 public abstract class GamblerStrategyStatistic {
 
     public int getTimesSelected() {
@@ -41,8 +39,6 @@ public abstract class GamblerStrategyStatistic {
     private int totalWins = 0;
     private int totalAmoutBeted = 0;
     private int totalProfit = 0;
-
-
 
     public void resetStatistics(){
         this.timesSelected = 0;

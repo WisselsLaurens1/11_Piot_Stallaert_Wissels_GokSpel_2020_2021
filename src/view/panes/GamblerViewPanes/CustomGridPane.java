@@ -39,9 +39,7 @@ public abstract class CustomGridPane extends GridPane implements Observer {
 
         this.add(containerPane,0,0);
         containerPane.setId("containerPane");
-/*
-        containerPane.setGridLinesVisible(true);
-*/
+
         this.containerPane.setStyle("-fx-font-size: 1.2em");
 
         this.setStyle("-fx-background-color: #203560");
@@ -61,6 +59,7 @@ public abstract class CustomGridPane extends GridPane implements Observer {
 
         this.setMargin(containerPane, new Insets(12, 13, 12, 12));
         containerPane.setHgap(10);
+
 
 
 

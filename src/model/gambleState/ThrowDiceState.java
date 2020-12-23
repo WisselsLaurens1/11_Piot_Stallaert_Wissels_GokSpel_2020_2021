@@ -20,6 +20,22 @@ public class ThrowDiceState extends State{
     }
 
     @Override
+    public void increaseBettingAmount(int value) {
+        if(gameModel.getPlayerTurnsLeft() == 2 && gameModel.getGambleStrategy().didWin(gameModel.getDiceThrows())){
+
+/*
+            System.out.println(gameModel.getPlayerTurnsLeft());
+*/
+
+            gameModel.setCurrentBettingAmount(gameModel.getCurrentBettingAmount()+value);
+
+        }else{
+            this.errorMessage = "You can't increase your betting amount";
+            throw new IllegalStateException("You can't increase your betting amount");
+        }
+    }
+
+    @Override
     public void choseStrategy(GambleStrategy gambleStrategy) {
         this.errorMessage = "You can't change your strategy while playing";
         throw new IllegalStateException("You can't change your strategy while playing");

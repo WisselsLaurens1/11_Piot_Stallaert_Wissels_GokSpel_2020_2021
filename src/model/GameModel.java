@@ -49,6 +49,14 @@ public class GameModel implements Observable {
         }
     };
 
+    public void increaseBettingAmount(int value){
+        try{
+           this.currentstate.increaseBettingAmount(value);
+        }catch(IllegalStateException e ){
+            setTerminalOutput(this.getCurrentstate().errorMessage);
+        }
+    }
+
     public void newGame(){
         try{
             this.currentstate.newGame();

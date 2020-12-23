@@ -33,8 +33,16 @@ public class EndOfTurnState extends State {
     }
 
     @Override
-    public void choseStrategy(GambleStrategy gambleStrategy) {
+    public void increaseBettingAmount(int value) {
+        this.errorMessage = "Start new game first";
+        throw new IllegalStateException("Start new game first");
 
+    }
+
+    @Override
+    public void choseStrategy(GambleStrategy gambleStrategy) {
+        this.errorMessage = "Start new game first";
+        throw new IllegalStateException("Start new game first");
     }
 
     @Override

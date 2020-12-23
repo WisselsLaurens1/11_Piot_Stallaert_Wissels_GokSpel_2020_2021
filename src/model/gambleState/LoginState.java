@@ -9,14 +9,12 @@ public class LoginState extends State{
     }
 
 
-
     @Override
     public void login(String name) {
         if(gameModel.getCurrentstate() instanceof LoginState){
             if(gameModel.getDatabase().getGamblers().keySet().contains(name)){
                 gameModel.setCurrentPlayer(getGameModel().getDatabase().getGamblers().get(name));
-                gameModel.setCurrentstate(gameModel.startGameState);
-
+                gameModel.setCurrentstate(gameModel.changeBettingAmountState);
             }
         }
     }
@@ -25,6 +23,12 @@ public class LoginState extends State{
     public void startGame() {
         this.errorMessage = "You have to login first";
         throw new IllegalStateException("You have to login");    }
+
+    @Override
+    public void increaseBettingAmount(int value) {
+        throw new IllegalStateException("You have to login");
+
+}
 
     @Override
     public void choseStrategy(GambleStrategy gambleStrategy) {
@@ -42,14 +46,12 @@ public class LoginState extends State{
     public void changeBettingAmount(int bettingAmount) {
         this.errorMessage = "You have to login first";
         throw new IllegalStateException("You have to login");
-
     }
 
     @Override
     public void endTurn() {
         this.errorMessage = "You have to login first";
         throw new IllegalStateException("You have to login");
-
     }
 
     @Override

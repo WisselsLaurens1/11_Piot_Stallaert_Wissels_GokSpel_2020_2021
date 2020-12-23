@@ -15,7 +15,13 @@ public class ChangeBettingAmountState extends State{
 
     @Override
     public void startGame() {
-        throw new IllegalStateException("The game has already started");
+        this.errorMessage = "Enter betting amount first";
+        throw new IllegalStateException("Enter betting amount first");
+    }
+
+    @Override
+    public void increaseBettingAmount(int value) {
+        throw new IllegalStateException("Enter betting amount first");
     }
 
     @Override
@@ -34,13 +40,13 @@ public class ChangeBettingAmountState extends State{
 
     @Override
     public void changeBettingAmount(int bettingAmount) {
-        if(bettingAmount > getGameModel().getCurrentPlayer().getGamblingSaldo()){
+        if(bettingAmount > gameModel.getCurrentPlayer().getGamblingSaldo()){
             this.errorMessage =  "Entered betting amount is to big, not enough saldo";
             throw new IllegalStateException("Entered betting amount is to big, not enough saldo");
         }
         gameModel.setCurrentBettingAmount(bettingAmount);
-        gameModel.setCurrentstate(gameModel.throwDiceState);
-        gameModel.setTerminalOutput(" ");
+        gameModel.setCurrentstate(gameModel.startGameState);
+
 
     }
 

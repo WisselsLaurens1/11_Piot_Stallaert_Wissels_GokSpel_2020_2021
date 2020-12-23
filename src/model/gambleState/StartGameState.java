@@ -40,8 +40,14 @@ public class StartGameState extends State {
 
     @Override
     public void startGame() {
-        gameModel.setCurrentstate(gameModel.choseStrategyState);
+        gameModel.setCurrentstate(gameModel.throwDiceState);
         gameModel.setTerminalOutput(" ");
+
+    }
+
+    @Override
+    public void increaseBettingAmount(int value) {
+        throw new IllegalStateException("First start Game");
 
     }
 }

@@ -19,6 +19,8 @@ public final GameModel gameModel;
     public abstract void changeBettingAmount(int bettingAmount);
     public abstract void endTurn();
     public abstract void startGame();
+    public abstract void increaseBettingAmount(int value);
+
     public void logout(){
         gameModel.setDiceThrown(-1);
         gameModel.setCurrentPlayer(null);
@@ -28,7 +30,6 @@ public final GameModel gameModel;
         gameModel.setPlayerTurnsLeft(gameModel.getMaximumPlayerTruns());
         gameModel.setCurrentstate(gameModel.loginState);
         gameModel.setTerminalOutput(" ");
-
     }
 
     public void newGame() {

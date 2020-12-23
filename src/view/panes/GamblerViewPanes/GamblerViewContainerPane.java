@@ -52,7 +52,6 @@ public class GamblerViewContainerPane extends GridPane {
         this.add(gamblerViewThrowDicePane,0,3,1,1);
         this.add(outputPane,0,4);
 
-
     }
 
     public void update() {
