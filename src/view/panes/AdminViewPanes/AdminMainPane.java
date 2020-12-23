@@ -7,7 +7,6 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import model.GameModel;
 import model.database.DatabaseModel;
-import view.panes.GamblerViewPanes.SettingsViewPane;
 
 import java.io.FileNotFoundException;
 

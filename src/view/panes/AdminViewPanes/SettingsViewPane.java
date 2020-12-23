@@ -1,4 +1,4 @@
-package view.panes.GamblerViewPanes;
+package view.panes.AdminViewPanes;
 
 import Controller.SettingsController;
 import javafx.beans.value.ChangeListener;

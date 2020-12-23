@@ -8,8 +8,7 @@ import model.GambleStrategey.GamblerStrategyFactory;
 import model.GameModel;
 import model.PropertiesHandler;
 import model.database.GamblerEnum;
-import view.View;
-import view.panes.GamblerViewPanes.SettingsViewPane;
+import view.panes.AdminViewPanes.SettingsViewPane;
 
 import java.util.*;
 
