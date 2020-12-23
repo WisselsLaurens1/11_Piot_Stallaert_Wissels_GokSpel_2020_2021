@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 
 public class GamblerViewSelectStrategyPane extends CustomGridPane{
-
+    private ComboBox<String> comboBoxGambleStrategies;
     private PropertiesHandler handler =new PropertiesHandler();
     private CustomLabel description;
     private GamblerViewController myController;
@@ -47,7 +47,7 @@ public class GamblerViewSelectStrategyPane extends CustomGridPane{
 
         }
 
-        ComboBox<String> comboBoxGambleStrategies = new ComboBox();
+        comboBoxGambleStrategies = new ComboBox();
 
         comboBoxGambleStrategies.getItems().addAll(strategyNames);
 
@@ -83,15 +83,9 @@ public class GamblerViewSelectStrategyPane extends CustomGridPane{
             }
 
         }
-        ComboBox<String> comboBoxGambleStrategies = new ComboBox();
 
-        comboBoxGambleStrategies.getItems().addAll(strategyNames);
-        this.containerPane.add(comboBoxGambleStrategies,2,0,3,1);
-        comboBoxGambleStrategies.setOnAction((e) -> {
-            String selectedItem = comboBoxGambleStrategies.getSelectionModel().getSelectedItem();
-            this.myController.selectStrategey(selectedItem);
+        comboBoxGambleStrategies.getItems().setAll(strategyNames);
 
-        });
 
     }
 
