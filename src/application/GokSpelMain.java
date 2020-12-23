@@ -47,7 +47,6 @@ public class GokSpelMain extends Application {
 		gameModel.addObserver(gamblerView);
 		gameModel.addObserver(gameProgressTabPane);
 		gameModel.addObserver(strategiesInfoPane);
-
 	}
 
 	public static void main(String[] args) {

@@ -1,7 +1,10 @@
 package model.gambleState;
 
+import jxl.read.biff.BiffException;
 import model.GambleStrategey.GambleStrategy;
 import model.GameModel;
+
+import java.io.IOException;
 
 public abstract class State {
 public final GameModel gameModel;
@@ -17,7 +20,7 @@ public final GameModel gameModel;
     public abstract void choseStrategy(GambleStrategy gambleStrategy);
     public abstract void throwdice();
     public abstract void changeBettingAmount(int bettingAmount);
-    public abstract void endTurn();
+    public abstract void endTurn() throws IOException, BiffException;
     public abstract void startGame();
     public abstract void increaseBettingAmount(int value);
 

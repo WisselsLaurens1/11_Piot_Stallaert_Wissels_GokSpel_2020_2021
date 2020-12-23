@@ -3,6 +3,7 @@ package view.panes.AdminViewPanes;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.ComboBox;
+import jxl.read.biff.BiffException;
 import model.Gambler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +19,7 @@ import model.database.GamblerDbContext;
 import model.database.GamblerDbInterface;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -69,7 +71,14 @@ public class GamblerOverviewPane extends GridPane{
 		public void changed(ObservableValue ov, String db, String db1) {
 			GamblerDbInterface gamblerDbInterface = GamblerFactory.createDb(db1);
 			gamblerDbContext.setGamblerDbInterface(gamblerDbInterface);
-			HashMap<String, Gambler> gamblerDB =  gamblerDbContext.getGamblerDb();
+			HashMap<String, Gambler> gamblerDB = null;
+			try {
+				gamblerDB = gamblerDbContext.getGamblerDb();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (BiffException e) {
+				e.printStackTrace();
+			}
 			database.setGamblers(gamblerDB);
 			ArrayList<Gambler> valuesList = new ArrayList<Gambler>(gamblerDB.values());
 			gamblers = FXCollections.observableArrayList(valuesList);

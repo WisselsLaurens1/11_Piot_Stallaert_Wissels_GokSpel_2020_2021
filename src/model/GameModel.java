@@ -1,6 +1,8 @@
 package model;
+import java.io.IOException;
 import java.util.*;
 
+import jxl.read.biff.BiffException;
 import model.GambleStrategey.GambleStrategies;
 import model.GambleStrategey.GambleStrategy;
 import model.GambleStrategey.GamblerStrategyFactory;
@@ -70,6 +72,10 @@ public class GameModel implements Observable {
             this.currentstate.endTurn();
         }catch(IllegalStateException e ){
             setTerminalOutput(this.getCurrentstate().errorMessage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (BiffException e) {
+            e.printStackTrace();
         }
     }
 

@@ -51,7 +51,6 @@ public class GamblerViewSelectStrategyPane extends CustomGridPane{
 
         comboBoxGambleStrategies.getItems().addAll(strategyNames);
 
-
         Label selectLabel = new Label();
         selectLabel.setText("Select a strategy: ");
         this.containerPane.add(selectLabel,0,0,2,1);

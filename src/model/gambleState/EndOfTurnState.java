@@ -59,7 +59,7 @@ public class EndOfTurnState extends State {
 
 
     @Override
-    public void endTurn() {
+    public void endTurn() throws IOException, BiffException {
         ArrayList<Integer> diceThrows = getGameModel().getDiceThrows();
         Boolean didWin = getGameModel().getGambleStrategy().didWin(diceThrows);
 
@@ -77,6 +77,7 @@ public class EndOfTurnState extends State {
             gameModel.setTerminalOutput("You lost! Your new saldo is: " + gameModel.getCurrentPlayer().getGamblingSaldo());
         }
         GamblerDbInterface gamblerDbInterface = GamblerFactory.createDb(handler.getLoadSaveType().toString());
+        gamblerDbInterface.read();
         HashMap<String, Gambler> gamblerDB =  gamblerDbInterface.getGamblerDb();
         ArrayList<Gambler> gamblers = new ArrayList<Gambler>(gamblerDB.values());
         try {

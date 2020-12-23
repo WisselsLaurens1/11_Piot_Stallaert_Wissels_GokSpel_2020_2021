@@ -20,7 +20,10 @@ public class GamblerDbXls implements GamblerDbInterface{
     private HashMap<String, Gambler> gamblerDb;
     private ExcelPlugin plugin;
 
-    public GamblerDbXls() throws IOException, BiffException {
+    public GamblerDbXls() {
+    }
+
+    public void read() throws IOException, BiffException {
         gamblerDb = new HashMap<>();
         plugin = new ExcelPlugin();
         ArrayList<ArrayList<String>> gamblers = plugin.read(new File(String.valueOf(spelers)));

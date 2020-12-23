@@ -12,7 +12,11 @@ public class GamblerDbTxt implements GamblerDbInterface {
     private File spelers = new File("src/bestanden/speler.txt");
     private HashMap<String, Gambler> gamblerDb;
 
-    public GamblerDbTxt() throws FileNotFoundException {
+    public GamblerDbTxt() {
+
+    }
+
+    public void read() throws FileNotFoundException {
         gamblerDb = new HashMap<>();
         File gamblersFile = new File(String.valueOf(spelers));
         Scanner scannerFile = new Scanner(gamblersFile);

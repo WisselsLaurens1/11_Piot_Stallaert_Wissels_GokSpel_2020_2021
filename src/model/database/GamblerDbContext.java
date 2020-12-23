@@ -1,5 +1,10 @@
 package model.database;
+
+import jxl.read.biff.BiffException;
 import model.Gambler;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,12 +12,16 @@ import java.util.List;
 public class GamblerDbContext {
     private GamblerDbInterface gamblerInterface;
 
+    public GamblerDbContext(){
+
+    }
 
     public void setGamblerDbInterface(GamblerDbInterface gamblerDbInterface){
         this.gamblerInterface = gamblerDbInterface;
     }
 
-    public HashMap<String, Gambler> getGamblerDb(){
+    public HashMap<String, Gambler> getGamblerDb() throws IOException, BiffException, FileNotFoundException {
+        gamblerInterface.read();
         return gamblerInterface.getGamblerDb();
     }
 
