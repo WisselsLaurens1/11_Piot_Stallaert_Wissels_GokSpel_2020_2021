@@ -26,8 +26,12 @@ public class ThrowDiceState extends State{
             int temp = gameModel.getDiceThrows().get(1);
             gameModel.getDiceThrows().remove(1);
             /*remove one dice throw temporarily so UI get updated correctly */
+            if(value<=10){
+                gameModel.setCurrentBettingAmount(gameModel.getCurrentBettingAmount()+value);
 
-            gameModel.setCurrentBettingAmount(gameModel.getCurrentBettingAmount()+value);
+            }else{
+                gameModel.setTerminalOutput("You can't increase your betting amount with more then €10");
+            }
 
             /*add throw back to dice throws*/
             gameModel.getDiceThrows().add(temp);
