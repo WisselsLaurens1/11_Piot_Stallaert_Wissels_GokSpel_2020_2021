@@ -15,7 +15,7 @@ public class AdminMainPane extends BorderPane {
 
     private Controller controller;
     private GameModel gameModel;
-	public AdminMainPane(DatabaseModel database, GameProgressTabPane gameProgressTabPane, StrategiesInfoPane strategiesInfoPane , Controller gamblerViewController, GameModel model ) throws FileNotFoundException {
+	public AdminMainPane(DatabaseModel database, GameProgressTabPane gameProgressTabPane, StrategiesInfoPane strategiesInfoPane ,GamblerOverviewPane gamblerOverviewPane, Controller gamblerViewController, GameModel model ) throws FileNotFoundException {
 
         this.controller = gamblerViewController;
         this.gameModel = model;
@@ -24,7 +24,9 @@ public class AdminMainPane extends BorderPane {
 
 	    Tab GameProgressTabPane = new Tab("Game progress",gameProgressTabPane);
 
+/*
         GamblerOverviewPane gamblerOverviewPane = new GamblerOverviewPane(database);
+*/
 
         Tab spelerTab = new Tab("Spelers",gamblerOverviewPane);
 

@@ -11,6 +11,7 @@ import view.AdminView;
 import view.GamblerView;
 import view.View;
 import Controller.GameProgressTabController;
+import view.panes.AdminViewPanes.GamblerOverviewPane;
 import view.panes.AdminViewPanes.GameProgressTabPane;
 import view.panes.AdminViewPanes.StrategiesInfoPane;
 import java.io.IOException;
@@ -32,11 +33,12 @@ public class GokSpelMain extends Application {
 		/***** panes *****/
 		StrategiesInfoPane strategiesInfoPane = new StrategiesInfoPane(gameModel,strategiesInfoController);
 		GameProgressTabPane gameProgressTabPane = new GameProgressTabPane(gameModel,gameProgressTabController);
+		GamblerOverviewPane gamblerOverviewPane = new GamblerOverviewPane(database);
 
 
 		/***** views *****/
 		View gamblerView = new GamblerView(gamblerViewController,gameModel);
-		AdminView adminView = new AdminView(database,gameProgressTabPane, strategiesInfoPane,gamblerViewController,gameModel);
+		AdminView adminView = new AdminView(database,gameProgressTabPane, strategiesInfoPane,gamblerOverviewPane,gamblerViewController,gameModel);
 		gamblerViewController.setView(gamblerView);
 
 /*

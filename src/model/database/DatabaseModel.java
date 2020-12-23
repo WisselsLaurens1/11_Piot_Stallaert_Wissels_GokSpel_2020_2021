@@ -1,5 +1,4 @@
 package model.database;
-
 import model.Gambler;
 
 import java.util.HashMap;
