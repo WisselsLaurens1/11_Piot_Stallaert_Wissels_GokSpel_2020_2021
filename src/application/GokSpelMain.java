@@ -41,10 +41,7 @@ public class GokSpelMain extends Application {
 		AdminView adminView = new AdminView(database,gameProgressTabPane, strategiesInfoPane,gamblerOverviewPane,gamblerViewController,gameModel);
 		gamblerViewController.setView(gamblerView);
 
-/*
-		strategiesInfoController.setView((View) strategiesInfoPane);
-*/
-
+		
 		/***** adding observers *****/
 		gameModel.addObserver(gamblerView);
 		gameModel.addObserver(gameProgressTabPane);
